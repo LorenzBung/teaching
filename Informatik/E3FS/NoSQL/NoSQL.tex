@@ -1,0 +1,76 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage{worksheet}
+
+\begin{document}
+	
+	\makeheader{SAE}{NoSQL}
+	
+	\partnertask{Probleme relationaler Datenbanken}
+	
+	Tabellenbasierte Datenbanken, wie Sie sie bisher im Unterricht verwendet haben, nennt man auch relationale Datenbanken.
+	Inwiefern könnte die Datenverwaltung mit einer relationalen Datenbank problematisch sein?
+	Können Sie Beispiele für Fälle nennen, in denen eine tabellenbasierte Datenverwaltung nicht geeignet ist?
+	Diskutieren Sie und halten Sie Ihre Ergebnisse schriftlich fest.
+	
+	\boxarea[15cm]
+	
+	\pagebreak
+	
+	\partnertask{Typen von NoSQL-Datenbanken}
+	
+	Recherchieren Sie Eigenschaften, Vor- und Nachteile der verschiedenen NoSQL-Datenbanktypen sowie Beispiele für Implementierungen der Konzepte.	
+	
+	\begin{table}[h]
+		\renewcommand{\arraystretch}{2}
+		\setlength\tabcolsep{.5cm}
+		\begin{tabularx}{\textwidth}{|l|X|X|X|}
+			\hline
+			\textbf{Datenbanktyp} & \textbf{Eigenschaften}& \textbf{Vor-/Nachteile} & \textbf{Beispiel(e)}\\
+			\hline
+			Key-Value &&&\\[3.4cm]
+			\hline
+			Dokumentenorientiert &&&\\[3.4cm]
+			\hline
+			Spaltenbasiert &&&\\[3.4cm]
+			\hline
+			Graphenbasiert &&&\\[3.4cm]
+			\hline
+		\end{tabularx}
+	\end{table}
+	\pagebreak
+	
+	\singletask{Abfragen bei SQL- vs. NoSQL-basierten Datenbanken}
+	
+	Testen Sie die typischen Operationen\footnote{\url{https://de.wikipedia.org/wiki/CRUD}} Erstellen, Lesen, Aktualisieren und Löschen jeweils bei einer SQL-basierten und einer NoSQL-basierten Datenbank.
+	
+	Eine Möglichkeit, die Tests ohne lokale Installation der Datenbanken durchzuführen, ist beispielsweise ein Online-Playground.
+	Sie können z.B. die relationale Datenbank MariaDB\footnote{\url{https://codapi.org/mariadb}} und die NoSQL-Datenbank MongoDB\footnote{\url{https://codapi.org/mongodb}} im Playground von codapi.org verwenden.
+	Eine Übersicht über die Syntax von Abfragen bei MongoDB finden Sie beispielsweise bei w3schools\footnote{\url{https://www.w3schools.com/mongodb}}.
+	
+	Nachdem Sie ausgiebig getestet haben, halten Sie schriftlich fest, welche Vor- und Nachteile Sie bei Abfragen mit SQL gegenüber den Abfragen der NoSQL-Datenbank feststellen können.
+	
+	\boxarea[13cm]
+	
+	\pagebreak
+	
+	\partnertask{Einordnung von Anwendungsfällen}
+	
+	Wählen Sie für die folgenden Anwendungsfälle jeweils einen geeigneten Datenbanktyp.
+	Begründen Sie, warum Sie sich für den gewählten Typen entschieden haben.
+	
+	a) Online-Shop (z.B. Amazon)	
+	
+	\lines[3cm]
+	
+	b) Bankensystem
+	
+	\lines[3cm]
+	
+	c) Social-Media-Plattform (z.B. Facebook oder Instagram)
+	
+	\lines[3cm]
+	
+	d) Medizinische Patientendaten
+	
+	\lines[3cm]
+\end{document}

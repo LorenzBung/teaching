@@ -1,0 +1,76 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage{worksheet}
+
+\begin{document}
+	
+	\makeheader{SAE}{OOP: Kapselung und\hspace{10cm} spezielle Methoden}
+	
+	\grouptask{Kapselung und Sichtbarkeit}
+	
+	Recherchieren Sie, was man in der objektorientierten Programmierung unter dem Begriff ``Kapselung'' versteht.
+	Beantworten Sie dabei die folgenden Fragen:
+	\begin{enumerate}[label=\alph*)]
+		\item Was bedeuten die Wörter ``public'' und ``private''?\\[1cm]\lines[2cm]
+		\item Wie werden Attribute und Methoden im UML-Klassendiagramm als public bzw. private gekennzeichnet?\\[1cm]\lines[2cm]
+		\item Wie werden Attribute und Methoden in Python als public bzw. private gekennzeichnet?\\[1cm]\lines[2cm]
+		\item Was sind ``getter''- und ``setter''-Methoden und wozu werden diese benötigt?\\[1cm]\lines[2cm]
+	\end{enumerate}
+	
+	\pagebreak
+
+	\grouptask{Spezielle Methoden in Python}
+	
+	Recherchieren Sie, was die sogenannten ``magic methods'' in Python sind.
+	Klären Sie dabei die Bedeutung folgender Methoden:
+	\begin{enumerate}[label=\alph*)]
+		\item \texttt{\_\_str\_\_(self, other)}\\[1cm]\lines[2cm]
+		\item \texttt{\_\_add\_\_(self, other)} bzw. \texttt{\_\_sub\_\_}, \texttt{\_\_mul\_\_} und \texttt{\_\_div\_\_}\\[1cm]\lines[2cm]
+		\item \texttt{\_\_eq\_\_(self, other)} bzw. \texttt{\_\_ne\_\_}\\[1cm]\lines[2cm]
+		\item \texttt{\_\_lt\_\_(self, other)}, \texttt{\_\_gt\_\_} sowie \texttt{\_\_le\_\_} und \texttt{\_\_ge\_\_}\\[1cm]\lines[2cm]
+	\end{enumerate}
+
+	%\pagebreak
+	
+	\partnertask{Geometrische Punkte in Python}
+	
+	Erstellen Sie eine Klasse \texttt{Punkt}, welche über eine x-Koordinate und eine y-Koordinate verfügt.
+	
+	Nutzen Sie die in Aufgabe 2 gewonnenen Erkenntnisse, um folgenden Code funktionsfähig zu machen:
+	
+	\begin{lstlisting}[language=python]
+p1 = Punkt(2, 3)
+p2 = Punkt(5, 5)
+p3 = p1 + p2
+print(p3)  #Erwartete Ausgabe: (7, 8)
+p4 = p2 - p1
+print(p4)  #Erwartete Ausgabe: (3, 2)
+print(p3 == p4)  #Erwartete Ausgabe: false
+	\end{lstlisting}
+
+	\partnertask{Bankkonto}
+	
+	a) Erstellen Sie eine Klasse \texttt{Bankkonto} mit den Attributen \texttt{kontonummer} und \texttt{kontostand} sowie den Methoden \texttt{einzahlen(betrag)}, \texttt{abheben(betrag)}.
+	
+	b) Überlegen Sie sich, ob Attribute öffentlich sein sollten oder ob es sinnvoll wäre, eines auf privat zu setzen.
+	Falls ja, erstellen Sie jeweils eine sinnvolle get- und set-Methode.
+	
+	c) Setzen Sie den Code als UML-Klassendiagramm um.
+	
+	\partnertask{Online-Shop}
+	
+	Sie sollen eine Klassenstruktur für einen Online-Shop entwerfen, in dem Artikel verkauft und in einen Warenkorb gelegt werden können.
+	Dabei sollen Sie selbst entscheiden, welche Attribute und Methoden öffentlich und welche privat sein sollten.
+	
+	a) Erstellen Sie eine Klasse \texttt{Artikel} mit den Attributen \texttt{name} und \texttt{preis}.
+	Überlegen Sie, ob die Attribute öffentlich oder privat sein sollen und erstellen Sie gegebenenfalls passende get- bzw. set-Methoden.
+	Ermöglichen Sie zusätzlich, dass eine lesbare Darstellung des Artikels angezeigt werden kann.
+	
+	b) Schreiben Sie eine Klasse \texttt{Warenkorb}, welcher mehrere \texttt{Artikel} enthalten soll.
+	Überlegen Sie auch hier, wie die Sichtbarkeit der Artikel sein soll und modifizieren Sie Ihren Code gegebenenfalls entsprechend.
+	Erstellen Sie zusätzlich die Methoden \texttt{artikel\_hinzufügen(self, artikel)} und \texttt{artikel\_entfernen(self, artikel)} sowie \texttt{gesamtpreis(self)}.
+	
+	c) Implementieren Sie sinnvolle Versionen der Methoden \texttt{\_\_str\_\_(self)}, \texttt{\_\_len\_\_(self)} und\linebreak \texttt{\_\_add\_\_(self, other)} für die Klasse \texttt{Warenkorb}.
+	
+	d) Stellen Sie Ihren Code in Form eines UML-Klassendiagramms dar.
+	
+\end{document}

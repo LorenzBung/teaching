@@ -1,0 +1,74 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage{worksheet}
+
+\begin{document}
+	
+	\makeheader{SAE}{OOP: Vererbung (Python)}
+	
+	\singletask{Gartencenter-Produktverwaltung in Python}
+	
+	Nachdem wir in der letzten Stunde gemeinsam ein Softwarekonzept für die Produktverwaltung des Gartencenters entworfen haben, soll dieses nun implementiert werden.
+	
+	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}
+			\begin{class}[text width=4cm, text height=.3cm]{Produkt}{5,5}
+				\attribute{produktnummer: int}
+				\attribute{bezeichnung: str}
+				\attribute{preis: float}
+				\operation{verkaufen()}
+			\end{class}
+			\begin{class}[text width=4cm, text height=.3cm]{Pflanze}{0,0}
+				\inherit{Produkt}
+				\attribute{gattung: str}
+				\attribute{hoehe: int}
+				\operation{einpflanzen()}
+			\end{class}
+			\begin{class}[text width=4cm, text height=.3cm]{Blumentopf}{5,0}
+				\inherit{Produkt}
+				\attribute{material: str}
+				\attribute{volumen: int}
+				\operation{befuellen()}
+			\end{class}
+			\begin{class}[text width=4cm, text height=.3cm]{Werkzeug}{10,0}
+				\inherit{Produkt}
+				\attribute{istElektrisch: bool}
+			\end{class}
+		\end{tikzpicture}
+	\end{figure}
+
+	Setzen Sie das obenstehende UML-Diagramm in Python um.
+	Bilden Sie insbesondere die Vererbungsstrukturen korrekt ab.
+	
+	\partnertask{Richtung der Vererbung}
+	
+	Betrachten Sie den folgenden Code.
+	
+	\begin{lstlisting}[language=python]
+class Laptop:
+	def leistung(self):
+		return "Alltagstauglich"
+class GamingLaptop(Laptop):
+	def leistung(self):
+		return "Sehr leistungsstark"
+	\end{lstlisting}
+
+	a) Verändern Sie den Code, sodass die Richtung der Vererbung umgedreht wird.
+	
+	b) Diskutieren Sie, welche Variante mehr Sinn ergibt.
+	
+	\pagebreak
+	
+	\bonustask{Mehrfachvererbung}
+	
+	Am Ende der letzten Stunde haben wir kurz über die Probleme gesprochen, die bei mehrfacher Vererbung entstehen können (Beispiel: \texttt{Wasserflugzeug} als Subklasse von \texttt{Flugzeug} und \texttt{Boot}).
+	
+	a) Recherchieren Sie, wie in Python mit Mehrfachvererbung umgegangen wird.
+		
+	\lines[3cm]
+		
+	b) Setzen Sie das oben beschriebene Beispiel in Python um und halten Sie Ihre Beobachtungen fest.
+		
+	\lines[3cm]
+	
+\end{document}

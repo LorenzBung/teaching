@@ -1,0 +1,104 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage{worksheet}
+
+\begin{document}
+	
+	\makeheader[2BFE1]{Mathematik}{Strahlensätze}
+	
+	\partnertask{Längen und Verhältnisse}
+	
+	\begin{figure}[h]
+		\centering
+		\begin{minipage}{.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\tkzDefPoint(0,0){S}
+			\tkzDefPoint(3,0){A}
+			\tkzDefPoint(3,2){B}
+			\tkzDefPoint(4,0){C}
+			\tkzDefPoint(4,2.666){D}
+			\tkzDrawPoints(S,A,B,C,D)
+			\tkzLabelPoints(S,A,C)
+			\tkzLabelPoint[above left](B){$B$}
+			\tkzLabelPoint[above left](D){$D$}
+			
+			\tkzDrawLine[add = .5cm and .5cm](S,C)
+			\tkzDrawLine[add = .5cm and .5cm](S,D)
+			\tkzDrawSegment(A,B)
+			\tkzDrawSegment(C,D)
+		\end{tikzpicture}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\tkzDefPoint(0,0){S}
+			\tkzDefPoint(3,0){A}
+			\tkzDefPoint(2.3,2.3){B}
+			\tkzDefPoint(4,0){C}
+			\tkzDefPoint(3,3){D}
+			\tkzDrawPoints(S,A,B,C,D)
+			\tkzLabelPoints(S,A,C)
+			\tkzLabelPoint[above left](B){$B$}
+			\tkzLabelPoint[above left](D){$D$}
+			
+			\tkzDrawLine[add = .5cm and .5cm](S,C)
+			\tkzDrawLine[add = .5cm and .5cm](S,D)
+			\tkzDrawSegment(A,B)
+			\tkzDrawSegment(C,D)
+		\end{tikzpicture}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\tkzDefPoint(0,0){S}
+			\tkzDefPoint(2,0){A}
+			\tkzDefPoint(3,2){B}
+			\tkzDefPoint(4,0){C}
+			\tkzDefPoint(4,2.666){D}
+			\tkzDrawPoints(S,A,B,C,D)
+			\tkzLabelPoints(S,A,C)
+			\tkzLabelPoint[above left](B){$B$}
+			\tkzLabelPoint[above left](D){$D$}
+			
+			\tkzDrawLine[add = .5cm and .5cm](S,C)
+			\tkzDrawLine[add = .5cm and .5cm](S,D)
+			\tkzDrawSegment(A,B)
+			\tkzDrawSegment(C,D)
+		\end{tikzpicture}
+		\end{minipage}
+	\end{figure}
+
+	Füllen Sie die Tabelle aus.
+	Messen Sie dazu die Längen und berechnen Sie die Verhältnisse.
+	
+	{
+	\renewcommand{\arraystretch}{2}
+	\setlength\tabcolsep{.5cm}
+	\begin{tabularx}{\textwidth}{c|X|X|X}
+		& Linke Abbildung & Mittlere Abbildung & Rechte Abbildung\\
+		\hline
+		$\overline{SA}$ &&&\\
+		\hline
+		$\overline{SC}$ &&&\\
+		\hline
+		$\overline{SB}$ &&&\\
+		\hline
+		$\overline{SD}$ &&&\\
+		\hline
+		$\dfrac{\ \overline{SA}\ }{\overline{SC}}$ &&&\\
+		\hline
+		$\dfrac{\ \overline{SB}\ }{\overline{SD}}$ &&&\\
+	\end{tabularx}
+	}
+
+	Was fällt Ihnen auf, wenn Sie die Verhältnisse miteinander vergleichen?
+	
+	\lines[3cm]
+	
+	\pagebreak
+	
+	\boxarea[22cm]
+	
+\end{document}

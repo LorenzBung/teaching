@@ -1,0 +1,25 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage{worksheet}
+
+\begin{document}
+	
+	\makeheader{SAE}{Merkzettel \hspace{5cm} Vererbung in Python}
+	
+	\lstinputlisting[language=python]{vererbung.py}
+	
+	\hint{Vererbung in Python}{
+	Um eine Vererbungsrelation in Python anzugeben, wird der Name der Superklasse bei der Definition der Subklasse in Klammern geschrieben.
+	Im obigen Beispiel erbt also die Klasse \texttt{Auto} von der Klasse \texttt{Fahrzeug}.
+	
+	Objekte der Subklasse können auf Attribute und Methoden zugreifen, die in der Superklasse definiert wurden.
+	Beispielsweise kann \texttt{auto1.fahren()} aufgerufen werden, obwohl die Methode \texttt{fahren()} in der Klasse \texttt{Fahrzeug} definiert wurde.
+	}
+
+	\hint{Aufruf von Methoden der Superklasse}{
+	Mit \texttt{super()} können Methoden der Superklasse aufgerufen werden.
+	Dies ist insbesondere bei den Konstruktoren (\texttt{\_\_init\_\_()}-Methoden) hilfreich, um doppelten Code zu sparen.
+	
+	In Zeile 8 müsste sonst das Attribut \texttt{geschwindigkeit} manuell gesetzt werden.
+	Bei vielen Parametern wäre das sehr aufwändig.
+	}
+\end{document}

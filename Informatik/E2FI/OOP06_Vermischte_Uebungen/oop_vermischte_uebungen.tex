@@ -1,0 +1,116 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage{worksheet}
+
+\begin{document}
+	
+	\makeheader{SAE}{OOP: Vermischte Übungen}
+	
+	Zur Wiederholung und Vertiefung der bisherigen Inhalte finden Sie auf diesem Arbeitsblatt vermischte Übungen.
+	Sie können sich aussuchen, welche der folgenden Aufgaben Sie bearbeiten.
+	Wählen Sie die Aufgaben, bei denen Sie bisher die größten Schwierigkeiten hatten oder gefehlt haben.
+	
+	Sie können auch Aufgaben von den bisherigen Übungsblättern nacharbeiten.
+	
+	\task{Klassen- und Objektdiagramme in UML}
+	
+	In einer kleinen Stadtbibliothek werden Bücher und deren Ausleihe durch Benutzer verwaltet.
+	Ein Benutzer ist eine registrierte Person, die Bücher ausleihen kann.
+	Zu jedem Benutzer werden Name, Ausweisnummer und E-Mail-Adresse gespeichert.
+	Ein Buch besitzt einen Titel, einen Autor und eine ISBN.
+	Wenn ein Benutzer ein Buch ausleiht, wird ein Ausleihvorgang erstellt.
+	Dabei werden das Datum der Ausleihe und (falls das Buch schon zurückgegeben wurde) das Rückgabedatum gespeichert.
+	Jeder Ausleihvorgang erhält außerdem eine eindeutige Ausleih-ID.
+	
+	a) Erstellen Sie ein UML-Klassendiagramm\footnotemark[1] der Situation.
+	Modellieren Sie dabei die Klassen \texttt{Benutzer}, \texttt{Buch}, \texttt{Ausleihvorgang} mit geeigneten Attributen und Methoden.
+	\footnotetext[1]{(z.B. wieder mit \url{https://draw.io})}
+	
+	b) Erstellen Sie ein UML-Objektdiagramm für folgende konkrete Situation:
+	
+	Am 8. Mai 2025 leiht sich die Benutzerin Anna Weber (Ausweisnummer: 10234, E-Mail:\\ \texttt{anna.weber@mail.de}) das Buch ``1984'' von George Orwell (ISBN: 9780451524935) aus.
+	Die Ausleihe erhält die ID A5678.
+	
+	\task{Klassen in Python}
+	
+	a) Schreiben Sie eine Klasse \texttt{Student} und eine Klasse \texttt{Kurs}.
+	
+	b) In der Klasse \texttt{Kurs} sollen eingeschriebene Studenten in einer Liste verwaltet werden.
+	
+	c) Schreiben Sie Methoden, um einen Studenten in einen Kurs ein- und auszuschreiben.
+	
+	d) Erstellen Sie mehrere Objekte und testen Sie ihre Klassen ausgiebig.
+	
+	\pagebreak
+	
+	\task{Kapselung in Python}
+	
+	a) Schreiben Sie eine Klasse \texttt{Benutzer} mit dem öffentlichen Attribut \texttt{nutzername} und dem privaten Attribut \texttt{passwort}.
+	
+	b) Implementieren Sie die nötigen getter- und setter-Methoden.
+	
+	c) Schreiben Sie eine Methode \texttt{istLangGenug(neuesPasswort: str)}, welche überprüft, ob das gegebene Passwort länger als 8 Zeichen ist.
+	
+	d) Schreiben Sie eine Methode \texttt{hatGrossbuchstaben(neuesPasswort: str)} und eine Methode \texttt{hatKleinbuchstaben(neuesPasswort: str)}, welche überprüfen, ob das gegebene Passwort einen Großbuchstaben bzw. Kleinbuchstaben enthält.
+	
+	\hint{Tipp}{Die Python-Methoden \texttt{isupper()}\footnotemark[2] und \texttt{islower()}\footnotemark[3] könnten hilfreich sein.}
+	\footnotetext[2]{\url{https://www.w3schools.com/python/ref_string_isupper.asp}}
+	\footnotetext[3]{\url{https://www.w3schools.com/python/ref_string_islower.asp}}
+	
+	e) Rufen Sie Ihre geschriebenen Methoden in der Setter-Methode auf und ändern Sie das Passwort nur, wenn es sicher genug ist.
+	
+	\task{Vererbung in UML}
+	
+	Erstellen Sie ein UML-Klassendiagramm\footnotemark[4], welches die folgende Situation modelliert.
+	\footnotetext[4]{(z.B. wieder mit \url{https://draw.io})}
+	
+	Ein IT-Dienstleister entwickelt ein Ticketsystem zur Bearbeitung interner Anfragen.
+	Alle Anfragen werden als Objekte der Oberklasse \texttt{Ticket} verwaltet.
+	Diese enthält allgemeine Informationen wie die Ticket-ID, eine Beschreibung und das Erstellungsdatum.
+	Je nach Art der Anfrage gibt es spezialisierte Tickettypen:
+	Ein \texttt{Fehlerticket} wird bei Störungen oder Fehlermeldungen verwendet.
+	Es verfügt über das zusätzliche Attribut \texttt{prioritaet} (z.B. ``hoch'', ``mittel'', ``niedrig'').
+	Ein \texttt{ServiceTicket} stellt eine Serviceanfrage dar (z.B. Softwareinstallation oder Computerwartung).
+	Es verfügt über das zusätzliche Attribut \texttt{angeforderte\_leistung} (z.B. ``VPN-Zugang einrichten'').
+	
+	Fügen Sie bei der Modellierung geeignete Methoden zu den Klassen hinzu.
+	Wählen Sie außerdem den korrekten Datentyp für die Attribute und überlegen Sie, ob diese public oder private sein sollten.
+	
+	\pagebreak
+	
+	\task{Vererbung in Python}
+	
+	Setzen Sie das folgende UML-Klassendiagramm in Python um.
+	
+	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}
+			\begin{class}[text width=6cm]{Mitarbeiter}{4,4}
+				\attribute{+name: str}
+				\attribute{-personalnummer: int}
+				\attribute{-email: str}
+				\operation{+email\_aendern(neue\_email: str)}
+			\end{class}
+		
+			\begin{class}[text width=7cm]{Entwickler}{0,0}
+				\inherit{Mitarbeiter}
+				\attribute{+programmiersprache: str}
+				\operation{+wechsle\_sprache(neue\_sprache: str)}
+				\operation{+ist\_backend\_entwickler()}
+			\end{class}
+		
+			\begin{class}[text width=7cm]{Administrator}{8,0}
+				\inherit{Mitarbeiter}
+				\attribute{+zuständiger\_server: str}
+				\operation{+wechsle\_server(neuer\_server: str)}
+				\operation{+gehoert\_zu\_server(server: str)}
+			\end{class}
+		\end{tikzpicture}
+	\end{figure}
+	
+	Die Methode \texttt{ist\_backend\_entwickler()} soll \texttt{True} zurückgeben, wenn die Programmiersprache des Entwicklers Java oder Python ist (ansonsten \texttt{False}).
+	
+	Die Methode \texttt{gehoert\_zu\_server(server)} soll überprüfen, ob der Administrator dem übergebenen Server zugewiesen ist.
+	
+	Achten Sie bei der Implementierung auf die Sichtbarkeit und implementieren Sie gegebenenfalls getter- und setter-Methoden.
+	
+\end{document}

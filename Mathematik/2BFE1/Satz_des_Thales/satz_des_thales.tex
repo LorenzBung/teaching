@@ -1,0 +1,51 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage{worksheet}
+
+\begin{document}
+	
+	\makeheader{Mathematik}{Satz des Thales}
+	
+	\singletask{Winkel messen}
+	
+	Messen Sie die Winkel im Dreieck.
+	
+	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}
+			\draw (0,0) -- (6,0);
+			\draw (6,0) -- (6,3);
+			\draw (6,3) -- (0,0);
+			\node[label=below left:$A$] at (0,0){};
+			\node[label=below right:$B$] at (6,0){};
+			\node[label=above:$C$] at (6,3){};
+		\end{tikzpicture}
+	\end{figure}
+	
+	\singletask{Winkel bei Kreispunkten}
+	
+	Wählen Sie einen Punkt $C$ auf dem Kreisbogen und konstruieren Sie ein Dreieck $\Delta ABC$.
+	Wie groß ist der Winkel am Punkt C?
+	
+	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}
+			\draw (4,2) -- (4,1.9);
+			\node[label=below:$A$] (A) at (4,2) {};
+			\draw (12,2) -- (12,1.9);
+			\node[label=below:$B$] (B) at (12,2) {};
+			\draw (3,2) -- (13,2);
+			\begin{scope}
+				\clip (A) rectangle (12,7);
+				\draw (8,2) circle (4);
+			\end{scope}
+			\draw (8,1.9) -- (8,2.1);
+			\node[label=below:$M$] at (8,2) {};
+		\end{tikzpicture}
+	\end{figure}
+
+	Wiederholen Sie das Vorgehen mit zwei weiteren Punkten $D$ und $E$ und messen Sie jeweils die Winkel.
+	Was fällt Ihnen auf?
+
+	\lines[3cm]
+	
+\end{document}

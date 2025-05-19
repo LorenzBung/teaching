@@ -1,0 +1,90 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage{worksheet}
+
+\begin{document}
+	
+	\makeheader{SAE}{Objektorientierte \hspace{1cm} Programmierung}
+	
+	\singletask{Grundbegriffe der objektorientierten Programmierung}
+	
+	Ergänzen Sie folgende Tabelle um die fehlenden Einträge -- Objekte, Klassen, Attribute und Methoden.
+	
+	\begin{table}[h]
+		\centering
+		\setlength\tabcolsep{.25cm}
+		\renewcommand{\arraystretch}{1.5}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			\textbf{Objekt} & \textbf{Klasse} & \textbf{Attribute} & \textbf{Methoden}\\
+			\hline
+			Raum 332\vspace{1cm} & & &\\
+			\hline
+			Mona Lisa\vspace{1cm} &&&\\
+			\hline
+			& Fußballverein\vspace{1cm} & &\\
+			\hline
+			&& Seitenanzahl, Titel, Autor\vspace{.5cm} &\\
+			\hline
+			&&&\texttt{bellen()}, \texttt{fressen()}, \texttt{stockholen()}\\
+			\hline
+		\end{tabularx}
+	\end{table}
+
+	\bonustask*{Bonusaufgabe}
+	
+	Überlegen Sie sich zusätzliche Beispiele für Objekte, die Sie aus Ihrem (Arbeits-)Alltag kennen.
+	Finden Sie die zugehörigen Klassen, Attribute und Methoden.
+	
+	\pagebreak
+	
+	\hint{Klassen- und Objektdiagramme digital erstellen}{Es gibt viele verschiedene Anwendungen, welche zum Erstellen von Klassen- und Objektdiagrammen verwendet werden können.
+	Eine einfache Möglichkeit hierzu bietet die Webseite \href{https://www.draw.io}{draw.io}.
+	Dort gibt es bereits vorgefertigte Vorlagen für die beiden Diagrammtypen.}
+	
+	\singletask{Patientenverwaltung}
+	
+	Für ein Krankenhaus soll ein neues Softwaresystem entwickelt werden, was die Patientenverwaltung erleichtert.
+	Erstellen Sie zur Planung der Anwendung ein Klassendiagramm.
+	
+	Zu Patienten werden Name, Geburtsdatum und Versicherungsnummer gespeichert.
+	Ein Patient kann untersucht und entlassen werden.\\
+	Weiterhin werden die Krankenzimmer mit Zimmernummer, Anzahl der Betten und zugehörigem Stationsarzt gespeichert.
+	Die Zimmer können gereinigt und über das zentrale System auf- und abgeschlossen werden.\\
+	Zusätzlich gibt es Karten, mit denen die Patienten kostenpflichtige Dienste wie Telefon, Internet oder die Cafeteria in Anspruch nehmen können.
+	Eine Karte hat eine feste Kartennummer und ein Guthaben.
+	Sie kann um einen bestimmten Betrag aufgeladen und entladen werden.
+	
+	\singletask{Test der Patientenverwaltung}
+	
+	Erstellen Sie nun ein Objektdiagramm.
+	
+	Beim ersten Test der Anwendung wird das Vierbettzimmer B310 unter der Aufsicht von Dr. Frank erstellt.
+	Der Patient Paul Maier, geboren am 31.03.1985, wird außerdem in die Krankenhausakte aufgenommen.
+	Er hat die Versicherungsnummer 5132781.
+	Bei der Aufnahme wird ihm die Karte mit der Nummer 1 und einem Guthaben von 10€ ausgestellt.
+	
+	\pagebreak
+	\partnertask{Erweiterung der Patientenverwaltung}
+	
+	Damit nachverfolgt werden kann, welcher Patient welche Karte ausgeliehen hat, soll auf der Karte der Patient gespeichert werden.
+	
+	a) Wie könnte man dies im Klassendiagramm modellieren?
+	
+	\lines[3cm]
+	
+	b) Passen Sie das Klassendiagramm aus Aufgabe 2 sowie das Objektdiagramm aus Aufgabe 3 entsprechend der neuen Änderung an.
+	
+	c) Zusätzlich soll bei Patienten ihr Krankenzimmer abgespeichert werden.
+	Übernehmen Sie auch diese Änderung in die Diagramme.
+	
+	\bonustask{Diskussion}
+	
+	a) Überlegen Sie: Welche Vorteile hat die Modellierung mit Klassendiagrammen, anstatt direkt loszuprogrammieren?
+	
+	\lines[3cm]
+	
+	b) Welche Schwierigkeiten könnten sich bei der Modellierung komplexer Systeme ergeben?
+	
+	\lines[3cm]
+	
+\end{document}

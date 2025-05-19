@@ -1,0 +1,45 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage{worksheet}
+
+\begin{document}
+	
+	\makeheader{SAE}{Merkzettel \hspace{5cm} OOP in Python}
+	
+	\begin{lstlisting}[language=python]
+class Fahrrad():
+    def __init__(self, farbe, anzahlGaenge):
+        self.farbe = farbe
+        self.anzahlGaenge = anzahlGaenge
+    def fahren(self):
+        print("Das Fahrrad faehrt.")
+    def lackieren(self, neueFarbe):
+        self.farbe = neueFarbe
+meinFahrrad = Fahrrad("rot", 5)
+meinFahrrad.fahren()
+meinFahrrad.lackieren("blau")
+	\end{lstlisting}
+
+	\hint{Definition von Klassen}{
+	In Python werden Klassen mit dem Keyword \texttt{class} gefolgt vom Namen der Klasse definiert.
+	Alles, was zur Klasse gehört, wird darunter eingerückt.
+	
+	Methoden der Klasse werden wie Funktionen mit dem Keyword \texttt{def} definiert, haben jedoch als ersten Parameter das Keyword \texttt{self}.
+	
+	Auf Attribute der Klasse kann mit \texttt{self.variablenname} zugegriffen werden.
+	
+	Jede Klasse hat eine besondere Methode -- den sogenannten Konstruktur.
+	Der Konstruktor ist eine Methode, die beim Erstellen eines Objekts aufgerufen wird.
+	Hier werden beispielsweise die Werte der Attribute eines neuen Objekts festgelegt.
+	In Python erkennt man den Konstruktor am Methodennamen \texttt{\_\_init\_\_} -- im obigen Beispiel in Zeile 2.
+	}
+
+	\hint{Verwenden von Objekten}{
+	Nachdem eine Klasse definiert wurde, können Objekte dieser Klasse erstellt werden.
+	Dazu wird der Name der Klasse mit Klammern geschrieben, in welche als Parameter die Parameter des Konstruktors übergeben werden.
+	Im obigen Code sieht man dies in Zeile 9.
+	
+	Die Methoden des neu erstellten Objekts können nun durch \texttt{variablenname.methodenname()} aufgerufen werden.
+	Mögliche Parameter der Methoden müssen dabei mit übergeben werden, wie beispielsweise in Zeile 11.
+	}
+	
+\end{document}

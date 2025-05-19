@@ -1,0 +1,35 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage{worksheet}
+
+\begin{document}
+	
+	\makeheader{SAE}{OOP: Vererbung (Python) \hspace{5cm} Musterlösung}
+	
+	\singletask{Gartencenter-Produktverwaltung in Python}
+	
+	\lstinputlisting[language=python]{a1_muster.py}
+	
+	\pagebreak
+	
+	\partnertask{Richtung der Vererbung}
+
+	a) Verändern Sie den Code, sodass die Richtung der Vererbung umgedreht wird.
+	
+	\begin{lstlisting}[language=python]
+class GamingLaptop:
+	def leistung(self):
+		return "Sehr leistungsstark"
+class Laptop(GamingLaptop):
+	def leistung(self):
+		return "Alltagstauglich"
+	\end{lstlisting}
+	
+	b) Diskutieren Sie, welche Variante mehr Sinn ergibt.
+	
+	Die Variante, in der \texttt{GamingLaptop} von \texttt{Laptop} erbt, ergibt mehr Sinn:
+	Ein Gaming-Laptop ist eine spezialisierte Variante eines ``normalen'' Laptops und nicht umgekehrt.
+	Es könnte beispielsweise auch noch eine zweite Subklasse \texttt{ArbeitsLaptop} geben.
+	
+	Aus logischer Sicht ergibt das Codebeispiel aus der Aufgabe so wie es dasteht daher keinen Sinn.
+	
+\end{document}

@@ -1,3 +1,12 @@
+## Office base files, only upload PDFs!
+*.doc
+*.docx
+*.odt
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

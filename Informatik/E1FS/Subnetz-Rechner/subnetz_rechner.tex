@@ -1,0 +1,60 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage{worksheet}
+\usepackage{lipsum}
+
+\begin{document}
+	
+	\makeheader{ITS}{Subnetz-Rechner}
+	
+	Bei den folgenden Aufgaben geht es darum, die Subnetze automatisiert berechnen zu lassen.
+	Schreiben Sie dazu ein Python-Programm, welches aus der CIDR-Notation die Netzwerk- und Broadcast-Adresse berechnet und ausgibt.
+	
+	\grouptask{IPv4-Subnetz berechnen}
+	
+	Berechnen Sie die Netzwerk- und Broadcastadresse: \texttt{192.168.178.21/24}
+	
+	\boxarea[7cm]
+	
+	\singletask{Nutzereingabe}
+	
+	Schreiben Sie eine Funktion, die eine IPv4-Adresse mit Subnetz in CIDR-Notation einliest.
+	Spalten Sie die Eingabe auf, so dass die vier Blöcke der IP-Adresse sowie das Suffix nutzbar werden.
+	
+	\hint{Hinweis}{Mit der \texttt{split()}-Funktion können Strings in Python geteilt werden.
+		Beispielsweise liefert \texttt{"1 2 3 4".split(' ')} die Liste \texttt{['1', '2', '3', '4']}.}
+	
+	\singletask{Binärkonvertierung}
+	
+	Schreiben Sie eine Funktion, welche die (dezimale) IP-Adresse ins Binärsystem konvertiert.
+	
+	\hint{Hinweis}{Sie können die bereits vorgegebene Funktion \texttt{decimal\_to\_binary()} verwenden.
+	Diese Funktion nimmt eine Dezimalzahl $0 \leq n \leq 255$ und wandelt diese in eine 8-stellige Binärzahl um.}
+	
+	\singletask{Netz- und Hostanteil}
+	
+	Schreiben Sie eine Funktion, welche die zuvor berechnete binäre IP-Adresse in Netz- und Hostanteil spaltet.
+	
+	\singletask{Berechnung der Netzwerkadresse}
+	
+	Schreiben Sie eine Funktion, welche die (binäre) Netzwerkadresse berechnet.
+	Schreiben Sie anschließend eine weitere Funktion, welche die Netzwerkadresse im Dezimalformat ausgibt.
+	
+	\hint{Hinweis}{Die vorgegebene Funktion \texttt{binary\_to\_decimal()} nimmt eine Binärzahl als String und gibt diese als Dezimalzahl zurück.}
+	
+	\singletask{Berechnung der Broadcastadresse}
+	
+	Schreiben Sie nun eine Funktion, welche die Broadcastadresse jeweils binär und dezimal zu berechnet und zurückgibt.
+	Die Ergebnisse der vorherigen Aufgabe könnten hierfür nützlich sein.
+	
+	\bonustask{Validierung und Tests}
+	
+	Verifizieren Sie, dass es sich bei der Nutzereingabe um korrekte Werte handelt.
+	Überprüfen Sie die CIDR-Notation: Ist die IPv4-Adresse gültig? Ist das Suffix richtig? Wurden korrekte Trennzeichen verwendet?
+	
+	\bonustask{IPv6-Unterstützung}
+	
+	Bisher kann das Programm nur mit IPv4-Adressen rechnen.
+	Erweitern Sie es, so dass für IPv6-Adressen die erste und letzte Adresse im Subnetz berechnet werden können.
+	
+	\warning{Achtung}{Bei IPv6-Adressen gibt es weder Netzwerk- noch Broadcastadresse.}
+\end{document}

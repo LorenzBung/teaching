@@ -1,0 +1,94 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage{worksheet}
+
+\begin{document}
+	
+	\makeheader{SAE}{OOP: Vererbung (UML)}
+	
+	\partnertask{Produktverwaltung eines Gartencenters}
+	
+	Ein Gartencenter verwaltet ihre Produkte mithilfe eines Softwaresystems, welches überarbeitet werden soll.
+	Das System arbeitet aktuell mit den Klassen \textbf{Pflanze}, \textbf{Blumentopf} und \textbf{Werkzeug}.
+	
+	Sowohl Pflanzen, Blumentöpfe als auch Werkzeuge verfügen über eine Produktnummer, eine Bezeichnung und einen Preis.
+	Außerdem kann jedes Produkt dieser Kategorien verkauft werden.
+	
+	a) Ergänzen Sie die UML-Klassendiagramme um die oben beschriebenen Informationen.
+	Fügen Sie zusätzlich sinnvolle Attribute und Methoden zu den einzelnen Klassen hinzu.
+	
+	\begin{figure}[h]
+		\centering
+		\vspace{5cm}
+		\begin{tikzpicture}
+			\begin{class}[text width=4cm]{Pflanze}{0,0}
+				\attribute{}
+				\attribute{}
+				\attribute{}
+				\attribute{}
+				\attribute{}
+				\operation{}
+				\operation{}
+				\operation{}
+				\operation{}
+			\end{class}
+			\begin{class}[text width=4cm]{Blumentopf}{5,0}
+				\attribute{}
+				\attribute{}
+				\attribute{}
+				\attribute{}
+				\attribute{}
+				\operation{}
+				\operation{}
+				\operation{}
+				\operation{}
+			\end{class}
+			\begin{class}[text width=4cm]{Werkzeug}{10,0}
+				\attribute{}
+				\attribute{}
+				\attribute{}
+				\attribute{}
+				\attribute{}
+				\operation{}
+				\operation{}
+				\operation{}
+				\operation{}
+			\end{class}
+		\end{tikzpicture}
+	\end{figure}
+	
+	b) Welche Probleme stellen Sie fest? Haben Sie Ideen, wie man diese lösen könnte?
+	
+	\lines[3cm]
+	
+	\singletask{Erweiterung des Gartencenter-Systems}
+	
+	Zusätzlich zu den verkauften Produkten bietet die Gärtnerei auch noch \textbf{Dienstleistungen} (zum Beispiel Baumbeschneidungen) und \textbf{Veranstaltungen} (zum Beispiel Kurse zur Gartenpflege) an.
+	
+	Entwerfen Sie ein UML-Klassendiagramm\footnote{z.B. wieder mithilfe von \url{https://draw.io}} mit mindestens einer Oberklasse und mindestens zwei Unterklassen, bei denen Vererbung sinnvoll eingesetzt wird.
+	Überlegen Sie sich sinnvolle Attribute und Methoden für jede Klasse.
+	
+	\boxarea[7cm]
+	
+	\partnertask{Diskussion und Reflexion}
+	
+	a) Welche Vorteile erkennen Sie beim Einsatz von Vererbung?
+	
+	\lines[3cm]
+	
+	b) Können Sie sich Fälle vorstellen, in es zu Problemen kommen könnte?
+	
+	\lines[3cm]
+	
+	\singletask*{Arbeitsauftrag für die 2. Stunde}
+	
+	1. Finden Sie ein Beispiel aus Ihrem Arbeitsalltag, in dem Vererbung eine Rolle spielt.
+	Erstellen Sie ein einfaches UML-Klassendiagramm, was die Situation darstellt.
+	
+	\boxarea[10cm]
+	
+	2. Einige Aufgaben aus den letzten Stunden konnten aus Zeitmangel nicht zu Ende bearbeitet (oder gar nicht erst angefangen) werden.
+	Nutzen Sie die restliche Zeit, um Aufgaben zu den Themen nachzuholen, bei denen Sie die größten Schwierigkeiten hatten.
+	
+	\textbf{Bitte laden Sie Ihre Ergebnisse am Ende der Stunde auf Moodle in den Studierendenordner ``Ergebnisse Arbeitsauftrag'' hoch.}
+	
+\end{document}

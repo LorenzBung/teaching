@@ -1,0 +1,65 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage{worksheet}
+
+\begin{document}
+	
+	\makeheader{Mathematik}{Punktspiegelung}
+	
+	\singletask{Spiegelpunkte bestimmen}
+
+	Sind die Figuren punktsymmetrisch? Begründen Sie!
+	Bestimmen Sie den Spiegelpunkt der punktsymmetrischen Figuren.
+	
+	\begin{checkeredfigure}[16cm]
+		\node[label={a)}] at (2.25,14.75){};
+		\draw[very thick] (4,15) -- (3,11) -- (5,11) -- (4,15);
+		\draw[very thick] (14,15) -- (12,15) -- (13,11) -- (14,15);
+		
+		\node[label={b)}] at (2.25,9.25){};
+		\draw[very thick] (3,8.5) -- (5,9.5) -- (4.5,6) -- (3,8.5);
+		\draw[very thick] (11,6.5) -- (13,7.5) -- (11.5,10) -- (11,6.5);
+		
+		\node[label={c)}] at (2.25,4.25){};
+		\draw[very thick] (5,5) -- (3,4) -- (5,1) -- (6,3) -- (5,5);
+		\draw[very thick] (13,1) -- (15,2) -- (13.5,5) -- (12,3.5) -- (13,1);
+	\end{checkeredfigure}
+	
+	\hint{Punktsymmetrie}{Eine Figur, die durch Drehung um 180° auf sich selbst abgebildet wird, heißt \textbf{punktsymmetrisch}.
+	Den Punkt, um den gedreht wird, nennt man \textbf{Symmetriepunkt} oder \textbf{Spiegelpunkt}.}
+	
+	\singletask{Punktspiegelung von Dreiecken}
+	
+	a) Spiegeln Sie das Dreieck $\Delta ABC$ am Punkt $P$.
+	\begin{checkeredfigure}
+		\tkzDefPoint(3,2){A}
+		\tkzDefPoint(5,4){B}
+		\tkzDefPoint(2,6){C}
+		\tkzDrawPoints(A,B,C)
+		\tkzLabelPoints(A,B)
+		\tkzLabelPoint[above](C){$C$}
+		\tkzDrawSegment[thick](A,B)
+		\tkzDrawSegment[thick](B,C)
+		\tkzDrawSegment[thick](C,A)
+		
+		\tkzDefPoint(8,4.5){P};
+		\tkzDrawPoint[size=10\pgflinewidth](P);
+		\tkzLabelPoint[below right](P){$P$};
+	\end{checkeredfigure}
+
+	b) Spiegeln Sie das Dreieck $\Delta DEF$ am Punkt $Q$.
+	
+	\begin{checkeredfigure}
+		\tkzDefPoint(5,2){D}
+		\tkzDefPoint(11,3){E}
+		\tkzDefPoint(8,7){F}
+		\tkzDrawPoints(D,E,F)
+		\tkzLabelPoints(D,E)
+		\tkzLabelPoint[left](F){$F$}
+		\draw[thick] (D) -- (E) -- (F) -- (D);
+		
+		\tkzDefPoint(7.5,4){Q};
+		\tkzDrawPoint[size=10\pgflinewidth](Q);
+		\tkzLabelPoint[below right](Q){$Q$};
+	\end{checkeredfigure}
+	
+\end{document}
