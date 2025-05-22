@@ -1,0 +1,5 @@
+System started
+Disk not found
+Connection established
+Permission denied
+

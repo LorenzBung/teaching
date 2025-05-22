@@ -1,0 +1,40 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage{worksheet}
+
+\begin{document}
+	
+	\makeheader{SAE}{OOP: Polymorphie}
+	
+	\partnertask{Formen in Python}
+	
+	a) Setzen Sie folgendes UML-Diagramm in Python um.
+	Die \texttt{area()}-Methode der Klasse \texttt{Shape} soll immer den Standardwert 0 zurückgeben.
+	
+	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}
+			\begin{class}[text height=.5cm]{Shape}{4,3}
+				\operation{+area(): float}
+			\end{class}
+			\begin{class}[text height=.5cm]{Rectangle}{0,0}
+				\inherit{Shape}
+				\attribute{-width: float}
+				\attribute{-height: float}
+				\operation{+area(): float}
+			\end{class}
+			\begin{class}[text height=.5cm]{Circle}{8,0}
+				\inherit{Shape}
+				\attribute{-radius: float}
+				\operation{+area(): float}
+			\end{class}
+		\end{tikzpicture}
+	\end{figure}
+	
+	b) Testen Sie Ihre Implementierung:
+	Erstellen Sie jeweils ein Rechteck und einen Kreis und lassen Sie den Flächeninhalt berechnen.
+	
+	c) Ergänzen Sie die drei Klassen um eine Methode \texttt{circumference()}, die den Umfang der jeweiligen Form berechnet.
+	
+	d) Erweitern Sie Ihre Tests aus Teilaufgabe b): Erstellen Sie mehrere Objekte der beiden Klassen, speichern Sie sie in einer Liste und nutzen Sie anschließend eine Schleife, um die Methoden \texttt{area()} und \texttt{circumference()} aufzurufen.
+	
+\end{document}

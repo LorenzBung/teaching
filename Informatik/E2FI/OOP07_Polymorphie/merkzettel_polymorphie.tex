@@ -1,0 +1,47 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage{worksheet}
+
+\begin{document}
+	
+	\makeheader{SAE}{Merkzettel\hspace{10cm} Polymorphie in Python}
+	
+	\textbf{Problemsituation}: Informationen und Fehlermeldungen werden gleich formatiert angezeigt.
+	
+	\lstinputlisting{einstieg_logs.txt}
+	
+	\textbf{Lösung}: Wir schreiben zwei Klassen \texttt{InfoLog} und \texttt{ErrorLog}, die von der gemeinsamen Superklasse \texttt{LogEntry} erben.
+	Die Formatierung (durch die Methode \texttt{display()}) wird durch die beiden Klassen unterschiedlich implementiert.
+	
+	\hint{Polymorphie}{
+		Verschiedene Subklassen, die eine Methode von der Superklasse erben, können unterschiedliche Implementierungen der Methode haben.
+		Damit ist es möglich, in verschiedenen Subklassen unterschiedliche Funktionalitäten bei Aufruf der Methode zu erreichen.
+		Dieses Konzept nennt man in der objektorientierten Programmierung \textbf{Polymorphie}.
+	}
+	
+	\begin{lstlisting}[language=python]
+class LogEntry:
+	def __init__(self, message):
+		self.message = message
+	def display(self):
+		print(self.message)
+
+class InfoLog(LogEntry):
+	def display(self):
+		print(f"[INFO] {self.message}")
+
+class ErrorLog(LogEntry):
+	def display(self):
+		print(f"[ERROR] {self.message} (!!!)")
+
+log1 = InfoLog("System started")
+log2 = ErrorLog("Disk not found")
+log3 = InfoLog("Connection established")
+log4 = ErrorLog("Permission denied")
+
+log1.display()
+log2.display()
+log3.display()
+log4.display()
+	\end{lstlisting}
+	
+\end{document}
