@@ -1,3 +1,5 @@
+**/.gitignore
+
 ## Office base files, only upload PDFs!
 *.doc
 *.docx
