@@ -1,0 +1,429 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+\usepackage{pdflscape}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Problemlösen}
+	\subject{Mathematik}
+	\class{2BF1}
+	\maketitle
+	
+	\grouptask[{\faClock[regular]} 30 min.]{Treppen unterschiedlicher Länge}
+	
+	Die Firma Müller stellt unterschiedlich lange Treppen her.
+	Jede Treppenstufe hat die Form eines Würfels mit der Kantenlänge 30 cm.
+
+	\begin{figure}[H]
+		\begin{subfigure}[b]{.3\textwidth}
+			\centering
+			\tdplotsetmaincoords{70}{80}
+			\begin{tikzpicture}[tdplot_main_coords]
+				\draw (0,0,0) -- (0,0,1);
+				\draw (0,0,0) -- (1,0,0);
+				\draw (1,0,0) -- (1,0,1);
+				\draw (0,0,1) -- (1,0,1);
+				\draw (1,0,0) -- (1,1,0);
+				\draw (1,0,1) -- (1,1,1);
+				\draw (1,1,0) -- (1,1,1);
+				\draw (0,0,1) -- (0,1,1);
+				\draw (1,1,1) -- (0,1,1);
+			\end{tikzpicture}
+			\caption{Treppe mit $n = 1$ Stufen}
+		\end{subfigure}
+		\begin{subfigure}[b]{.3\textwidth}
+			\centering
+			\tdplotsetmaincoords{70}{80}
+			\begin{tikzpicture}[tdplot_main_coords]
+				\draw (0,0,0) -- (0,0,1);
+				\draw (0,0,0) -- (1,0,0);
+				\draw (1,0,0) -- (1,0,1);
+				\draw (0,0,1) -- (1,0,1);
+				\draw (1,0,0) -- (1,1,0);
+				\draw (1,0,1) -- (1,1,1);
+				\draw (1,1,0) -- (1,1,1);
+				\draw (0,0,1) -- (0,1,1);
+				\draw (1,1,1) -- (0,1,1);
+				
+				\draw (1,1,0) -- (1,2,0);
+				\draw (1,1,1) -- (1,2,1);
+				\draw (1,2,0) -- (1,2,1);
+				\draw (0,1,1) -- (0,1,2);
+				\draw (1,1,1) -- (1,1,2);
+				\draw (1,2,1) -- (1,2,2);
+				\draw (0,1,2) -- (0,2,2);
+				\draw (0,1,2) -- (1,1,2);
+				\draw (1,1,2) -- (1,2,2);
+				\draw (0,2,2) -- (1,2,2);
+			\end{tikzpicture}
+			\caption{Treppe mit $n = 2$ Stufen}
+		\end{subfigure}
+		\begin{subfigure}[b]{.3\textwidth}
+			\centering
+			\tdplotsetmaincoords{70}{80}
+			\begin{tikzpicture}[tdplot_main_coords]
+				\draw (0,0,0) -- (0,0,1);
+				\draw (0,0,0) -- (1,0,0);
+				\draw (1,0,0) -- (1,0,1);
+				\draw (0,0,1) -- (1,0,1);
+				\draw (1,0,0) -- (1,1,0);
+				\draw (1,0,1) -- (1,1,1);
+				\draw (1,1,0) -- (1,1,1);
+				\draw (0,0,1) -- (0,1,1);
+				\draw (1,1,1) -- (0,1,1);
+				
+				\draw (1,1,0) -- (1,2,0);
+				\draw (1,1,1) -- (1,2,1);
+				\draw (1,2,0) -- (1,2,1);
+				\draw (0,1,1) -- (0,1,2);
+				\draw (1,1,1) -- (1,1,2);
+				\draw (1,2,1) -- (1,2,2);
+				\draw (0,1,2) -- (0,2,2);
+				\draw (0,1,2) -- (1,1,2);
+				\draw (1,1,2) -- (1,2,2);
+				\draw (0,2,2) -- (1,2,2);
+				
+				\draw (1,2,0) -- (1,3,0);
+				\draw (1,2,1) -- (1,3,1);
+				\draw (1,2,2) -- (1,3,2);
+				\draw (1,3,0) -- (1,3,1);
+				\draw (1,3,1) -- (1,3,2);
+				\draw (0,2,2) -- (0,2,3);
+				\draw (1,2,2) -- (1,2,3);
+				\draw (1,3,2) -- (1,3,3);
+				\draw (0,2,3) -- (1,2,3);
+				\draw (0,2,3) -- (0,3,3);
+				\draw (0,3,3) -- (1,3,3);
+				\draw (1,2,3) -- (1,3,3);
+			\end{tikzpicture}
+			\caption{Treppe mit $n = 3$ Stufen}
+		\end{subfigure}
+	\end{figure}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Die Treppe besteht aus Beton.
+		Wie viel Beton wird benötigt, um eine Treppe mit $n$ Stufen zu bauen?
+		(Tipp: Bei 30 cm Kantenlänge hat jeder Würfel ein Volumen von 27 000 $\mathrm{cm}^3$.)
+		\item Die Treppe wird rundherum mit Holz verkleidet.
+		Je nachdem, wie viele Stufen die Treppe hat, wird unterschiedlich viel Holz benötigt.
+		Wie viel Holz wird gebraucht, wenn die Treppe $n$ Stufen hat?
+		(Tipp: Bei 30 cm Kantenlänge hat jede Stufe eine Oberfläche von 900 $\mathrm{cm}^2$.)
+	\end{enumerate}
+	
+	\begin{itemize}
+		\item Wählen Sie entweder Aufgabe a (leichter) oder b (schwerer) aus -- je nachdem, was Sie sich als Gruppe zutrauen.
+		\item Versuchen Sie, das Problem gemeinsam in der Gruppe zu lösen.
+		\item Überlegen Sie sich zusammen Strategien, wie man an die Aufgabe herangehen kann.
+		\item Schreiben Sie auf, welche der Strategien sie verwenden und ob sie hilfreich war.
+		\item Wenn Sie nicht weiterkommen, können Sie sich die Hilfekarten anschauen, die im Raum verteilt liegen.
+	\end{itemize}
+
+	\grouptask[{\faClock[regular]} 10 min.]{Präsentation}
+	
+	Präsentieren Sie als Gruppe Ihre Lösungsstrategie(n).
+	Welche Strategie war hilfreich?
+	An welchen Stellen sind Sie mit der Strategie nicht weitergekommen?
+	
+	\pagebreak
+	
+	\begin{landscape}
+		\pagenumbering{gobble}
+		\begin{center}
+			\fontsize{30pt}{10pt}\selectfont
+			\vspace*{2cm}
+			\textbf{Strategie: Aufteilen}
+		\end{center}
+		
+		\vspace{2cm}
+		\huge
+		\begin{itemize}
+			\item Kann man die Situation in kleine Einzelprobleme zerlegen?
+			\item Was passiert, wenn man eines der Einzelprobleme verändert?
+			\item Wie verändert sich dann das Gesamtproblem?
+			\item Kann ich die Einzelprobleme einzeln lösen und damit auch die Gesamtaufgabe lösen?
+		\end{itemize}
+	\end{landscape}
+
+	\pagebreak
+	
+	\begin{landscape}
+		\begin{center}
+			\fontsize{30pt}{10pt}\selectfont
+			\vspace*{2cm}
+			\textbf{Strategie: Darstellung ändern}
+		\end{center}
+	
+		\vspace{2cm}
+		\huge
+		Kann man die Situation...
+		\begin{itemize}
+			\item als Bild
+			\item in einer Tabelle
+			\item durch Zahlen oder Formeln
+		\end{itemize}
+		... darstellen? Hilft die andere Darstellung vielleicht weiter?
+	\end{landscape}
+
+	\begin{landscape}
+		\begin{center}
+			\fontsize{30pt}{10pt}\selectfont
+			\vspace*{2cm}
+			\textbf{Strategie: Muster suchen}
+		\end{center}
+		
+		\vspace{2cm}
+		\huge
+		\begin{itemize}
+			\item Welche Eigenschaften wiederholen sich oder sind regelmäßig?
+			\item Warum sind die Muster so?
+			\item Können sie auch anders sein? Warum / warum nicht?
+		\end{itemize}
+	\end{landscape}
+
+	\begin{landscape}
+		\begin{center}
+			\fontsize{30pt}{10pt}\selectfont
+			\vspace*{2cm}
+			\textbf{Strategie: Ausprobieren}
+		\end{center}
+		
+		\vspace{2cm}
+		\huge
+		\begin{itemize}
+			\item Kann man einige (oder alle) Fälle ausprobieren?
+			\item Wann kommt man durch probieren nicht weiter?
+			\item Warum geht es in diesen Fällen nicht?
+		\end{itemize}
+	\end{landscape}
+
+	\begin{landscape}
+		\begin{center}
+			\fontsize{30pt}{10pt}\selectfont
+			\vspace*{2cm}
+			\textbf{Strategie: Aufgabe verändern}
+		\end{center}
+		
+		\vspace{2cm}
+		\huge
+		\begin{itemize}
+			\item Kann man die Aufgabe lösen, wenn man sie vereinfacht?
+			\item Wie kommt man vom vereinfachten Fall zurück zur ursprünglichen Aufgabe?
+			\item Kann man die Vorgehensweise vom vereinfachten Fall so erweitern, dass die ursprüngliche Aufgabe damit gelöst wird?
+		\end{itemize}
+	\end{landscape}
+
+	\pagebreak
+	\pagenumbering{arabic}
+	\author{L. Bung}
+	\title{Merkblatt\hspace{10cm}Problemlösen}
+	\subject{Mathematik}
+	\class{2BF1}
+	\maketitle
+	
+	Bei schwierigen Aufgaben lassen sich häufig Strategien zur Lösung anwenden.
+	
+	\tdplotsetmaincoords{70}{80}
+	\renewcommand{\arraystretch}{2}
+	\setlength\tabcolsep{.5cm}
+	\begin{tabularx}{\textwidth}{l X X}
+		\hline
+		\textbf{Strategie} & \textbf{Beschreibung} & \textbf{Beispiel}\\
+		\hline
+		Aufteilen & Aufgabe in kleine Probleme zerlegen, die einfacher zu lösen sind. &
+		\vspace{-.25cm}
+		\begin{tikzpicture}[tdplot_main_coords, baseline=10pt]
+			\draw (0,0,0) -- (0,-.5,1);
+			\draw (0,0,0) -- (0,.5,1);
+			\tdplotdrawarc{(0,0,1)}{.5}{0}{360}{}{};
+			\tdplotdefinepoints(0,0,1)(0,-.5,1)(0,0,1.5);
+			\tdplotdrawpolytopearc{.5}{}{};
+			\tdplotdefinepoints(0,0,1)(0,0,1.5)(0,.5,1);
+			\tdplotdrawpolytopearc{.5}{}{};
+		\end{tikzpicture} =
+		\begin{tikzpicture}[tdplot_main_coords, baseline=10pt]
+			\draw (0,0,0) -- (0,-.5,1);
+			\draw (0,0,0) -- (0,.5,1);
+			\tdplotdrawarc{(0,0,1)}{.5}{0}{360}{}{};
+		\end{tikzpicture} +
+		\begin{tikzpicture}[tdplot_main_coords]
+			\tdplotdrawarc{(0,0,1)}{.5}{0}{360}{}{};
+			\tdplotdefinepoints(0,0,1)(0,-.5,1)(0,0,1.5);
+			\tdplotdrawpolytopearc{.5}{}{};
+			\tdplotdefinepoints(0,0,1)(0,0,1.5)(0,.5,1);
+			\tdplotdrawpolytopearc{.5}{}{};
+		\end{tikzpicture}\\
+	
+		Darstellung ändern & Aufgabe anders darstellen: Als Bild, als Tabelle, als Formel... &
+		\vspace{-.5cm}
+		\begin{tikzpicture}[tdplot_main_coords, baseline=2pt]
+			\draw (0,0,0) -- (0,0,.5);
+			\draw (0,0,0) -- (.5,0,0);
+			\draw (.5,0,0) -- (.5,0,.5);
+			\draw (0,0,.5) -- (.5,0,.5);
+			\draw (.5,0,0) -- (.5,.5,0);
+			\draw (.5,0,.5) -- (.5,.5,.5);
+			\draw (.5,.5,0) -- (.5,.5,.5);
+			\draw (0,0,.5) -- (0,.5,.5);
+			\draw (.5,.5,.5) -- (0,.5,.5);
+			\node[below] at (.5,.25,0) {$a$};
+			\node[right] at (.5,.5,.25) {$a$};
+			\node[below left] at (.25,0,0) {$a$};
+		\end{tikzpicture}\hspace{.5cm} $\Rightarrow V = a^3$\\
+	
+		Muster suchen & Regelmäßigkeiten finden und testen, wann sie nicht mehr gelten. &
+		\vspace{-.25cm}
+		\begin{tikzpicture}[tdplot_main_coords, baseline=5pt]
+			\draw (0,0,0) -- (0,0,.5);
+			\draw (0,0,0) -- (.5,0,0);
+			\draw (.5,0,0) -- (.5,0,.5);
+			\draw (0,0,.5) -- (.5,0,.5);
+			\draw (.5,0,0) -- (.5,.5,0);
+			\draw (.5,0,.5) -- (.5,.5,.5);
+			\draw (.5,.5,0) -- (.5,.5,.5);
+			\draw (0,0,.5) -- (0,.5,.5);
+			\draw (.5,.5,.5) -- (0,.5,.5);
+			
+			\draw (.5,.5,0) -- (.5,1,0);
+			\draw (.5,.5,.5) -- (.5,1,.5);
+			\draw (.5,1,0) -- (.5,1,.5);
+			\draw (0,.5,.5) -- (0,.5,1);
+			\draw (.5,.5,.5) -- (.5,.5,1);
+			\draw (.5,1,.5) -- (.5,1,1);
+			\draw (0,.5,1) -- (0,1,1);
+			\draw (0,.5,1) -- (.5,.5,1);
+			\draw (.5,.5,1) -- (.5,1,1);
+			\draw (0,1,1) -- (.5,1,1);
+			
+			\node[below] at (.5,.5,0) {$2$};
+			\node[right] at (.5,1,.5) {$2$};
+		\end{tikzpicture} =
+		\begin{tikzpicture}[tdplot_main_coords, baseline=5pt]
+			\draw (0,0,0) -- (0,0,.5);
+			\draw (0,0,0) -- (.5,0,0);
+			\draw (.5,0,0) -- (.5,0,.5);
+			\draw (0,0,.5) -- (.5,0,.5);
+			\draw (.5,0,0) -- (.5,.5,0);
+			\draw (.5,0,.5) -- (.5,.5,.5);
+			\draw (.5,.5,0) -- (.5,.5,.5);
+			\draw (0,0,.5) -- (0,.5,.5);
+			\draw (.5,.5,.5) -- (0,.5,.5);
+			
+			\node[below] at (.5,.25,0) {$1$};
+			\node[right] at (.5,.5,.25) {$1$};
+		\end{tikzpicture} +
+		\begin{tikzpicture}[tdplot_main_coords, baseline=5pt]
+			\draw (.5,.5,0) -- (.5,.5,.5);
+			\draw (0,.5,0) -- (.5,.5,0);
+			\draw (0,.5,0) -- (0,.5,.5);
+			\draw (0,.5,.5) -- (.5,.5,.5);
+			\draw (.5,.5,0) -- (.5,1,0);
+			\draw (.5,.5,.5) -- (.5,1,.5);
+			\draw (.5,1,0) -- (.5,1,.5);
+			\draw (0,.5,.5) -- (0,.5,1);
+			\draw (.5,.5,.5) -- (.5,.5,1);
+			\draw (.5,1,.5) -- (.5,1,1);
+			\draw (0,.5,1) -- (0,1,1);
+			\draw (0,.5,1) -- (.5,.5,1);
+			\draw (.5,.5,1) -- (.5,1,1);
+			\draw (0,1,1) -- (.5,1,1);
+			
+			\node[below] at (.5,.75,0) {$1$};
+			\node[right] at (.5,1,.5) {$2$};
+		\end{tikzpicture}\\
+	
+		Ausprobieren & Mehrere Fälle ausprobieren und so herausfinden, was funktioniert und was nicht. &
+		\vspace{-.5cm}
+		\begin{tikzpicture}[tdplot_main_coords, baseline=2pt]
+			\draw (0,0,0) -- (0,0,.5);
+			\draw (0,0,0) -- (.5,0,0);
+			\draw (.5,0,0) -- (.5,0,.5);
+			\draw (0,0,.5) -- (.5,0,.5);
+			\draw (.5,0,0) -- (.5,.5,0);
+			\draw (.5,0,.5) -- (.5,.5,.5);
+			\draw (.5,.5,0) -- (.5,.5,.5);
+			\draw (0,0,.5) -- (0,.5,.5);
+			\draw (.5,.5,.5) -- (0,.5,.5);
+		\end{tikzpicture}\hspace{.5cm} $\Rightarrow V = 27\ 000\ \mathrm{cm}^3$
+		\begin{tikzpicture}[tdplot_main_coords, baseline=5pt]
+			\draw (0,0,0) -- (0,0,.5);
+			\draw (0,0,0) -- (.5,0,0);
+			\draw (.5,0,0) -- (.5,0,.5);
+			\draw (0,0,.5) -- (.5,0,.5);
+			\draw (.5,0,0) -- (.5,.5,0);
+			\draw (.5,0,.5) -- (.5,.5,.5);
+			\draw (.5,.5,0) -- (.5,.5,.5);
+			\draw (0,0,.5) -- (0,.5,.5);
+			\draw (.5,.5,.5) -- (0,.5,.5);
+			
+			\draw (.5,.5,0) -- (.5,1,0);
+			\draw (.5,.5,.5) -- (.5,1,.5);
+			\draw (.5,1,0) -- (.5,1,.5);
+			\draw (0,.5,.5) -- (0,.5,1);
+			\draw (.5,.5,.5) -- (.5,.5,1);
+			\draw (.5,1,.5) -- (.5,1,1);
+			\draw (0,.5,1) -- (0,1,1);
+			\draw (0,.5,1) -- (.5,.5,1);
+			\draw (.5,.5,1) -- (.5,1,1);
+			\draw (0,1,1) -- (.5,1,1);
+		\end{tikzpicture}\rule{0pt}{1.5cm} \hspace{.1cm} $\Rightarrow V = 3 \cdot 27\ 000\ \mathrm{cm}^3$\\
+	
+		Aufgabe verändern & Aufgabe leichter machen, um sie lösen zu können. Anschließend von der Lösung auf die Lösung der ursprünglichen Aufgabe schließen. &
+		\vspace{-.5cm}
+		\begin{tikzpicture}[tdplot_main_coords, baseline=30pt]
+			\draw (0,0,0) -- (0,0,.5);
+			\draw (0,0,0) -- (.5,0,0);
+			\draw (.5,0,0) -- (.5,0,.5);
+			\draw (0,0,.5) -- (.5,0,.5);
+			\draw (.5,0,0) -- (.5,.5,0);
+			\draw (.5,0,.5) -- (.5,.5,.5);
+			\draw (.5,.5,0) -- (.5,.5,.5);
+			\draw (0,0,.5) -- (0,.5,.5);
+			\draw (.5,.5,.5) -- (0,.5,.5);
+			
+			\node[below] at (.5,.25,0) {$n=1$};
+		\end{tikzpicture}
+		\begin{tikzpicture}[tdplot_main_coords, baseline=30pt]
+			\draw (0,0,0) -- (0,0,.5);
+			\draw (0,0,0) -- (.5,0,0);
+			\draw (.5,0,0) -- (.5,0,.5);
+			\draw (0,0,.5) -- (.5,0,.5);
+			\draw (.5,0,0) -- (.5,.5,0);
+			\draw (.5,0,.5) -- (.5,.5,.5);
+			\draw (.5,.5,0) -- (.5,.5,.5);
+			\draw (0,0,.5) -- (0,0,1);
+			\draw (.5,0,.5) -- (.5,0,1);
+			\draw (.5,.5,.5) -- (.5,.5,1);
+			\draw (0,0,1) -- (0,.5,1);
+			\draw (0,.5,1) -- (.5,.5,1);
+			\draw (.5,0,1) -- (.5,.5,1);
+			\draw (0,0,1) -- (.5,0,1);
+			
+			\node[below] at (.5,.25,0) {$n=2$};
+		\end{tikzpicture}
+		\begin{tikzpicture}[tdplot_main_coords, baseline=30pt]
+			\draw (0,0,0) -- (0,0,.5);
+			\draw (0,0,0) -- (.5,0,0);
+			\draw (.5,0,0) -- (.5,0,.5);
+			\draw (0,0,.5) -- (.5,0,.5);
+			\draw (.5,0,0) -- (.5,.5,0);
+			\draw (.5,0,.5) -- (.5,.5,.5);
+			\draw (.5,.5,0) -- (.5,.5,.5);
+			\draw (0,0,.5) -- (0,0,1);
+			\draw (.5,0,.5) -- (.5,0,1);
+			\draw (.5,.5,.5) -- (.5,.5,1);
+			\draw (.5,0,1) -- (.5,.5,1);
+			\draw (0,0,1) -- (.5,0,1);
+			\draw (0,0,1) -- (0,0,1.5);
+			\draw (.5,0,1) -- (.5,0,1.5);
+			\draw (.5,.5,1) -- (.5,.5,1.5);
+			\draw (0,0,1.5) -- (0,.5,1.5);
+			\draw (0,0,1.5) -- (.5,0,1.5);
+			\draw (.5,0,1.5) -- (.5,.5,1.5);
+			\draw (0,.5,1.5) -- (.5,.5,1.5);
+			
+			\node[below] at (.5,.25,0) {$n=3$};
+		\end{tikzpicture}\\
+		\hline
+	\end{tabularx}
+\end{document}
