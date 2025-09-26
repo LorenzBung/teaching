@@ -1,0 +1,90 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Python: Variablen \hspace{15cm} und Datentypen}
+	\class{FTE1}
+	\subject{Informatik}
+	\maketitle
+	
+	\hint{Variablen}{
+		In der Programmierung werden Variablen wie in der Mathematik als Platzhalter für bestimmte Werte verwendet.
+		Beispielsweise setzt man mit \texttt{x = 5} den Wert der Variablen \texttt{x} auf 5.
+		Der Wert der Variablen kann dann später im Code wiederverwendet werden:
+		Beispielsweise gibt \texttt{print(x)} nun den Wert der Variablen \texttt{x} aus, also 5.
+	}
+	
+	\singletask{Variablen in Python}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Schreiben Sie ein Programm, in dem Sie vier Variablen mit Ihrem Vornamen, Nachnamen, Alter und Körpergröße in Metern anlegen.
+		Geben Sie anschließend einen Text aus, der Sie -- unter Verwendung der eben angelegten Variablen -- vorstellt.
+		
+		\item  Schreiben Sie ein Programm, in dem zwei (Zahl-)Werte in Variablen gespeichert werden.
+		Geben Sie die Namen der Variablen mit den zugehörigen Werten anschließend aus.
+		Berechnen Sie zusätzlich die Summe, Differenz, Produkt und Quotient der beiden Variablen und geben Sie auch diese aus.
+	
+		\item Schreiben Sie ein Programm, das eine Variable für die Kantenlänge eines Würfels anlegt und anschließend die Oberfläche, das Volumen und die Länge der Raumdiagonale berechnet.
+	\end{enumerate}
+	
+	\hint{Datentypen}{
+		Da Computer nur mit Zahlen umgehen können, müssen wir als Programmierer dem Programm mitteilen, um welche Art von Daten es sich handelt.
+		Die Art der Daten, die sich hinter einer Variable verbergen, nennt man auch \emph{Datentyp}.
+		Die am häufigsten verwendeten Datentypen, die Python (ebenso auch die meisten anderen Programmiersprachen) unterstützt, sind:
+		
+		\begin{itemize}
+			\item \texttt{int}: steht für Integer, also Ganzzahlen wie \texttt{0, 3, -15} usw.
+			\item \texttt{float}: Gleitkommazahlen, also z.B. \texttt{3.14, 15.2, -0.0014}
+			\item \texttt{bool}: Bool'sche bzw. Wahrheitswerte, die entweder \texttt{True} oder \texttt{False} sind
+			\item \texttt{str}: Strings, das sind Zeichenketten wie \texttt{\dq Hallo\dq, \dq Informatik\dq, \dq25 + 4 = 29\dq}.
+		\end{itemize}
+		
+		Python nimmt uns hier viel Arbeit ab: Wir können einer Variable einfach einen Wert zuweisen und der Datentyp wird automatisch passend gesetzt.
+		In anderen Programmiersprachen wie Java oder C++ muss man immer angeben, welchen Datentyp eine Variable haben soll.
+	}
+	
+	\pagebreak
+	
+	\singletask{Arithmetische Operationen bei verschiedenen Datentypen}
+	
+	Schreiben Sie ein Programm, jeweils eine Variable der oben genannten Datentypen anlegt.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Testen Sie ausgiebig, was passiert, wenn Sie zwei Variablen mit verschiedenen Datentypen mit einer arithmetischen Operation (wie z.B. \texttt{+}) verknüpfen.
+		\item Speichern Sie die jeweiligen Ergebnisse, falls möglich, in einer neuen Variablen ab.
+		\item Schreiben Sie zu jeder der neuen Variablen einen Kommentar, in dem Sie erklären, wie ihr Wert zustande kommt.
+		\item Geben Sie die Werte und Datentyp der erstellten Variablen aus.
+		Sie können den Datentyp einer Variablen mit \texttt{type()} abfragen.
+	\end{enumerate}
+	
+	\singletask{Typecasts}
+	
+	Mit den Python-Funktionen \texttt{int()}, \texttt{str()}, \texttt{float()} und \texttt{bool()} können Datentypen ineinander umgewandelt werden: Beispielsweise ist \texttt{float(23)} vom Typ \texttt{float} (und kein Integer mehr).
+	Diese Konvertierung nennt man \emph{Typecast}.
+	
+	a) Testen Sie die Typecasts zwischen den verschiedenen Datentypen in einem Programm.
+	Welche Typecasts sind erfolgreich, welche schlagen fehl? Warum?
+	
+	\lines[2cm]
+	
+	b) In welchen Fällen könnte die Verwendung eines Typecasts nützlich oder sogar notwendig sein?
+	
+	\lines[2cm]
+	
+	c) Was ist der Unterschied zwischen dem \emph{String} \texttt{\dq23\dq} und dem \emph{Integer} 23?
+	
+	\lines[2cm]
+	
+	\singletask{Verschiedene Umrechnungen}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Recherchieren Sie die Formel zur Umwandlung einer Temperatur von Fahrenheit in Celsius.
+		Setzen Sie die Umrechnung in einem Python-Programm um und lassen Sie sich den umgerechneten Wert ausgeben.
+		\item Legen Sie eine Variable an, die eine Anzahl an Sekunden enthält.
+		Berechnen Sie, wie viele Minuten und Stunden diese Anzahl entspricht, speichern Sie die Werte in neue Variablen und geben Sie sie aus.
+		\item Legen Sie die für ein Quadrat, ein Dreieck und einen Kreis benötigten Variablen an.
+		Berechnen Sie jeweils Flächeninhalt und Umfang und geben Sie die Werte aus.
+	\end{enumerate}
+\end{document}

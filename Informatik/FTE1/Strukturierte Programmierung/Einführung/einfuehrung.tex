@@ -1,0 +1,99 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Python: Einführung}
+	\class{FTE1}
+	\subject{Informatik}
+	\maketitle
+	
+	\partnertask{Was ist Python?}
+	
+	Finden Sie folgende Informationen heraus:
+	
+	a) Woher stammt der Name der Programmiersprache Python?
+	
+	\lines[3cm]
+	
+	b) In welchen Bereichen wird Python überall eingesetzt?
+	
+	\lines[3cm]
+	
+	c) Woran könnte diese weite Verbreitung liegen?
+	
+	\lines[3cm]
+	
+	
+	\warning{Installation der benötigten Software}{
+		Zum Programmieren von Python werden verschiedene Softwarekomponenten benötigt, welche auf den Schulrechnern bereits installiert sind.
+		Sollten Sie auf Ihrem eigenen Gerät arbeiten, müssen Sie diese erst noch installieren.
+		Falls Sie die Schulrechner verwenden, können Sie die beiden folgenden Aufgaben überspringen.
+	}
+	
+	\singletask{Installation von Python 3}
+	
+	Installieren Sie auf Ihrem Rechner Python (Version $\geq 3$).
+	Laden Sie dazu die aktuelle Version von der offiziellen Webseite\footnote{\url{https://www.python.org/downloads/}} herunter und installieren Sie diese.
+	
+	Um zu überprüfen, ob die Installation erfolgreich war, können Sie in der Eingabeaufforderung bzw. im Terminal den Befehl \texttt{python3 --version} aufrufen.
+	
+	
+	\singletask{Installation einer IDE}
+	
+	Theoretisch könnte man nun beginnen, mit einem Texteditor Python-Programme zu schreiben.
+	Eine IDE (Integrated Development Environment) ist ein Programm, was zusätzlich zum Editor weitere nützliche Funktionen bietet -- zum Beispiel kann das Programm direkt ausgeführt werden oder Fehler im Programmcode werden rot unterstrichen.
+	
+	Eine einfache IDE für die Python-Entwicklung ist Thonny.
+	Laden Sie sich das Programm von der Webseite\footnote{\url{https://thonny.org/}} herunter und installieren Sie es.
+	
+	
+	\singletask{Das erste Programm}
+	
+	Starten Sie Thonny und erstellen Sie ein neues Programm.
+	Speichern Sie die Datei unter dem Namen \texttt{helloWorld.py}.
+	
+	In die Textdatei können Sie nun Ihren Programmcode schreiben.
+	Starten Sie mit folgendem Programmcode:
+	
+	\begin{lstlisting}[language=python]
+print("Hello world!")
+	\end{lstlisting}
+	
+	a) Was passiert, wenn Sie den Code ausführen?
+	
+	\lines[1cm]
+	
+	b) Was passiert, wenn Sie den Text verändern? Können Sie die Klammern oder Anführungszeichen weglassen?
+	
+	\lines[1cm]
+	
+	c) Was verändert sich, wenn Sie an den Anfang der Zeile ein \texttt{\#} schreiben?
+	
+	\lines[2cm]
+	
+	d) Wie ist die Ausgabe, wenn Sie zwei Wörter in Anführungszeichen -- durch Komma getrennt -- zwischen die Klammern schreiben?
+	
+	\lines[2cm]
+	
+	e) Ändern Sie das Programm, so dass es Ihren Namen ausgibt und Sie kurz vorstellt.
+	
+	\hint{Kommentare in Python}{
+		Kommentare sind Zeilen im Code, die nicht ausgeführt werden -- sie werden beim Programmablauf einfach ignoriert.
+		Sie sind eine einfache und wichtige Möglichkeit, um bestimmte Codeteile zu erläutern.
+		
+		Einzeilige Kommentare können in Python mit einem \texttt{\#} am Anfang der Zeile gemacht werden.
+		Ist ein ausführlicher, mehrere Zeilen überspannender Kommentar nötig, kann auch mit \texttt{\dq\dq\dq} der Kommentar begonnen und ebenfalls mit \texttt{\dq\dq\dq} wieder beendet werden.
+	}
+	
+	\singletask{Python als Taschenrechner}
+	
+	Eine der Grundfunktionen jeder Programmiersprache sind arithmetische Operationen wie Addition, Multiplikation usw.
+	
+	a) Testen Sie die arithmetischen Operatoren \texttt{+, -, *, /} an zwei Zahlen.
+	
+	b) Können Sie herausfinden, was die Operatoren \texttt{//, **} und \texttt{\%} tun?
+	
+	\lines[3cm]
+\end{document}
