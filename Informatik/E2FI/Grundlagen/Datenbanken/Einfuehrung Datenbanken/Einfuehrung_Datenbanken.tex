@@ -1,0 +1,50 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Einführung Datenbanken}
+	\subject{SAE}
+	\class{E2FI}
+	\maketitle
+	
+	\partnertask{Warum Datenbanken?}
+	
+	Stellen Sie sich vor, Sie entwickeln ein System zum Verwalten von Produkten.
+	Es sollen verschiedene Produkte mit deren Artikelnummer, Preis, Lagerregal-Nummer, Gewicht und den Maßen (Länge und Breite) gespeichert werden.
+	
+	a) In welcher Form würden Sie diese Daten speichern?
+	Diskutieren Sie mögliche Vor- und Nachteile Ihrer gewählten Form.
+	
+	\boxarea[6cm]
+	
+	b) Zusätzlich zu den Produkten selbst sollen auch Kunden im System gespeichert werden (mit Vor- und Nachnamen, Straße, Hausnummer, Postleitzahl, Stadt und Land sowie der Bankverbindung, bestehend aus IBAN und BIC).
+	Können Sie diese Informationen in Ihrem Modell speichern, oder müssen Sie es verändern?
+	
+	\boxarea[6cm]
+	
+	c) Wie können Sie sicherstellen, dass Sie einen Kunden richtig identifizieren?
+	Es könnten ja beispielsweise auch mehrere Kunden \emph{Thomas Müller} heißen.
+	
+	\boxarea[3cm]
+	
+	d) Wie könnten Sie nun auch noch die einzelnen Bestellungen der Kunden verwalten?
+	Was für Informationen müssen Sie dafür speichern?
+	
+	\boxarea[3cm]
+	
+	\hint{Relationale Datenbanken}{
+		Relationale Datenbanken verwalten die in Ihnen gespeicherten Daten in Tabellen, welche untereinander in Beziehung stehen.
+		Eine solche Tabelle hat einen eindeutigen \textbf{Namen}, eine oder mehrere Spalten (\textbf{Attribute}) sowie eine beliebig große Anzahl an Zeilen (\textbf{Datensätzen}).
+		Jedes Attribut hat dabei einen bestimmten \textbf{Datentyp} bzw. Wertebereich.
+	}
+	
+	\task{Warum nicht einfach Excel verwenden?}
+	
+	Wenn es sich bei relationalen Datenbanken einfach um Tabellen handelt, könnte man doch einfach auch Excel-Tabellen verwenden, oder?
+	Diskutieren Sie: Was spricht dagegen?
+	
+	\boxarea[6cm]
+	
+\end{document}

@@ -1,0 +1,115 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Wiederholung \hspace{5cm} Grundlagen Python}
+	\subject{SAE}
+	\class{E2FI}
+	\maketitle
+	
+	Die folgenden Aufgaben haben mehrere Ziele:
+	
+	\begin{enumerate}
+		\item Sie sollen durch die Bearbeitung Ihr Wissen zum Thema Python wieder auffrischen.
+		\item Beim Lösen auftretende Schwierigkeiten sollen potenzielle Lücken identifizieren und Ihnen helfen, diese zeitnah zu schließen.
+		\item Das Ergebnis Ihrer Arbeit liefert mir als Lehrkraft Rückmeldung darüber, mit welchem Vorwissen ich bei Ihnen rechnen kann.
+	\end{enumerate}
+	
+	Das Arbeitsblatt ist so aufgebaut, dass die Aufgaben nacheinander schwieriger werden.
+	Manchmal behandeln einzelne Aufgaben auch nur einzelne Themen.
+	Falls Sie z. B. zu Stringoperationen nichts (mehr) wissen, können Sie diese Aufgabe einfach überspringen, mir dies aber bitte zurückmelden.
+	
+	\singletask{EVA-Prinzip und Variablen}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Schreiben Sie ein Programm, das Ihren Namen und Ihr Alter in Variablen speichert und beides ausgibt.
+		\item Schreiben Sie ein Programm, das zwei Werte von der Nutzereingabe einliest.
+		Anschließend sollen Summe, Differenz, Produkt und Quotient der beiden Zahlen berechnet und in jeweils neuen Variablen gespeichert werden.
+		Geben Sie zum Schluss die errechneten Werte schön formatiert aus.
+		\item Berechnen Sie den Flächeninhalt eines Rechtecks anhand von Eingaben für Länge und Breite.
+	\end{enumerate}
+	
+	\singletask{Verzweigungen}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Schreiben Sie ein Programm, das eine eingegebene Zahl überprüft: ist sie gerade oder ungerade?
+		\item Lassen Sie den Benutzer sein Alter eingeben und geben Sie je nach Alter eine Nachricht aus: ``Kind'', ``Jugendlicher'', ``Erwachsener''.
+		\item Lassen Sie den Benutzer eine Zahl eingeben und geben Sie aus, ob sie positiv, negativ oder null ist.
+	\end{enumerate}
+	
+	\pagebreak
+	
+	\singletask{Schleifen}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Geben Sie die Zahlen von 1 bis 50 aus.
+		\item Berechnen Sie die Summe aller Zahlen von 1 bis 100.
+		\item Lassen Sie den Benutzer eine Zahl eingeben und geben Sie die kleine Einmaleins-Tabelle für diese Zahl aus (z. B. $7 \cdot 1$ bis $7 \cdot 10$).
+		\item Lassen Sie den Benutzer wiederholt Zahlen eingeben, bis er \texttt{0} eingibt. Geben Sie dann die Summe aller eingegebenen Zahlen aus.
+	\end{enumerate}
+	
+	\singletask{Listen}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Legen Sie eine Liste mit 5 beliebigen Städten an und geben Sie sie aus.
+		\item Lassen Sie den Benutzer 5 Zahlen eingeben. Speichern Sie die Werte in einer Liste und berechnen Sie den Durchschnitt.
+		\item Suchen Sie das Maximum und Minimum in einer Liste ohne die eingebauten Funktionen \texttt{max()} und \texttt{min()}.
+		\item Vertauschen Sie die Reihenfolge einer Liste (z. B. mithilfe einer Schleife).
+	\end{enumerate}
+	
+	\singletask{Stringoperationen}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Lassen Sie den Benutzer einen Satz eingeben und geben Sie die Anzahl der Wörter aus.
+		\item Zählen Sie, wie oft ein bestimmter Buchstabe in einem String vorkommt.
+		\item Lassen Sie einen Satz in Kleinbuchstaben umwandeln und prüfen Sie, ob er das Wort ``python'' enthält.
+		\item Lassen Sie den Benutzer eine E-Mail-Adresse eingeben und trennen Sie sie in Benutzername und Domain auf.
+	\end{enumerate}
+	
+	\singletask{Funktionen}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Schreiben Sie eine Funktion \texttt{flaeche\_rechteck(l, b)}, die die Fläche eines Rechtecks berechnet und zurückgibt.
+		\item Schreiben Sie eine Funktion, die prüft, ob eine Zahl eine Primzahl ist.
+		\item Schreiben Sie eine Funktion, die eine Liste entgegennimmt und das größte Element zurückgibt.
+		\item Schreiben Sie eine Funktion, die einen Satz bekommt und die Wörter alphabetisch sortiert zurückgibt.
+		\item Schreiben Sie eine Funktion \texttt{woerter\_zaehlen(text)}, die ein Dictionary mit Worthäufigkeiten zurückgibt.
+	\end{enumerate}
+	
+	\singletask{Sets}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Legen Sie zwei Mengen mit Zahlen an und geben Sie die Schnittmenge, Vereinigung und Differenz aus.
+		\item Lassen Sie den Benutzer eine Liste mit Zahlen eingeben. Entfernen Sie alle Duplikate mithilfe eines Sets.
+		\item Zählen Sie, wie viele verschiedene Buchstaben in einem Satz vorkommen.
+	\end{enumerate}
+	
+	\singletask{Dictionaries}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Legen Sie ein Dictionary mit 5 Ländern und deren Hauptstädten an. Geben Sie es anschließend aus.
+		\item Lassen Sie den Benutzer ein Land eingeben und geben Sie die Hauptstadt aus (falls vorhanden).
+		\item Zählen Sie die Häufigkeit jedes Wortes in einem eingegebenen Satz.
+		\item Erstellen Sie ein Dictionary, das Noten (1--6) zu verbalen Bewertungen (``sehr gut'', ``gut'', ...) zuordnet.
+		Geben Sie für eine eingegebene Note die zugehörige verbale Bewertung aus.
+	\end{enumerate}
+	
+	\singletask{Kombination der Konzepte}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Schreiben Sie ein Programm, das den Benutzer nach beliebig vielen Namen fragt, bis dieser ``stop'' eingibt, und speicheren Sie die Namen in einer Liste.
+		Geben Sie anschließend die Namen alphabetisch sortiert aus.
+		\item Lassen Sie den Benutzer einen Satz eingeben und zählen Sie, wie oft jedes Wort vorkommt.
+		Geben Sie das Ergebnis als Dictionary aus.
+		\item Schreiben Sie ein Programm, das eine kleine Telefonliste mit einem Dictionary realisiert (Name $\mapsto$ Telefonnummer).
+		Der Benutzer soll neue Einträge hinzufügen und nach Nummern suchen können.
+		\item Erstellen Sie ein Vokabeltrainer-Programm.
+		Speichern Sie dazu Wörter in einem Dictionary (Deutsch $\mapsto$ Englisch).
+		Der Benutzer soll abgefragt werden, bis er eine bestimmte Anzahl richtig hat.
+		\item Implementieren Sie ein Programm, das eine zufällige Zahl zwischen 1 und 100 wählt.
+		Der Benutzer soll sie durch Eingaben erraten.
+		Das Programm gibt Hinweise (``zu groß'', ``zu klein'') und zählt die Versuche.
+	\end{enumerate}
+\end{document}

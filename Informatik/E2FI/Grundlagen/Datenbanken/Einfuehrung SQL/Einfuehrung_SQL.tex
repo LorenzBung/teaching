@@ -1,0 +1,100 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Einführung SQL}
+	\subject{SAE}
+	\class{E2FI}
+	\maketitle
+	
+	\hint{Structured Query Language}{
+		Bei \textbf{SQL} (Structured Query Language) handelt es sich um eine Datenbanksprache, die von mehr oder weniger allen gängigen Datenbanksystemen verstanden wird -- beispielsweise MySQL, PostgreSQL, MariaDB oder SQLite.
+		Auch wenn die grundlegenden Keywords überall gleich sind, gibt es teilweise verschiedene ``Dialekte''.
+	}
+	
+	Um eine Tabelle zu erstellen, verwendet man in SQL den Befehl \texttt{CREATE TABLE}.
+	Dieser folgt dem folgenden Schema:
+	
+	\begin{lstlisting}[language=sql]
+CREATE TABLE tabellenname(spalte1 DATENTYP, spalte2 DATENTYP, ...);
+	\end{lstlisting}
+	
+	Beispielsweise erstellt der folgende Befehl eine Mitarbeiter-Tabelle:
+	
+	\begin{lstlisting}[language=sql]
+CREATE TABLE Mitarbeiter(id INT, name VARCHAR(200), geburtsdatum DATE, gehalt FLOAT);
+	\end{lstlisting}
+	
+	\hint{Datentypen in SQL}{
+		Viele der Datentypen sind ähnlich zu den in Python verwendeten Typen.
+		In vielen Fällen unterscheidet sich jedoch das dazugehörige Keyword:
+		\begin{itemize}
+			\item \texttt{CHAR(size)}: eine Zeichenkette fester Länge (z.B. Sozialversicherungsnummer)
+			\item \texttt{VARCHAR(size)}: eine Zeichenkette variabler Länge (z.B. Name), jedoch maximal \texttt{size} Zeichen
+			\item \texttt{BOOL}: Boole'scher Wert
+			\item \texttt{INT}: Ganzzahlige Werte
+			\item \texttt{FLOAT} bzw. \texttt{DOUBLE}: Gleitkommazahlen
+			\item \texttt{DATE}: Ein Datum im Format \texttt{YYYY-MM-DD}
+		\end{itemize}
+		Eine vollständige Liste der Datentypen findet sich online\footnotemark.
+	}
+	\footnotetext{\url{https://www.w3schools.com/sql/sql_datatypes.asp}}
+
+	Versehentlich erstellte oder nicht mehr benötigte Tabellen können mit dem Befehl \texttt{DROP TABLE} gelöscht werden:
+	
+	\begin{lstlisting}[language=sql]
+DROP TABLE mitarbeiter;
+	\end{lstlisting}
+	
+	\pagebreak
+	\singletask{Tabellen erstellen}
+	
+	Auf dem Arbeitsblatt ``Einführung Datenbanken'' haben Sie sich bereits Gedanken gemacht, wie Sie Produkte und Kunden als Tabelle speichern könnten.
+	
+	a) Geben Sie jeweils den SQL-Befehl zur Erstellung der zugehörigen Tabellen an.
+	
+	\boxarea[5cm]
+	
+	\hint{Null-Werte verhindern}{
+		In der Informatik werden leere (z. B. nicht gesetzte) Werte auch als Null-Werte bezeichnet.
+		In SQL kann dies vermieden werden, indem man nach dem Datentyp das Keyword \texttt{NOT NULL} angibt.
+		So wird erzwungen, dass der Wert gesetzt werden muss.
+	}
+	
+	\hint{Primärschlüssel}{
+		Um sicherzustellen, dass jeder Datensatz in der Tabelle eindeutig identifizierbar ist (nicht wie beim Beispiel \emph{Thomas Müller}), sollte bei jeder Tabelle ein Attribut eindeutig pro Datensatz sein.
+		Dieses Attribut nennt man \textbf{Primärschlüssel}.
+		In SQL lässt sich das Attribut durch Einfügen des Keywords \texttt{PRIMARY KEY} nach dem Datentyp festlegen.
+	}
+	
+	b) Geben Sie für die Tabellen einen passenden Primärschlüssel an.
+	Verändern Sie die SQL-Befehle zur Erstellung der Tabellen um sinnvolle Primärschlüssel und \texttt{NOT NULL}-Einschränkungen.
+	
+	\boxarea
+	
+	\singletask{Datensätze einfügen}
+	
+	Nachdem wir eine Tabelle erstellt haben, können wir nun einzelne Datensätze einfügen.
+	Dies geschieht mit dem Keyword \texttt{INSERT} nach folgendem Schema:
+	\begin{lstlisting}[language=sql]
+INSERT INTO tabellenname(spalte1, spalte2, ...) VALUES (wert1, wert2, ...);
+	\end{lstlisting}
+	
+	Beispielsweise legen die folgenden Befehle eine Tabelle ``Mitarbeiter'' und einen Datensatz in dieser an:
+	\begin{lstlisting}[language=sql]
+INSERT INTO mitarbeiter(id, name, geburtsdatum, gehalt) VALUES (0001,   'Thomas Müller', '1980-03-25', 4250.00);
+	\end{lstlisting}
+	
+	a) Legen Sie für die beiden Tabellen aus Aufgabe 1 mehrere Datensätze an.
+	Geben Sie jeweils den zugehörigen SQL-Befehl an.
+	
+	\boxarea[7cm]
+	
+	b) Was passiert, wenn Sie einen Datensatz mit fehlerhaften Werten anlegen wollen?
+	Wie sieht es aus, wenn Sie den Primärschlüssel doppelt vergeben?
+	
+	\boxarea
+	
+\end{document}

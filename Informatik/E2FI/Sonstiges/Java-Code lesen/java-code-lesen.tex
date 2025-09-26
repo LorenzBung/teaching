@@ -1,0 +1,97 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Java-Code lesen}
+	\subject{SAE}
+	\class{E2FI}
+	\maketitle
+	
+	Bei uns an der Schule wird in SAE ausschließlich Python programmiert.
+	Im Hinblick auf die Teil-1-Prüfung (und auch allgemein!) kann es aber hilfreich sein, auch schon mal andere Programmiersprachen gesehen zu haben.
+	
+	\singletask{Summe der ersten $n$ natürlichen Zahlen}
+	
+	Schreiben Sie den folgenden Java-Code in Python:
+
+	\begin{lstlisting}[language=java]
+import java.util.Scanner;
+
+public class Summe {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Gib eine Zahl ein:");
+    int n = scanner.nextInt();
+    int summe = 0;
+
+    for (int i = 1; i <= n; i++) {
+      summe += i;
+    }
+
+    System.out.println("Die Summe der ersten " + n + " Zahlen ist: " + summe);
+  }
+}
+	\end{lstlisting}
+	
+	
+	\singletask{Primzahl-Überprüfung}
+	
+	Schreiben Sie den folgenden Java-Code in Python:
+	
+	\begin{lstlisting}[language=java]
+import java.util.Scanner;
+
+public class Primzahl {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Gib eine Zahl ein:");
+    int zahl = scanner.nextInt();
+
+    boolean istPrim = true;
+
+    for (int i = 2; i <= Math.sqrt(zahl); i++) {
+      if (zahl % i == 0) {
+        istPrim = false;
+        break;
+      }
+    }
+
+    if (istPrim && zahl > 1) {
+      System.out.println(zahl + " ist eine Primzahl.");
+    } else {
+      System.out.println(zahl + " ist keine Primzahl.");
+    }
+  }
+}
+	\end{lstlisting}
+	
+	
+	\singletask{Fibonacci-Zahlen berechnen}
+	
+	Schreiben Sie den folgenden Java-Code in Python:
+	
+	\begin{lstlisting}[language=java]
+import java.util.Scanner;
+
+public class Fibonacci {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Gib eine Zahl ein:");
+    int n = scanner.nextInt();
+
+    int a = 0, b = 1;
+
+    System.out.print("Fibonacci-Zahlen bis " + n + ": ");
+
+    for (int i = 0; i < n; i++) {
+      System.out.print(a + " ");
+      int temp = a;
+      a = b;
+      b = temp + b;
+    }
+  }
+}
+	\end{lstlisting}
+\end{document}
