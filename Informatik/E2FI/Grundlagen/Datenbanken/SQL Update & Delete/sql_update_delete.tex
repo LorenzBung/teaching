@@ -1,0 +1,74 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{SQL: Update \& Delete}
+	\subject{SAE}
+	\class{E2FI}
+	\maketitle
+	
+	\hint{Löschen von Werten aus einer Tabelle}{
+		Bestimmte Datensätze können mit SQL aus einer Tabelle gelöscht werden, indem man das Keyword \texttt{DELETE} verwendet.
+		In der Regel ist es sinnvoll, dies mit einem \texttt{WHERE}-Statement zu verbinden, da sonst alle Datensätze der Tabelle verloren gehen.
+	}
+	
+	Der folgende Befehl löscht alle Kunden, die 'Max Weber' heißen und die Telefonnummer '+49 1234 567890' haben.
+	
+	\begin{lstlisting}[language=sql]
+DELETE FROM Kunde WHERE Name = 'Max Weber' AND Telefonnummer = '+49 1234 567890';
+	\end{lstlisting}
+	
+	\hint{Verändern von Datensätzen in der Tabelle}{
+		Bereits existierende Datensätze können auch nachträglich noch verändert werden, indem die Keywords \texttt{UPDATE} und \texttt{SET} verwendet werden.
+		Auch hier ist es meist notwendig, ein \texttt{WHERE}-Statement zu verwenden, da sonst alle Datensätze aktualisiert werden.
+	}
+	
+	Der folgende Befehl setzt die Postleitzahl aller Kunden auf '79098', die in Freiburg wohnen und 'Maria Bauer' heißen.
+	\begin{lstlisting}[language=sql]
+UPDATE Kunde SET plz = '79098' WHERE Ort = 'Freiburg' AND Name = 'Maria Bauer';
+	\end{lstlisting}
+	
+	\pagebreak
+	
+	\singletask{Immobilienverwaltung}
+	
+	Eine Immobiliengesellschaft verwaltet Wohnungen und speichert dazu jeweils eine ID, Anzahl der Zimmer und Mietkosten ab und ob die Wohnung belegt ist.
+	In einer Immobilie können sich mehrere Wohnungen befinden.
+	Zu den Immobilien werden eine ID, die Straße, Hausnummer, Stadt und Postleitzahl abgespeichert.
+	
+	a) Erstellen Sie ein ER-Modell der Situation.
+	
+	\boxarea[7cm]
+	
+	b) Ändern Sie die Mietkosten der Wohnung mit der ID 101 auf 800.
+	
+	\lines[2cm]
+	
+	c) Setzen Sie die Mietkosten aller Wohnungen, die 2 Zimmer haben und aktuell unter 800 kosten auf 1000.
+	
+	\lines[2cm]
+	
+	\pagebreak
+	
+	d) Ändern Sie die Mietkosten aller Wohnungen, deren Anzahl Zimmer zwischen 2 und 4 liegt und die aktuell leer stehen, auf 950.
+	
+	\lines[2cm]
+	
+	e) Setzen Sie die Postleitzahl aller Immobilien auf 79098, die in Freiburg sind und in der Salzstraße, Bismarckallee oder Friedrichring liegen.
+	
+	\lines[2cm]
+	
+	f) Löschen Sie die Wohnung mit der ID 205.
+	
+	\lines [2cm]
+	
+	g) Löschen Sie alle Wohnungen, die leer stehen und zwischen 3 und 5 Zimmern haben.
+	
+	\lines[2cm]
+	
+	h) Löschen Sie alle Immobilien, die nicht in Stuttgart, Heidelberg, Tübingen oder Freiburg liegen und deren Postleitzahl mit 7 beginnt.
+	
+	\lines[2cm]
+\end{document}

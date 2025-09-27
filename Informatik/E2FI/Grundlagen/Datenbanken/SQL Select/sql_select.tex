@@ -1,0 +1,198 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{SQL: Select}
+	\subject{SAE}
+	\class{E2FI}
+	\maketitle
+	
+	\hint{Aufbau einer Datenabfrage in SQL}{
+		Eine der wichtigsten Funktionen von Datenbanken ist das Auslesen von Daten.
+		In SQL besteht der Befehl zur Abfrage von Datensätzen aus drei Bestandteilen:
+		\begin{itemize}
+			\item \texttt{SELECT}: zuerst werden die Tabellenspalten angegeben, die ausgelesen werden sollen. Ein \texttt{*} wählt dabei alle Spalten aus.
+			\item \texttt{FROM}: es muss ausgewählt werden, aus welcher Tabelle die Daten stammen.
+			\item \texttt{WHERE}: zuletzt können Einschränkungen gemacht werden, so dass nur bestimmte Datensätze ausgegeben werden.
+		\end{itemize}
+	}
+	
+	Eine typische Abfrage sähe beispielsweise folgendermaßen aus:
+	
+	\begin{lstlisting}[language=sql]
+SELECT Name FROM Kunde WHERE GebDatum < '1980-01-01';
+	\end{lstlisting}
+	
+	Der Befehl gibt die Namen aller Kunden aus, welche vor dem 01.01.1980 geboren sind.
+	
+	\warning{Vergleichs- und Logikoperatoren in SQL}{
+		In \texttt{WHERE}-Einschränkungen können die Vergleichsoperatoren \texttt{=}, \texttt{<}, \texttt{>}, \texttt{<=}, \texttt{>=} und \texttt{<>} verwendet werden.
+		Wesentliche Unterschiede im Vergleich zu typischen Programmiersprachen wie Python sind der Vergleich mit \texttt{=} (statt \texttt{==}) und der Vergleich auf Ungleichheit mit \texttt{<>} (statt \texttt{!=}).
+		
+		Zusätzlich können mehrere Bedingungen mit den Keywords \texttt{AND}, \texttt{OR} und \texttt{NOT} (sowie angemessener Klammerung) verknüpft werden.
+	}
+	
+	\hint{Komplexere Vergleiche}{
+		Die Vergleiche können noch komplexer gestaltet werden, indem man den \texttt{LIKE}-Operator verwendet.
+		Das Zeichen \texttt{\%} steht dabei für eine beliebige Zeichenkette, während das Zeichen \texttt{\_} einen einzelnen Charakter darstellt.
+		
+		Außerdem kann man mit \texttt{BETWEEN} überprüfen, ob ein Wert in einem bestimmten Bereich liegt.
+		Der Operator \texttt{IN} überprüft, ob der gesuchte Wert in einer Liste ist.
+		Die Liste wird mit kommagetrennten Werten in runden Klammern angegeben.
+	}
+	
+	Komplexere Vergleiche könnten beispielsweise so aussehen:
+	
+	\pagebreak
+	
+	\begin{lstlisting}[language=sql]
+SELECT GebDatum FROM Kunde WHERE Name LIKE 'Max%';
+SELECT * FROM Bestellung WHERE Preis BETWEEN 100 AND 1000;
+SELECT Adresse FROM Kunde WHERE Name IN ('Max', 'Mia', 'Moritz')
+	\end{lstlisting}
+	
+	Der erste Befehl gibt die Geburtstage aller Kunden aus, deren Name mit 'Max' beginnt.
+	Der zweite Befehl gibt alle Bestellungen aus, deren Preis zwischen 100 und 1000 liegt.
+	Der dritte Befehl gibt die Adressen aller Kunden aus, die 'Max', 'Mia' oder 'Moritz' heißen.
+	
+	\singletask{Universität}
+	
+	Eine Universität legt Informationen über ihre Studenten und Vorlesungen in folgender Datenbank ab:
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[node distance=3.5cm]
+			\node[entity] (student) {Student};
+			\node[attribute] (studentID) [left of=student] {\underline{ID}} edge (student);
+			\node[attribute] (name) [below left of=student] {Name} edge (student);
+			\node[attribute] (fachrichtung) [above left of=student] {Fachrichtung} edge (student);
+			\node[attribute] (geburtsdatum) [above right of=student] {Geburtsdatum} edge (student);
+			\node[relationship] (besucht) [right of=student] {besucht} edge node[above]{$1$} (student);
+			\node[entity] (vorlesung) [right of=besucht] {Vorlesung} edge node[above]{$n$} (besucht);
+			\node[attribute] (vorlesungsID) [right of=vorlesung] {\underline{ID}} edge (vorlesung);
+			\node[attribute] (titel) [below right of=vorlesung] {Titel} edge (vorlesung);
+			\node[attribute] (dozent) [above right of=vorlesung] {Dozent} edge (vorlesung);
+		\end{tikzpicture}
+	\end{figure}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Finden Sie alle Studenten mit Fachrichtung 'Informatik'.
+		
+		\lines[2cm]
+		\item Zeigen Sie Namen und Geburtsdatum aller Studenten, die nach dem 01.01.2000 geboren wurden.
+		
+		\lines[2cm]
+		\item Geben Sie alle Vorlesungen aus, die von 'Prof. Schmidt' gehalten werden.
+		
+		\lines[2cm]
+	\end{enumerate}
+	
+	\pagebreak
+	
+	\singletask{Fußballverein}
+	
+	Ein Fußballverein speichert Infomationen über Spieler und Mannschaften.
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[node distance=3.5cm]
+			\node[entity] (spieler) {Spieler};
+			\node[attribute] (spielerID) [left of=spieler] {\underline{ID}} edge (spieler);
+			\node[attribute] (name) [below left of=spieler] {Name} edge (spieler);
+			\node[attribute] (position) [above left of=spieler] {Position} edge (spieler);
+			\node[attribute] (geburtsdatum) [above right of=spieler] {Geburtsdatum} edge (spieler);
+			\node[relationship] (spieltin) [right of=spieler] {spielt in} edge node[above]{$n$} (spieler);
+			\node[entity] (mannschaft) [right of=spieltin] {Mannschaft} edge node[above]{$1$} (spieltin);
+			\node[attribute] (mannschaftsID) [right of=mannschaft] {\underline{ID}} edge (mannschaft);
+			\node[attribute] (name) [below right of=mannschaft] {Name} edge (mannschaft);
+			\node[attribute] (liga) [above right of=mannschaft] {Liga} edge (mannschaft);
+		\end{tikzpicture}
+	\end{figure}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Finden Sie alle Spieler mit der Position 'Stürmer', 'Torwart' oder 'Verteidiger'.
+		
+		\lines[2cm]
+		\item Geben Sie die Namen aller Mannschaften aus, die in der 'Bundesliga' oder in der '2. Bundesliga' spielen.
+		
+		\lines[2cm]
+		\item Zeigen die Namen aller Spieler an, die nach 2000 geboren wurden und die Position 'Verteidiger' oder 'Torwart' spielen.
+		
+		\lines[2cm]
+	\end{enumerate}
+	
+	\pagebreak
+	
+	\singletask{Krankenhaus}
+	
+	Ein Krankenhaus hat eine Datenbank mit Informationen über Ärzte und Patienten.
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[node distance=3.5cm]
+			\node[entity] (arzt) {Arzt};
+			\node[attribute] (arztID) [left of=arzt] {\underline{ID}} edge (arzt);
+			\node[attribute] (name) [below left of=arzt] {Name} edge (arzt);
+			\node[attribute] (abteilung) [above left of=arzt] {Abteilung} edge (arzt);
+			\node[relationship] (behandelt) [right of=arzt] {behandelt} edge node[above]{$1$} (arzt);
+			\node[entity] (patient) [right of=behandelt] {Patient} edge node[above]{$n$} (behandelt);
+			\node[attribute] (patientenID) [right of=patient] {\underline{ID}} edge (patient);
+			\node[attribute] (name) [below right of=patient] {Name} edge (patient);
+			\node[attribute] (krankheit) [above right of=patient] {Krankheit} edge (patient);
+		\end{tikzpicture}
+	\end{figure}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Zeigen Sie alle Patienten mit der Krankheit 'Diabetes' an.
+		
+		\lines[2cm]
+		\item Geben Sie die Abteilungen aller Ärzte aus, deren Name mit 'Dr. M' beginnt.
+		
+		\lines[2cm]
+		\item Zeigen Sie die Namen und Krankheiten aller Patienten, deren Krankheit mit 'Gr' beginnt und deren Name auf 'er' endet.
+		
+		\lines[2cm]
+		\item Geben Sie alle Ärzte aus, deren Name nicht 'Dr. Schmidt', 'Dr. Müller' oder 'Dr. Vogt' ist und die in einer Abteilung arbeiten, deren Name mit 'K' beginnt.
+		
+		\lines[2cm]
+	\end{enumerate}
+	
+	\pagebreak
+	
+	\singletask{Online-Shop}
+	
+	Ein Online-Shop verwaltet Kunden, welche Produkte kaufen.
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[node distance=3.5cm]
+			\node[entity] (kunde) {Kunde};
+			\node[attribute] (kundenID) [left of=kunde] {\underline{ID}} edge (kunde);
+			\node[attribute] (name) [below left of=kunde] {Name} edge (kunde);
+			\node[attribute] (ort) [above left of=kunde] {Ort} edge (kunde);
+			\node[relationship] (bestellt) [right of=kunde] {bestellt} edge node[above]{$n$} (kunde);
+			\node[entity] (produkt) [right of=bestellt] {Produkt} edge node[above]{$n$} (bestellt);
+			\node[attribute] (produktID) [right of=produkt] {\underline{ID}} edge (produkt);
+			\node[attribute] (bezeichnung) [below right of=produkt] {Bezeichnung} edge (produkt);
+			\node[attribute] (preis) [above right of=produkt] {Preis} edge (produkt);
+			\node[attribute] (kategorie) [above left of=produkt] {Kategorie} edge (produkt);
+		\end{tikzpicture}
+	\end{figure}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Finden Sie alle Produkte, deren Bezeichnung das Wort 'Set' enthält.
+		
+		\lines[2cm]
+		\item Zeigen Sie alle Kunden, deren Name mit 'A' beginnt oder deren Wohnort mit 'B' anfängt.
+		
+		\lines[2cm]
+		\item Geben Sie Bezeichnung und Kategorie aller Produkte aus, deren Bezeichnung mit 'Pro' beginnt und deren Preis zwischen 200 und 800 liegt.
+		
+		\lines[2cm]
+		\item Zeigen Sie die Bezeichnung und den Preis aller Produkte an, deren Preis zwischen 100 und 500 liegt, jedoch nicht über 1000 beträgt und die nicht in der Kategorie 'Elektronik', 'Haushalt' oder 'Tierbedarf' zu finden sind.
+		
+		\lines[2cm]
+	\end{enumerate}
+\end{document}

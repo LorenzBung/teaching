@@ -1,0 +1,126 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Datenbanken: Entity-Relationship-Model}
+	\subject{SAE}
+	\class{E2FI}
+	\maketitle
+	
+	Bevor man anfängt, eine Datenbank mit Tabellen zu erstellen, muss man sich natürlich im klaren darüber sein, welche Struktur die Daten haben, die darin gespeichert werden sollen.
+	Gerade bei großen Datenbanken ist es daher wichtig, sich vorher einen Plan zu machen und genau zu analysieren, wie die Datenbank aufgebaut sein muss.
+	
+	\hint{Entity-Relationship-Model (ERM)}{
+		Das \emph{Entity-Relationship-Model (ERM)} dient dazu, die Struktur der Daten abzubilden, die sich in einer Datenbank befinden.
+		Es setzt sich (wie der Name bereits andeutet) zusammen aus drei Komponenten:
+		\begin{itemize}
+			\item \emph{Entities}: Dies sind die Objekte, die modelliert werden sollen (beispielsweise \texttt{Kunde}).
+			Entitäten werden als Rechteck dargestellt.
+			\item \emph{Attribute}: Die Eigenschaften der Entitäten -- beim Beispiel \texttt{Kunde} wären das z.B. die Eigenschaften \texttt{Name} und \texttt{Geburtsdatum}, aber auch beispielsweise seine eindeutige \texttt{KundenID}.
+			Attribute werden als Kreis bzw. Oval dargestellt und sind mit ihrer zugehörigen Entität verbunden.
+			Primärschlüssel werden im ER-Modell unterstrichen.
+			\item \emph{Relationships}: Die Beziehungen, in denen verschiedene Objekte miteinander stehen -- z.B. die Beziehung \texttt{gibt auf} zwischen den Entitäten \texttt{Kunde} und \texttt{Bestellung}.
+			Relationships werden als Rauten dargestellt, die zwei Entitäten miteinander verbinden.
+			An die Verbindungen schreibt man dazu, ob es sich um eine 1:1, 1:n oder n:m-Beziehung handelt.
+		\end{itemize}
+	}
+	
+	Ein einfaches Entity-Relationship-Model, in dem sowohl Entities, Attribute und Relationships vorkommen, sähe beispielsweise folgendermaßen aus:
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[node distance=3.5cm]
+			\node[entity] (kunde) {Kunde};
+			\node[attribute] (kundenid) [left of=kunde] {\underline{KundenID}} edge (kunde);
+			\node[attribute] (name) [below left of=kunde] {Name} edge (kunde);
+			\node[attribute] (gebdatum) [above left of=kunde] {GebDatum} edge (kunde);
+			\node[relationship] (gibtauf) [right of=kunde] {gibt auf} edge node[above]{$1$} (kunde);
+			\node[entity] (bestellung) [right of=gibtauf] {Bestellung} edge node[above]{$n$} (gibtauf);
+			\node[attribute] (bestellungsid) [above right of=bestellung] {\underline{BestellungsID}} edge (bestellung);
+			\node[attribute] (preis) [below right of=bestellung] {Preis} edge (bestellung);
+		\end{tikzpicture}
+	\end{figure}
+	
+	\pagebreak
+	
+	\singletask{Bibliothek}
+	
+	Eine Bibliothek möchte ihre Bestände erfassen.
+	\begin{itemize}
+		\item Es gibt Bibliotheken mit Name und Adresse.
+		\item Es gibt Bücher mit ISBN, Titel und Autor.
+	\end{itemize}
+	Modellieren Sie, welche Bibliotheken welche Bücher besitzen.
+	
+	\boxarea[6cm]
+	
+	\singletask{Klassenbuch}
+	
+	Eine Schule möchte ihre Schüler und Klassen erfassen.
+	\begin{itemize}
+		\item Es gibt Schüler mit Name, Geburtsdatum und Adresse.
+		\item Es gibt Klassen mit Klassenbezeichnung (z.B. ``7a'') und einem Klassenraum.
+	\end{itemize}
+	Modellieren Sie, welche Schüler in welchen Klassen sind.
+	
+	\boxarea[6cm]
+	
+	\pagebreak
+	
+	\singletask{Fluggesellschaft}
+	
+	Eine Fluggesellschaft möchte ihre Flugdaten verwalten.
+	\begin{itemize}
+		\item Es gibt Flugzeuge mit Kennung, Modell und Kapazität.
+		\item Es gibt Flüge mit Flugnummer, Datum und Uhrzeit.
+		\item Es gibt Passagiere mit Name und Geburtsdatum.
+		\item Es gibt Flughäfen mit Code, Name und Stadt.
+	\end{itemize}
+	Modellieren Sie...
+	\begin{itemize}
+		\item ...mit welchem Flugzeug ein Flug durchgeführt wird
+		\item ...welche Passagiere an einem Flug teilnehmen
+		\item ...an welchen Flughäfen ein Flug startet und landet
+	\end{itemize}
+	
+	\boxarea[10cm]
+	
+	\pagebreak
+	
+	\singletask{Musikstreaming}
+	
+	Eine Musikplattform möchte ihre Daten strukturieren.
+	\begin{itemize}
+		\item Es gibt Nutzer mit Name und Beitrittsdatum.
+		\item Es gibt Songs mit Titel und Dauer.
+		\item Es gibt Alben mit Titel und Erscheinungsjahr.
+		\item Es gibt Künstler mit Namen.
+		\item Es gibt Playlists mit Titel und Erstellungsdatum.
+	\end{itemize}
+	Modellieren Sie...
+	\begin{itemize}
+		\item ...welche Songs zu welchem Album gehören
+		\item ...welche Alben von welchen Künstlern erstellt wurden
+		\item ...welche Playlists von welchen Nutzern erstellt wurden
+		\item ...welche Songs in Playlists enthalten sind
+		\item ...welche Songs von welchen Nutzern angehört wurden
+	\end{itemize}
+	
+	\boxarea[10cm]
+	
+	\pagebreak
+	
+	\bonustask{Umsetzung}
+	
+	Setzen Sie die modellierten Datenbanken mit SQL um:
+	\begin{enumerate}[label=\alph*)]
+		\item überlegen Sie sich geeignete Datentypen für die Attribute
+		\item erstellen Sie die Tabellen mit SQL
+		\item fügen Sie einige Beispieleinträge in die Tabellen ein
+	\end{enumerate}
+	
+	\boxarea[18cm]
+	
+\end{document}
