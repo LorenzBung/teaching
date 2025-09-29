@@ -1,0 +1,78 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{EVA-Prinzip}
+	\subject{Informatik}
+	\class{FTE1}
+	\maketitle
+	
+	\hint{Nutzereingaben in Python}{
+		In Python kann der Nutzer des Programms mit dem Befehl \texttt{input()} um eine Eingabe gebeten werden.
+		In den Klammern kann man zusätzlich noch als String einen Text übergeben, der dem Nutzer angezeigt wird.
+		Anschließend kann die Eingabe in einer Variablen gespeichert werden.
+		
+		\emph{Achtung}: Die Eingabe des Nutzers wird immer als String gespeichert, auch wenn beispielsweise eine Kommazahl eingegeben wurde.
+		Gegebenenfalls muss der Datentyp erst noch konvertiert werden.
+	}
+	
+	In der Praxis sähe eine einfache Nutzereingabe so aus:
+	\begin{lstlisting}[language=python]
+name = input("Wie heißt du?")
+print("Hallo " + name + "!")
+	\end{lstlisting}
+	
+	\hint{EVA-Prinzip}{
+		Eine typische Struktur eines Programms beinhaltet die folgenden Komponenten:
+		\begin{enumerate}
+			\item \emph{Eingabe}: Das Programm liest z.B. eine Datei ein oder Werte, die der Nutzer eingibt
+			\item \emph{Verarbeitung}: Auf Basis der eingelesenen Daten passieren Dinge, beispielsweise werden die Daten modifiziert
+			\item \emph{Ausgabe}: Zum Schluss wird etwas ausgegeben, z.B. eine bestimmte Meldung oder die veränderten Daten.
+		\end{enumerate}
+		Dieses Prinzip wird (nach den Anfangsbuchstaben der einzelnen Schritte) auch \textbf{EVA-Prinzip} genannt.
+	}
+	
+	\singletask{Echo-Generator}
+	
+	Schreiben Sie ein Programm, das ein Wort und eine Zahl vom Nutzer abfragt.
+	Geben Sie das Wort anschließend so häufig aus, wie der Nutzer eingegeben hat.
+	Beispiel:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l l l|}
+			\hline
+			\textbf{Eingabe Wort} & \textbf{Eingabe Zahl} & \textbf{Ausgabe}\\
+			\hline
+			Hallo & 5 & HalloHalloHalloHalloHallo\\
+			Echo & 7 & EchoEchoEchoEchoEchoEchoEcho\\
+			Hallo123 & 2 & Hallo123Hallo123\\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\singletask{BMI-Rechner}
+	
+	Schreiben Sie ein Programm, das die Größe und das Gewicht des Benutzers abfragt, den Body-Mass-Index (BMI) berechnet und den errechneten Wert ausgibt.
+	
+	\emph{Hinweis}: Die Formel zur Berechnung des BMI lautet $\mathrm{BMI} = \frac{\text{Gewicht in kg}}{\left(\text{Größe in m}\right)^2}$.
+	
+	\singletask{Promille-Rechner}
+	
+	Schreiben Sie ein Programm, das folgende Werte vom Nutzer einliest:
+	\begin{itemize}
+		\item das Gewicht des Nutzers (in kg)
+		\item die Menge des getrunkenen Getränks (in Liter)
+		\item der Alkoholgehalt des Getränks (in Prozent)
+	\end{itemize}
+	Berechnen Sie anschließend die Blutalkoholkonzentration des Nutzers\footnote{Das lässt sich z.B. mit der \href{https://de.wikipedia.org/wiki/Blutalkoholkonzentration\#Widmark-Formel}{Widmark-Formel} abschätzen}.
+	Gehen Sie dazu wie folgt vor:
+	
+	\begin{enumerate}
+		\item Berechnen Sie, wie viel Alkohol getrunken wurde: $$\text{Alkohol-Masse in g} = 10 \cdot \text{Getränkemenge in Liter} \cdot \text{Alkoholgehalt in Prozent} \cdot 0,8$$
+		\item Berechnen Sie anschließend den Blutalkoholgehalt: $$\text{Blutalkoholkonzentration in Promille} = \frac{\text{Alkohol-Masse in g}}{\text{Masse der Person in kg} \cdot 0,7}$$
+	\end{enumerate}
+	
+	Geben Sie den berechneten Wert anschließend aus.
+\end{document}
