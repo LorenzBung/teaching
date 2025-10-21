@@ -1,0 +1,83 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Python: Verzweigungen}
+	\subject{Informatik}
+	\class{FTE1}
+	\maketitle
+
+	Alle Programme, die wir bisher gesehen oder selbst geschrieben haben, waren relativ simpel gestrickt:
+	Wir haben mithilfe von Variablen irgendwelche Formeln zur Berechnung neuer Werte angewendet.
+	In der Regel sind Programme aber deutlich komplexer und müssen auf die Daten reagieren.
+	
+	\hint{Verzweigungen in Python}{
+		Der Ablauf eines Programms kann in Python mit den Keywords \texttt{if}, \texttt{elif} und \texttt{else} beeinflusst werden.
+		Abhängig von einer \emph{Bedingung} (englisch: condition) werden so bestimmte Teile des Codes ausgeführt oder auch nicht.
+		\begin{itemize}
+			\item Der Code innerhalb des \texttt{if}-Blocks wird nur ausgeführt, wenn die zugehörige Bedingung zutrifft.
+			\item Der Code im \texttt{elif}-Block wird ausgeführt, wenn die Bedingung beim \texttt{if} nicht zutrifft, aber die Bedingung beim \texttt{elif} schon.
+			\item Der Code im \texttt{else}-Block wird immer dann ausgeführt, wenn keine der vorherigen Bedingungen zugetroffen ist.
+			Daher muss hier auch keine zusätzliche Bedingung angegeben werden.
+		\end{itemize}
+		Nach dem jeweiligen Keyword folgt die Bedingung (außer beim \texttt{else}) und anschließend ein Doppelpunkt.
+		Innerhalb eines \texttt{if}-, \texttt{elif}- oder \texttt{else}-Blocks muss der Code eingerückt werden.
+		Sowohl der \texttt{elif}-Block als auch der \texttt{else}-Block sind optional und können komplett weggelassen werden, wenn sie nicht benötigt werden.
+	}
+	
+	Umgesetzt sähe das ganze beispielsweise folgendermaßen aus:
+	\begin{lstlisting}[language=python]
+alter = 0.5
+if (alter > 18):
+  # Wird ausgeführt, wenn alter > 18
+  print("Nutzer ist volljährig!")
+elif (alter < 1):
+  # Wird ausgeführt, wenn alter <= 18 und alter < 1
+  print("Nutzer ist ein Baby!")
+else:
+  # Wird ausgeführt, wenn alter <= 18 und alter >= 1
+  print("Nutzer ist minderjährig!")
+	\end{lstlisting}
+	Dieser Code gibt beispielsweise ``Nutzer ist ein Baby!'' aus, denn die Bedingung in Zeile 2 trifft nicht zu, die Bedingung in Zeile 5 allerdings schon.
+	
+	\pagebreak
+	\singletask{Teilbarkeit durch 5}
+	
+	Schreiben Sie ein Programm, das vom Nutzer eine Zahl einliest.
+	Überprüfen Sie, ob es sich um eine durch 5 teilbare Zahl handelt und geben Sie abhängig davon einen entsprechenden Text aus.
+	
+	\hint{Logische Operatoren}{
+		Wenn man das Ergebnis einer solchen Bedingung mal testweise in einer Variablen speichert, sieht man, dass es sich dabei um einen Boole'schen Wert handelt.
+		\texttt{bedingung1 = 17 < 25} wäre beispielsweise \texttt{True}, während \texttt{bedingung2 = 25 < 17} den Wert \texttt{False} hätte.
+		
+		Man kann Bedingungen auch noch komplizierter gestalten, indem man sie mit Klammern und den Keywords \texttt{and}, \texttt{or} und \texttt{not} verbindet.
+		Beispielsweise wäre \texttt{bedingung3 = (17 < 25) and (25 < 50)} zutreffend, da sowohl die erste als auch die zweite Klammer beide \texttt{True} sind.
+	}
+	
+	So sähe beispielsweise eine Verzweigung mit etwas komplizierteren Bedingungen aus:
+	
+	\begin{lstlisting}[language=python]
+alter = 13
+groesse = 155
+if (alter >= 14) and (groesse >= 150):
+	print("Du darfst Achterbahn fahren")
+elif not (alter >= 14) and (groesse >= 150):
+	print("Du bist zwar groß genug, aber leider zu jung")
+elif (alter >= 14) and not (groesse >= 150):
+	print("Du bist zwar alt genug, aber leider zu klein")
+else:
+	print("Du bist leider zu jung und zu klein")
+	\end{lstlisting}
+	Die obige Person ist zwar groß genug, aber leider zu jung zum Achterbahn fahren.
+	
+	\singletask{Schaltjahrrechner}
+	
+	Schreiben Sie ein Programm, das prüft, ob ein vom Nutzer eingegebenes Jahr ein Schaltjahr ist:
+	\begin{itemize}
+		\item Ein Jahr ist Schaltjahr, wenn es durch 4 teilbar ist,
+		\item aber nicht durch 100,
+		\item außer es ist auch durch 400 teilbar.
+	\end{itemize}
+\end{document}
