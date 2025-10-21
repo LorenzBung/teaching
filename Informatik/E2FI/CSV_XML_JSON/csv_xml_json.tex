@@ -1,0 +1,173 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{CSV / XML / JSON}
+	\subject{SAE}
+	\class{E2FI}
+	\maketitle
+	
+	In vielen Fällen ist es hilfreich, Daten in eine Datei zu exportieren.
+	Dies kann beispielsweise notwendig sein, um den Status des Programms zu speichern (z.B. den Spielstand in einem Computerspiel) oder um Daten zwischen verschiedenen Anwendungen auszutauschen.
+	
+	Drei häufige Dateiformate, die dabei verwendet werden, sind \textbf{CSV} (Comma-Separated Values), \textbf{XML} (Extensible Markup Language) und \textbf{JSON} (JavaScript Object Notation).
+	
+	\singletask{CSV (Comma-Separated Values)}
+	
+	Das CSV-Format ist ein relativ simples Format zur Speicherung von Informationen, die in tabellarischer Form vorliegen.
+	Jede Tabellenzeile wird durch eine Zeile in der Datei repräsentiert, während die einzelnen Spalten innerhalb der Zeile durch Kommata getrennt werden.
+	
+	\warning{Trennzeichen bei CSV}{
+		Es ist auch möglich, ein anderes Trennzeichen als das Komma bei CSV zu wählen -- beispielsweise ein Semikolon oder einen Backslash.
+		Der Name CSV kann daher auch für Character-Separated Values stehen.
+	}
+	
+	Ein typisches Beispiel für eine CSV-Datei sähe folgendermaßen aus:
+	
+	\begin{lstlisting}
+bestell_id,kundenname,email,artikelname,preis,menge,bestelldatum
+1001,Anna Meier,anna.meier@example.com,Laptop,899.99,1,2025-03-12
+1001,Anna Meier,anna.meier@example.com,Maus,19.99,2,2025-03-12
+1002,Paul König,paul.koenig@example.com,Tastatur,49.99,1,2025-03-13
+1003,Anna Meier,anna.meier@example.com,Monitor,249.99,1,2025-03-14
+	\end{lstlisting}
+	
+	a) Diskutieren Sie mögliche Vor- und Nachteile des CSV-Formats.
+	
+	\lines[5cm]
+	
+	b) Erstellen Sie ein ER-Modell der Situation.
+	
+	\boxarea[7cm]
+	
+	\bonustask*{Bonusaufgabe: CSV -- Umsetzung mit SQL}
+	
+	a) Geben Sie die SQL-Befehle zum Erstellen der Datenbanktabellen an.
+	
+	\lines[4cm]
+	
+	b) Geben Sie die SQL-Befehle an, um die in der CSV-Datei vorhandenen Datensätze in die Datenbank einzutragen.
+	
+	\lines[4cm]
+	
+	\pagebreak
+	
+	\singletask{XML (Extensible Markup Language)}
+	
+	Beim XML-Format werden die Daten zwischen einen öffnenden und schließenden Tag geschrieben.
+	Die Tags werden mit spitzen Klammern ausgezeichnet; geschlossen wird ein Tag durch einen Schrägstrich innerhalb des Tags.
+	Informationen können durch Schachtelung von Tags hierarchisch aufgebaut werden.
+	
+	Ein Beispiel für eine XML-Datei sieht so aus:
+	
+	\begin{lstlisting}[language=XML]
+<buchladen>
+  <buch>
+  	<isbn>978-3-86680-192-9</isbn>
+    <titel>Die Physiker</titel>
+    <autoren>
+      <autor>Friedrich Dürrenmatt</autor>
+    </autoren>
+    <preis>9.90</preis>
+    <kategorie>Drama</kategorie>
+  </buch>
+  <buch>
+  	<isbn>978-3-257-23011-9</isbn>
+    <titel>Der Besuch der alten Dame</titel>
+    <autoren>
+      <autor>Friedrich Dürrenmatt</autor>
+   	</autoren>
+    <preis>10.90</preis>
+    <kategorie>Drama</kategorie>
+  </buch>
+  <buch>
+    <isbn>978-0-13-604259-4</isbn>
+    <titel>Künstliche Intelligenz: Ein Moderner Ansatz</titel>
+    <autoren>
+      <autor>Peter Norvig</autor>
+      <autor>Stuart Russell</autor>
+    </autoren>
+    <preis>45.50</preis>
+    <kategorie>Lehrbuch</kategorie>
+  </buch>
+</buchladen>
+	\end{lstlisting}
+	
+	\pagebreak
+	
+	a) Diskutieren Sie mögliche Vor- und Nachteile des CSV-Formats.
+	
+	\lines[5cm]
+	
+	b) Erstellen Sie ein ER-Modell der Situation.
+	
+	\boxarea[7cm]
+	
+	\bonustask*{Bonusaufgabe: XML -- Umsetzung mit SQL}
+	
+	a) Geben Sie die SQL-Befehle zum Erstellen der Datenbanktabellen an.
+	
+	\lines[5cm]
+	
+	b) Geben Sie die SQL-Befehle an, um die in der XML-Datei vorhandenen Datensätze in die Datenbank einzutragen.
+	
+	\lines[4cm]
+	
+	\singletask{JSON (JavaScript Object Notation)}
+	
+	Auch bei JSON handelt es sich um ein Dateiformat, das hierarchisch strukturiert werden kann.
+	Die einzelnen Datensätze können als Schlüssel-Wert-Paar gespeichert werden -- analog zu den aus Python bekannten Dictionaries.
+	Listen können durch kommagetrennte Angabe der Werte in eckigen Klammern ebenfalls ähnlich wie in Python genutzt werden.
+	
+	Eine typische JSON-Datei sieht folgendermaßen aus:
+	
+	\begin{lstlisting}[language=json]
+{
+  "lieferanten": [
+    {"l_id": 1, "name": "PharmaPlus", "land": "Deutschland"},
+    {"l_id": 2, "name": "Medicare GmbH", "land": "Österreich"}
+  ], "medikamente": [
+    {"m_id": 1, "name": "Ibuprofen 400mg", "preis": 4.50, "l_id": 1},
+    {"m_id": 2, "name": "Paracetamol 500mg", "preis": 3.20, "l_id": 2}
+  ], "bestellungen": [
+    {"b_id": 1, "m_id": 1, "menge": 50, "datum": "2025-10-01"},
+    {"b_id": 2, "m_id": 2, "menge": 30, "datum": "2025-10-03"}
+  ]
+}
+	\end{lstlisting}
+	
+	a) Diskutieren Sie mögliche Vor- und Nachteile des JSON-Formats.
+	
+	\lines[4cm]
+	
+	b) Erstellen Sie ein ER-Modell der Situation.
+	
+	\boxarea[7cm]
+	
+	\bonustask*{Bonusaufgabe: JSON -- Umsetzung mit SQL}
+	
+	a) Geben Sie die SQL-Befehle zum Erstellen der Datenbanktabellen an.
+	
+	\lines[5cm]
+	
+	b) Geben Sie die SQL-Befehle an, um die in der JSON-Datei vorhandenen Datensätze in die Datenbank einzutragen.
+	
+	\lines[5cm]
+	
+	\bonustask{Konvertierung zwischen den Datentypen}
+	
+	a) Übersetzen Sie die CSV-Datei aus Aufgabe 1 zusätzlich ins XML- und JSON-Format.
+	
+	\boxarea[5.5cm]
+	
+	b) Übersetzen Sie die XML-Datei aus Aufgabe 2 zusätzlich ins CSV- und JSON-Format.
+	
+	\boxarea[5.5cm]
+	
+	c) Übersetzen Sie die JSON-Datei aus Aufgabe 3 zusätzlich ins CSV- und XML-Format.
+	
+	\boxarea[5.5cm]
+	
+\end{document}

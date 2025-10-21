@@ -1,0 +1,96 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Relationenmodell (Lösungsvorschlag)}
+	\subject{SAE}
+	\class{E2FI2}
+	\date{16.10.2025}
+	\maketitle
+	
+	\partnertask[(\timeLimit{15 min.})]{Vom ER-Modell zur Tabelle}
+	
+	Das folgende ER-Modell soll in Tabellenform umgesetzt werden.
+	Suchen Sie gemeinsam nach einer Möglichkeit, um die verschiedenen Relationen tabellarisch darstellen zu können.
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[node distance=3cm]
+			\node[entity] (autor) {Autor};
+			\node[attribute] (autorid) [left of=autor] {\underline{AutorID}} edge (autor);
+			\node[attribute] (autorname) [above right of=autor] {Name} edge (autor);
+			\node[attribute] (geburtsdatum) [above left of=autor] {Geburtsdatum} edge (autor);
+			\node[relationship] (schreibt) [right of=autor] {schreibt} edge node[above]{$n$} (autor);
+			\node[entity] (publikation) [right of=schreibt] {Publikation} edge node[above]{$m$} (schreibt);
+			\node[attribute] (publikationsid) [above right of=publikation] {\underline{PublikationsID}} edge (publikation);
+			\node[attribute] (publikationstitel) [right of=publikation] {Titel} edge (publikation);
+			\node[relationship] (veröffentlicht) [below of=publikation, align=center] {veröffentlicht\\ in} edge node[left]{$n$} (publikation);
+			\node[entity] (journal) [below of=veröffentlicht] {Journal} edge node[left]{$1$} (veröffentlicht);
+			\node[attribute] (journalid) [right of=journal] {\underline{JournalID}} edge (journal);
+			\node[attribute] (journaltitel) [below right of=journal] {Titel} edge (journal);
+			\node[relationship] (hat) [below of=autor] {hat} edge node[right]{$1$} (autor);
+			\node[entity] (login) [below of=hat] {Login} edge node[right]{$1$} (hat);
+			\node[attribute] (kontonummer) [below left of=login] {\underline{Kontonummer}} edge (login);
+			\node[attribute] (passwort) [below right of=login] {Passwort} edge (login);
+		\end{tikzpicture}
+	\end{figure}
+	
+	Lösungsvorschlag:
+	
+	\begin{enumerate}[label=]
+		\item \texttt{Autor(\underline{AutorID}, Geburtsdatum, Name, \dashuline{Kontonummer})}
+		\item \texttt{Login(\underline{Kontonummer}, Passwort)}
+		\item \texttt{Schrift(\underline{\dashuline{AutorID}, \dashuline{PublikationsID}})}
+		\item \texttt{Publikation(\underline{PublikationsID}, Titel, \dashuline{JournalID})}
+		\item \texttt{Journal(\underline{JournalID}, Titel)}
+	\end{enumerate}
+	
+	\pagebreak
+	
+	\singletask*[(\timeLimit{10 min.})]{Aufgabe 2}
+	
+	Schreiben Sie das folgende ER-Modell in Relationenschreibweise.
+	Überlegen Sie sich dazu, wie Sie die Relationen geeignet auflösen können.
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[node distance=2.5cm]
+			\node[entity] (lehrkraft) {Lehrkraft};
+			\node[attribute] (kürzel) [right of=lehrkraft] {\underline{Kürzel}} edge (lehrkraft);
+			\node[attribute] (lehrkraftname) [left of=lehrkraft] {Name} edge (lehrkraft);
+			\node[relationship] (unterrichtet) [below of=lehrkraft] {unterrichtet} edge node[right]{$1$} (lehrkraft);
+			\node[entity] (kurs) [below of=unterrichtet] {Kurs} edge node[right]{$n$} (unterrichtet);
+			\node[relationship] (belegt) [below left of=kurs] {belegt} edge node[below right]{$m$} (kurs);
+			\node[attribute] (kursID) [left of=kurs] {\underline{KursID}} edge (kurs);
+			\node[attribute] (kursBezeichnung) [right of=kurs, node distance=3.5cm] {Bezeichnung} edge (kurs);
+			\node[entity] (schüler) [below left of=belegt] {Schüler} edge node[above left]{$n$} (belegt);
+			\node[attribute] (schülerID) [above left of=schüler] {\underline{SchülerID}} edge (schüler);
+			\node[attribute] (schülername) [left of=schüler] {Name} edge (schüler);
+			\node[relationship] (findetstatt) [below right of=kurs, align=center] {findet\\ statt in} edge node[below left]{$n$} (kurs);
+			\node[entity] (raum) [below right of=findetstatt] {Raum} edge node[above right]{$1$} (findetstatt);
+			\node[attribute] (raumnummer) [right of=raum, node distance=3cm] {\underline{Nummer}} edge (raum);
+			\node[attribute] (raumkapazität) [above right of=raum] {Kapazität} edge (raum);
+		\end{tikzpicture}
+	\end{figure}
+	
+	Lösungsvorschlag:
+	
+	\begin{enumerate}[label=]
+		\item \texttt{Lehrkraft(\underline{Kürzel}, Name)}
+		\item \texttt{Kurs(\underline{KursID}, Bezeichnung, \dashuline{Kürzel}, \dashuline{Raumnummer})}
+		\item \texttt{Belegung(\underline{\dashuline{KursID}, \dashuline{SchülerID}})}
+		\item \texttt{Schüler(\underline{SchülerID}, Name)}
+		\item \texttt{Raum(\underline{Nummer}, Kapazität)}
+	\end{enumerate}
+	
+	\bonustask*{Bonusaufgabe}
+	
+	Erweitern Sie das ER-Modell aus Aufgabe 2:
+	Es soll die Möglichkeit geben, dass Schülerinnen und Schüler Noten erhalten.
+	
+	Setzen Sie anschließend die daraus entstandene Relation mit der Relationenschreibweise um.
+	
+	Lösungsvorschlag: \texttt{Belegung(\underline{\dashuline{KursID}, \dashuline{SchülerID}}, Note)}
+\end{document}
