@@ -1,0 +1,115 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Python: Listen}
+	\subject{Informatik}
+	\class{FTE1}
+	\maketitle
+	
+	\hint{Listen}{
+		In vielen Fällen ist es sinnvoll oder sogar notwendig, mehrere Dinge in einer Variablen zu speichern.
+		Bei der Programmierung mit Python verwendet man dazu \textbf{Listen}.
+		
+		Eine Liste enthält Elemente in einer festen Reihenfolge.
+		Elemente der Liste können dabei auch mehrfach vorkommen und unterschiedliche Datentypen haben.
+		
+		\\Zum Anlegen der Liste verwendet man eckige Klammern, in denen die Elemente der Liste durch Komma getrennt aufgelistet werden.
+		
+		\\Auf die Elemente der Liste kann man zugreifen, indem man hinter den Namen der Variablen in eckigen Klammern die Stelle des Elements in der Liste angibt.
+		Die Stelle des Elements nennt man auch den \textbf{Index} des Elements.
+		\textbf{Achtung: Die Nummerierung beginnt bei 0.}
+		
+		Die Länge der Liste kann man mithilfe von \texttt{len(liste)} abrufen.
+	}
+	
+	Der folgende Code legt zum Beispiel eine Liste mit den ersten 6 Zahlen der Fibonacci-Folge an, speichert die 4. Fibonacci-Zahl in einer neuen Variablen und gibt dann die Länge der Liste aus:
+	
+	\begin{lstlisting}[language=python]
+liste = [1, 1, 2, 3, 5, 8]
+zahl4 = liste[3]  #Wert ist 3
+print(len(liste)) #Ausgabe: 6
+	\end{lstlisting}
+	
+	
+	\singletask{Ausgabe eines Listeneintrags}
+	
+	Legen Sie zwei Listen mit jeweils 10 Elementen an.
+	Die erste Liste soll nur Integer beinhalten, die zweite Liste nur Strings.
+	
+	Lassen Sie den Nutzer nun eine Zahl $n$ eingeben.
+	Geben Sie das $n$-te Wort in der Liste so häufig aus, wie in der anderen Liste an Stelle $n$ angegeben.
+	
+	Beispiel:
+	
+	\begin{lstlisting}[language=python]
+woerter = ["Wort1", "Wort2", "Wort3"]
+zahlen = [2, 4, 6]
+# Ausgabe bei Nutzereingabe "2": Wort2Wort2Wort2Wort2
+	\end{lstlisting}
+	
+	\pagebreak
+	
+	\hint{Wichtige Listenfunktionen}{
+		Python bietet viele Funktionen, um mit Listen zu arbeiten.
+		Die wichtigsten sind die folgenden:
+		
+		\begin{itemize}
+			\item \texttt{x in list}: überprüft, ob \texttt{x} in der Liste \texttt{list} enthalten ist.
+			Das ist vor allem für Verzweigungen wichtig!
+			\item \texttt{list.append(x)}: Hängt \texttt{x} an die Liste \texttt{list} \textit{hinten} an.
+			\item \texttt{list.insert(i, x)}: Fügt \texttt{x} an die $i$-te Stelle der Liste \texttt{list} ein und verschiebt alle nachfolgenden Elemente nach hinten.
+			\item \texttt{list.remove(x)}: Entfernt den ersten Eintrag von \texttt{x} aus der Liste \texttt{list}.
+			\item \texttt{list.index(x)}: Findet den Index, an der \texttt{x} das erste Mal in der Liste \texttt{list} vorkommt.
+		\end{itemize}
+	}
+	
+	\singletask{Elemente tauschen}
+	
+	Lassen Sie den Nutzer 3 Zahlen eingeben, speichern Sie diese in einer Liste und geben Sie diese aus.
+	
+	Tauschen Sie nun die 1. und die 3. Zahl innerhalb der Liste und geben Sie die veränderte Liste aus.
+	
+	\singletask{Einkaufsliste}
+	
+	Legen Sie eine Einkaufsliste mit 5 Einträgen an.
+	Fragen Sie den Nutzer nun nach einer Eingabe:
+	\begin{itemize}
+		\item Wenn die Eingabe schon auf der Liste steht, löschen Sie den Eintrag.
+		\item Wenn die Eingabe nicht auf der Liste steht, fügen Sie sie hinzu.
+	\end{itemize}
+	Geben Sie zum Schluss die Einkaufsliste aus.
+	
+	\pagebreak
+	
+	\bonustask{Weitere Funktionen und Slicing}
+	
+	Legen Sie eine Liste \texttt{list} mit mindestens 4 Elementen an.
+	Testen und beschreiben Sie die folgenden Listenfunktionen:
+	
+	\begin{itemize}
+		\item \texttt{list.sort()}
+		
+		\lines[1cm]
+		\item \texttt{list.reverse()}
+		
+		\lines[1cm]
+		\item \texttt{list.pop(1)}
+		
+		\lines[2cm]
+		\item \texttt{list[-2]}
+		
+		\lines[2cm]
+		\item \texttt{list[:3]}
+		
+		\lines[2cm]
+		\item \texttt{list[1:]}
+		
+		\lines[2cm]
+		\item \texttt{list[2:3]}
+		
+		\lines[2cm]
+	\end{itemize}
+\end{document}

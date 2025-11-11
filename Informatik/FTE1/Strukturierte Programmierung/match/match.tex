@@ -1,0 +1,81 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Python: match}
+	\subject{Informatik}
+	\class{FTE1}
+	\maketitle
+	
+	\hint{match-Blöcke}{
+		Um eine Verzweigung mit vielen Bedingungen übersichtlicher zu schreiben, kann man in Python einen match-Block verwenden.
+		
+		Die zu überprüfende Bedingung wird hinter das Keyword \texttt{match} geschrieben.
+		Die einzelnen Fälle können dann mit \texttt{case} angegeben werden.
+		Mehrere Fälle können mit einem \texttt{|} verknüpft werden.
+		
+		``\texttt{case \_}'' ist der Fall, der ausgeführt wird, wenn keiner der vorhergehenden Fälle eingetreten ist (vergleichbar mit dem \texttt{else}-Block einer Verzweigung).
+	}
+			
+	\begin{lstlisting}[language=python]
+x = int(input("Bitte gib einen Wert für x an. "))
+match x:
+	case 1:
+		print("Der Wert von x ist 1.")
+	case 2 | 3:
+  		print("Der Wert von x ist 2 oder 3.")
+	case _:
+		print("Der Wert von x ist weder 1, 2 oder 3.")
+	\end{lstlisting}
+	
+	
+	\singletask{Tiergeräusche}
+	
+	Schreiben Sie folgenden Code mit einem match-Block.
+	
+	\begin{lstlisting}[language=python]
+geraeusch = input("Welches Geräusch macht das Tier? ")
+if geraeusch == "miau":
+	print("Katze")
+elif geraeusch == "wuff":
+	print("Hund")
+elif geraeusch == "muh":
+	print("Kuh")
+else:
+	print("Unbekannt")
+	\end{lstlisting}
+	
+	\pagebreak
+	
+	\singletask{Schulnoten in Text umwandeln}
+	
+	Schreiben Sie ein Programm, das eine Schulnote (1–6) einliest und mit match einen passenden Text zurückgibt:
+	
+	\begin{itemize}
+		\item 1: ``sehr gut''
+		\item 2: ``gut''
+		\item 3: ``befriedigend''
+		\item 4: ``ausreichend''
+		\item 5 oder 6: ``nicht bestanden''
+		\item alles andere: ``ungültige Note''
+	\end{itemize}
+	
+	\singletask{Zeichenklassifikation}
+	
+	Schreiben Sie ein Programm, das ein einzelnes Zeichen einliest und mit einem \texttt{match}-Block folgendermaßen klassifiziert:
+	
+	\begin{itemize}
+		\item Geben Sie ``Vokal'' aus, wenn das Zeichen ein \texttt{a}, \texttt{e}, \texttt{i}, \texttt{o} oder \texttt{u} ist.
+		\item Geben Sie ``Konsonant'' aus, wenn das Zeichen ein Buchstabe, aber kein Vokal ist.
+		\item Geben Sie ``Zahl'' aus, wenn das Zeichen eine Ziffer zwischen \texttt{0} und \texttt{9} ist.
+		\item Geben Sie ``Sonstiges'' aus, wenn keine der oben genannten Bedingungen zutrifft.
+	\end{itemize}
+	
+	\singletask{Taschenrechner}
+	
+	Schreiben Sie ein Programm, das zwei Zahlen und ein Rechenzeichen (+, -, *, /) als String einliest.
+	
+	Nutzen Sie anschließend einen match-Block, um das entsprechende Ergebnis zu berechnen und auszugeben.
+\end{document}
