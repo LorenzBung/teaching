@@ -1,0 +1,150 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Normalisierung}
+	\subject{SAE}
+	\class{E2FI}
+	\maketitle
+	
+	Im besten Fall ist eine Datenbank so gestaltet, dass Informationen nur an einer Stelle vorliegen.
+	Ist dies nicht der Fall, spricht man von \textbf{Redundanz}.
+	Redundanzen führen zu häufigen Problemen, wie zum Beispiel Inkonsistenzen (die Werte an zwei Stellen sind widersprüchlich) oder Anomalien (ein Wert wird an einer Stelle gelöscht, ist an der anderen Stelle jedoch immer noch eingetragen).
+	
+	Die Frage ist: Wie können wir unsere Datenbank so anpassen, dass wir die Redundanz möglichst weit reduzieren?
+	Hier kommt die \textbf{Normalisierung} ins Spiel.
+	Durch Überführen in sogenannte \textbf{Normalformen} können nach und nach Redundanzen eliminiert werden.
+	
+	\hint{1. Normalform}{
+		Eine Tabelle ist in der 1. Normalform, wenn folgende Bedingungen zutreffen:
+		\begin{enumerate}
+			\item \textbf{Alle Attribute müssen atomar sein.}
+			Das heißt, die Attribute lassen sich nicht in kleinere Unterattribute aufteilen.
+			\item \textbf{Es gibt keine wiederholenden Gruppen von Spalten.}
+			Eine Spalte, in der mehrere Werte stehen, ist also nicht zulässig.
+		\end{enumerate}
+		
+		Eine Adresse müsste beispielsweise wegen der 1. Bedingung in Straße, Hausnummer, Postleitzahl usw. aufgeteilt werden.
+		Wegen der 2. Bedingung müsste z. B. eine Spalte, die mehrere Telefonnummern enthält, in eine Extratabelle ausgelagert werden.
+	}
+	
+	\singletask{Tabelle in 1. Normalform überführen}
+	
+	Überführen Sie die folgende Tabelle\footnote{Quelle: \url{https://de.wikipedia.org/wiki/Normalisierung_(Datenbank)}} in die 1. Normalform:
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\textwidth}{|l|X|l|l|X|}
+			\hline
+			\multicolumn{5}{|c|}{\Large\textit{CD\_Lied}}\\
+			\hline
+			\textbf{CD\_ID} & \textbf{Album} & \textbf{Gründungsjahr} & \textbf{Erscheinungsjahr} & \textbf{Titelliste}\\
+			\hline
+			4711 & Anastacia -- Not That Kind & 1999 & 2000 & 1. Not That Kind,  2. I'm Outta Love, 3. Cowboys \& Kisses\\
+			\hline
+			4712 & Pink Floyd -- Wish You Were Here& 1965 & 1975 & 1. Shine On You Crazy Diamond\\
+			\hline
+			4713 & Anastacia -- I'm Outta Love & 1999 & 2000 & 1. I'm Outta Love\\
+			\hline 
+		\end{tabularx}
+	\end{table}
+	
+	\boxarea[24cm]
+	
+	\hint{2. Normalform}{
+		Eine Tabelle ist in der 2. Normalform, wenn folgende Bedingungen zutreffen:
+		\begin{enumerate}
+			\item \textbf{Die Tabelle ist in der 1. Normalform.}
+			\item \textbf{Jedes Nicht-Schlüsselattribut hängt vom gesamten Primärschlüssel ab.}
+			Eine Spalte darf bei einem zusammengesetztem Primärschlüssel also nicht nur von einem Teil des Schlüssels abhängen.
+		\end{enumerate}
+		
+		Beispiel: Bei einem Primärschlüssel \texttt{(kursid, studentid)} hängt die Spalte \texttt{kursname} nur von der \texttt{kursid} ab, also ist die 2. Normalform nicht erfüllt.
+	}
+	
+	\singletask{Tabelle in 2. Normalform überführen}
+	
+	Überführen Sie die folgende Tabelle\footnote{Quelle: \url{https://de.wikipedia.org/wiki/Normalisierung_(Datenbank)}} mit dem Primärschlüssel \texttt{\underline{CD\_ID, Track}} in die 2. Normalform:
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\textwidth}{|l|X|l|l|l|l|X|}
+			\hline
+			\multicolumn{7}{|c|}{\Large\textit{CD\_Lied}}\\
+			\hline
+			\textbf{\underline{CD\_ID}} & \textbf{Albumtitel} & \textbf{Interpret} & \textbf{Gründungsjahr} & \textbf{Erscheinungsjahr} & \textbf{\underline{Track}} & \textbf{Titel}\\
+			\hline
+			4711 & Not That Kind & Anastacia & 1999 & 2000 & 1 & Not That Kind\\
+			\hline
+			4711 & Not That Kind & Anastacia & 1999 & 2000 & 2 & I'm Outta Love\\
+			\hline
+			4711 & Not That Kind & Anastacia & 1999 & 2000 & 3 & Cowboys \& Kisses\\ 
+			\hline
+			4712 & Wish You Were Here & Pink Floyd & 1965 & 1975 & 1 & Shine On You Crazy Diamond\\
+			\hline
+			4713 & I'm Outta Love & Anastacia & 1999 & 2000 & 1 & I'm Outta Love\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\boxarea[24cm]
+	
+	\hint{3. Normalform}{
+		Eine Tabelle ist in der 3. Normalform, wenn folgende Bedingungen zutreffen:
+		\begin{enumerate}
+			\item \textbf{Die Tabelle ist in der 2. Normalform.}
+			\item \textbf{Es besteht keine transitive Abhängigkeit zwischen Nicht-Schlüsselattributen.}
+			Ein Nicht-Schlüsselattribut darf also nicht von einem anderen Nicht-Schlüsselattribut abhängen.
+		\end{enumerate}
+		
+		Beispiel: In einer Tabelle \texttt{Studium(\underline{student\_id}, fachbereich\_id, fachbereich\_name)} hängt die Spalte \texttt{fachbereich\_id} vom Primärschlüssel ab (das ist in Ordnung).
+		Die Spalte \texttt{fachbereich\_name} hängt aber von \texttt{fachbereich\_id} ab, welche wiederum vom Primärschlüssel abhängt.
+		Die 3. Normalform ist also nicht erfüllt. 
+	}
+	
+	\singletask{Tabelle in 3. Normalform überführen}
+	
+	Überführen Sie die folgenden Tabellen\footnote{Quelle: \url{https://de.wikipedia.org/wiki/Normalisierung_(Datenbank)}} in die 3. Normalform:
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\textwidth}{|l|X|l|l|l|}
+			\hline
+			\multicolumn{5}{|c|}{\Large\textit{CD}}\\
+			\hline
+			\textbf{\underline{CD\_ID}} & \textbf{Albumtitel} & \textbf{Interpret} & \textbf{Gründungsjahr} & \textbf{Erscheinungsjahr}\\
+			\hline
+			4711 & Not That Kind & Anastacia & 1999 & 2000\\
+			\hline
+			4712 & Wish You Were Here & Pink Floyd & 1965 & 1975\\
+			\hline
+			4713 & I'm Outta Love & Anastacia & 1999 & 2000\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\textwidth}{|l|l|X|}
+			\hline
+			\multicolumn{3}{|c|}{\Large\textit{Lied}}\\
+			\hline
+			\textbf{\underline{\dashuline{CD\_ID}}} & \textbf{\underline{Track}} & \textbf{Titel}\\
+			\hline
+			4711 & 1 & Not That Kind\\
+			\hline
+			4711 & 2 & I'm Outta Love\\
+			\hline
+			4711 & 3 & Cowboys \& Kisses\\
+			\hline
+			4712 & 1 & Shine On You Crazy Diamond\\
+			\hline
+			4713 & 1 & I'm Outta Love\\
+			\hline 
+		\end{tabularx}
+	\end{table}
+	
+	\boxarea[24cm]
+\end{document}
