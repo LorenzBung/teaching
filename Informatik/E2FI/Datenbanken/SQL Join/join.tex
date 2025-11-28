@@ -1,0 +1,126 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{SQL: Joins}
+	\subject{SAE}
+	\class{E2FI}
+	\maketitle
+	
+	In vielen Fällen ist es nötig, Informationen aus mehreren Tabellen gleichzeitig anzuzeigen oder z. B. für komplexere Bedingungen miteinander zu verbinden.
+	Insbesondere bei gut entworfenen Datenbanken kommt man eigentlich nicht darum herum.
+	
+	\hint{Abfragen über mehrere Tabellen}{
+		Im klassischen \texttt{SELECT}/\texttt{FROM}/\texttt{WHERE} können auch mehrere Tabellen abgefragt werden.
+		Dafür geht man wie folgt vor:
+		\begin{itemize}
+			\item Beim \texttt{SELECT} gibt man die Spaltennamen wie gewohnt an.
+			Haben die beiden Tabellen den selben Spaltennamen, schreibt man davor (durch Punkt getrennt) den Tabellennamen.
+			\item Hinter dem \texttt{FROM} müssen die beiden Tabellennamen durch Komma getrennt angegeben werden.
+			\item Beim \texttt{WHERE} können Bedingungen wie gewohnt gemacht werden.
+		\end{itemize}
+		Damit man nicht so viel Schreibarbeit hat, können mit dem Schlüsselwort \texttt{AS} Kurzbezeichnungen für Tabellen vergeben werden.
+	}
+	
+	Für die beiden Tabellen \texttt{Student(\underline{id}, \dashuline{kursid}, vorname, nachname, gebdatum)} und \texttt{Kurs(\underline{id}, bezeichnung, dozent, raum)} könnte man beispielsweise den folgenden Befehl formulieren:
+	
+	\begin{lstlisting}[language=sql]
+SELECT s.id, k.id
+FROM Student AS s, Kurs AS k
+WHERE s.kursid = k.id
+	\end{lstlisting}
+	
+	Der Befehl gibt die IDs von Studenten und Kursen aus, die jeweils zusammen gehören.
+	
+	\warning{Joins}{
+		Gibt man mehrere Tabellen durch Komma getrennt an, wird das sogenannte Kreuzprodukt verwendet:
+		Alle Einträge der einen Tabelle werden mit allen Einträgen der anderen Tabelle verknüpft.
+		
+		Das ist in der Regel sehr ineffizient.
+		Hier kommt ein sogenannter \textbf{JOIN} ins Spiel:
+		Dabei werden nur noch Einträge verknüpft, bei denen eine bestimmte Bedingung zutrifft.
+		
+		Im SQL-Befehl wird statt \texttt{FROM Tabelle1, Tabelle2} angegeben:
+		
+		\texttt{FROM Tabelle1 JOIN Tabelle2 ON Tabelle1.id = Tabelle2.id} (im Fall, dass die Tabellen-IDs gleich sein sollen).
+	}
+	
+	\pagebreak
+	
+	\singletask{Left, Right, Full Join}
+	
+	Recherchieren Sie die Unterschiede zwischen den verschiedenen Joins:
+	
+	\begin{itemize}
+		\item \texttt{INNER JOIN}
+		\item \texttt{LEFT JOIN}
+		\item \texttt{RIGHT JOIN}
+		\item \texttt{FULL JOIN}
+	\end{itemize}
+	
+	\lines[6cm]
+	
+	\singletask{Mehrtabellen-Abfragen}
+	
+	Gegeben sind die folgenden Tabellen:
+	
+	\begin{itemize}
+		\item \texttt{Student(\underline{stud\_id}, name, semester, \dashuline{fachbereich\_id})}
+		\item \texttt{Fachbereich(\underline{fachbereich\_id}, name)}
+		\item \texttt{Kurs(\underline{kurs\_id}, titel, \dashuline{lehrkraft\_id}, ects)}
+		\item \texttt{Lehrkraft(\underline{lehrkraft\_id}, name, rang)}
+		\item \texttt{Belegung(\underline{\dashuline{stud\_id}, \dashuline{kurs\_id}}, note)}
+	\end{itemize}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Listen Sie alle Kurse zusammen mit dem Namen der jeweiligen Lehrkraft auf.
+		
+		\lines[4cm]
+		
+		\item Geben Sie die Namen aller Studierenden aus, die Kurse bei einer Lehrkraft mit dem Rang ``Professor'' belegt haben.
+		
+		\lines[3cm]
+		
+		\item Zeigen Sie alle Kurse an, die mehr als 5 ECTS haben, inklusive Lehrkraftnamen.
+		
+		\lines[3cm]
+		
+		\item Geben Sie alle Studierenden und zugehörigen Kursnoten aus, sortiert nach Note (die besten zuerst).
+		
+		\lines[3cm]
+		
+		\item Ermitteln Sie zu jedem Kurs die Anzahl der Teilnehmenden.
+		
+		\lines[3cm]
+		
+		\item Zeigen Sie je Fachbereich die durchschnittliche Note aller zugehörigen Studierenden.
+		
+		\lines[2cm]
+		
+		\item Listen Sie für jede Lehrkraft die Gesamtanzahl der ECTS, die sie unterrichtet.
+		
+		\lines[3cm]
+		
+		\item Finden Sie alle Studierenden, die mehr als drei Kurse belegt und einen Notenschnitt besser als 2,0 haben.
+		
+		\lines[3cm]
+		
+		\item Ermitteln Sie alle Lehrkräfte, deren Kurse im Durchschnitt eine bessere Note als 2,5 erhalten.
+		
+		\lines[3cm]
+		
+		\item Geben Sie alle Fachbereiche aus, deren Studierende mindestens zwei unterschiedliche Lehrkräfte besucht haben.
+		
+		\lines[3cm]
+		
+		\item Geben Sie für jede Lehrkraft die Anzahl der Studierenden aus, die bei ihr mindestens zwei Kurse belegt haben.
+		
+		\lines[3cm]
+		
+		\item Finden Sie alle Studierenden, die in jedem belegten Kurs besser als 2,0 waren.
+		
+		\lines[3cm]
+	\end{enumerate}
+\end{document}

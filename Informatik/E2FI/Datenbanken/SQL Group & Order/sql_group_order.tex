@@ -1,0 +1,104 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{SQL: Group By, Having \hspace{10cm} \& Order By}
+	\subject{SAE}
+	\class{E2FI}
+	\maketitle
+	
+	\hint{Group By}{
+		Mit \texttt{GROUP BY} können in SQL Datensätze nach einer Spalte gruppiert werden.
+		Zeilen mit gleichen Werten in der angegebenen Spalte werden dabei zusammengefasst, damit sie anschließend mit Aggregatsfunktionen (\texttt{SUM()}, \texttt{COUNT()}, \dots) ausgewertet werden können.
+	}
+	
+	Durch die folgende Abfrage werden beispielsweise alle Durchschnittspreise für die verschiedenen Produkte berechnet:
+	
+	\begin{lstlisting}[language=sql]
+SELECT produkt, AVG(preis)
+FROM bestellungen
+GROUP BY produkt;
+	\end{lstlisting}
+	
+	\hint{Having}{
+		Mit dem Keyword \texttt{HAVING} können Bedingungen wie beim \texttt{WHERE} formuliert werden, um die Datensätze zu filtern.
+		
+		Der wesentliche Unterschied liegt darin, dass die Bedingung nach dem \texttt{HAVING} erst \textit{nach} der Gruppierung (durch \texttt{GROUP BY}) ausgeführt wird.
+	}
+	
+	Die folgende Abfrage gibt beispielsweise wieder alle Durchschittspreise für die Produkte aus, allerdings nur für einen Durchschnittspreis von über 10.
+	
+	\begin{lstlisting}[language=sql]
+SELECT produkt, AVG(preis)
+FROM bestellungen
+GROUP BY produkt
+HAVING AVG(preis) > 10;
+	\end{lstlisting}
+	
+	\hint{Order By}{
+		Die Ausgabe von Abfragen kann angepasst werden, indem sie sortiert wird.
+		Mit \texttt{ORDER BY} kann man angeben, nach welcher Spalte die ausgegebenen Datensätze sortiert werden sollen.
+		
+		Zusätzlich kann mit \texttt{ASC} (ascending) oder \texttt{DESC} (descending) angeben, ob aufsteigend oder absteigend sortiert werden soll.
+		Wird nichts angegeben, wird standardmäßig aufsteigend sortiert.
+	}
+	
+	Die folgende Abfrage gibt z.B. die Namen aller Kunden alphabetisch absteigend sortiert aus:
+	
+	\begin{lstlisting}[language=sql]
+SELECT name FROM kunde ORDER BY name DESC;
+	\end{lstlisting}
+	
+	\singletask{Mitarbeiterverwaltung}
+	
+	Sie haben folgende Tabelle gegeben:
+	
+	\begin{lstlisting}[language=sql]
+Mitarbeiter(id INT, abteilung VARCHAR(50), name VARCHAR(50), gehalt FLOAT, einstellungsjahr INT)
+	\end{lstlisting}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Berechnen Sie das durchschnittliche Gehalt in jeder Abteilung.
+		
+		\lines[2cm]
+		
+		\item Ermitteln Sie, wie viele Mitarbeitende in jeder Abteilung beschäftigt sind.
+		
+		\lines[2cm]
+		
+		\item Summieren Sie alle Gehälter pro Abteilung.
+		
+		\lines[2cm]
+		
+		\item Geben Sie nur die Abteilungen aus, in denen mehr als fünf Mitarbeitende tätig sind.
+		
+		\lines[2cm]
+		
+		\item Zeigen Sie nur die Abteilungen an, deren durchschnittliches Gehalt über 4000 liegt.
+		
+		\lines[2cm]
+		
+		\item Sortieren Sie die Abteilungen nach ihrem durchschnittlichen Gehalt in absteigender Reihenfolge.
+		
+		\lines[2cm]
+		
+		\pagebreak
+		\item Ermitteln Sie, wie viele Mitarbeitende in jedem Einstellungsjahr begonnen haben.
+		
+		\lines[2cm]
+		
+		\item Geben Sie die Abteilungen mit mindestens drei Mitarbeitenden aus und sortieren Sie diese nach ihrem Gesamtgehalt absteigend.
+		
+		\lines[2cm]
+		
+		\item Zeigen Sie für jede Abteilung das jüngste Einstellungsjahr (also das höchste Jahr) an.
+		
+		\lines[2cm]
+		
+		\item Berechnen Sie das durchschnittliche Gehalt pro Einstellungsjahr und sortieren Sie die Ergebnisse aufsteigend nach dem Jahr.
+		
+		\lines[2cm]
+	\end{enumerate}
+\end{document}

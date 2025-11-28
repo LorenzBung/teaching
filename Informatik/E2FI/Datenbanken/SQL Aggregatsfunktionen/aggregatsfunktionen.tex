@@ -1,0 +1,89 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{SQL: Aggregatsfunktionen}
+	\subject{SAE}
+	\class{E2FI}
+	\maketitle
+	
+	\hint{Aggregatsfunktionen}{
+		In SQL bezeichnet man bestimmte Funktionen, die aus einer Liste an Werten einen einzelnen Rückgabewert berechnen als \textbf{Aggregatsfunktionen}.
+		
+		Die häufigsten sind die folgenden:
+		
+		\begin{itemize}
+			\item \texttt{MIN()}: Gibt den geringsten Wert zurück
+			\item \texttt{MAX()}: Gibt den höchsten Wert zurück
+			\item \texttt{COUNT()}: Zählt, wie viele Datensätze (bzw. Zeilen) vorliegen
+			\item \texttt{SUM()}: Berechnet die Summe der Werte
+			\item \texttt{AVG()}: Berechnet das arithmetische Mittel der Werte
+		\end{itemize}
+	}
+	
+	\singletask{Bestellungen}
+	
+	Sie haben folgende Tabelle gegeben:
+	
+	\begin{lstlisting}[language=sql]
+bestellungen(id INT, kunde VARCHAR(50), produkt VARCHAR(50), anzahl INT, preis FLOAT, datum DATE)
+	\end{lstlisting}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Zählen Sie, wie viele Bestellungen insgesamt vorliegen.
+		
+		\lines[2cm]
+		
+		\item Zählen Sie, wie viele verschiedene Kunden bestellt haben.
+		
+		\lines[2cm]
+		
+		
+		\item Zählen Sie, wie viele Bestellungen im Jahr 2025 getätigt wurden.
+		
+		\lines[2cm]
+		
+		\pagebreak
+		
+		\item Berechnen Sie den Gesamtumsatz.
+		
+		\lines[2cm]
+		
+		
+		\item Ermitteln Sie für jeden Kunden den Gesamtumsatz.
+		
+		\lines[2cm]
+		
+		
+		\item Finden Sie heraus, welches Produkt insgesamt am häufigsten verkauft wurde (nach Stückzahl).
+		
+		\lines[2cm]
+		
+		
+		\item Berechnen Sie den durchschnittlichen Bestellwert.
+		
+		\lines[2cm]
+		
+		
+		\item Bestimmen Sie den durchschnittlichen Preis pro Produkt.
+		
+		\lines[2cm]
+		
+		
+		\item Ermitteln Sie den durchschnittlichen Umsatz pro Kunde.
+		
+		\lines[2cm]
+		
+		
+		\item Finden Sie den niedrigsten und höchsten Einzelpreis eines Produkts.
+		
+		\lines[2cm]
+		
+		
+		\item Zeigen Sie den ersten und letzten Bestelltermin im Datensatz.
+		
+		\lines[2cm]
+	\end{enumerate}
+\end{document}
