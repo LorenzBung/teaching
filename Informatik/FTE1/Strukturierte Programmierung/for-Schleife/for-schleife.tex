@@ -1,0 +1,75 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Python: for-Schleifen}
+	\subject{Informatik}
+	\class{FTE1}
+	\maketitle
+	
+	\hint{for-Schleifen}{
+		In vielen Fällen müssen eine oder mehrere Befehle in einem Programm mehrfach ausgeführt werden -- beispielsweise, um jedes Element einer Liste auszugeben.
+		Hierfür können Schleifen verwendet werden.
+		
+		Eine for-Schleife führt einen bestimmten Codeblock eine bestimmte Anzahl an Wiederholungen lang aus.
+		Beispielsweise könnte man für eine Liste mit 4 Elementen eine for-Schleife mit 4 Wiederholungen verwenden, um jedes Element auszugeben.
+		
+		Die Ausführung der Schleife kann mit dem Keyword \texttt{break} abgebrochen werden.
+	}
+	
+	Eine for-Schleife in Python sieht folgendermaßen aus:
+	
+	\begin{lstlisting}[language=python]
+for i in range(1, 10):  #i hat Werte von 1 bis 9 (jeweils inklusive)
+	print(i)  #Die Zahlen 0-9 werden ausgegeben.
+	\end{lstlisting}
+	
+	Lässt man die erste Zahl bei \texttt{range()} weg, werden alle Zahlen ab (inklusive) der 0 genommen.
+	
+	\singletask{Zahlen ohne Ende}
+	
+	Schreiben Sie ein Programm, das eine Zahl vom Benutzer einliest und anschließend alle Zahlen von 0 bis zur eingegebenen Zahl ausgibt.
+	
+	\singletask{Gerade Zahlen bis 100}
+	
+	Schreiben Sie ein Programm, das alle geraden Zahlen bis 100 ausgibt.
+	
+	\singletask{Summe von vielen Zahlen}
+	
+	Schreiben Sie ein Programm, das 10 Zahlen vom Benutzer einliest und die Summe aller Zahlen berechnet.
+	
+	\hint{for-each-Schleife}{
+		Eine for-each-Schleife wird nicht eine bestimme Anzahl an Wiederholungen lang ausgeführt, sondern einmal für jedes Element in einer Liste.
+		Die Laufvariable ist dabei auch keine Zahl, sondern das Element der Liste selbst.
+		
+		Eigentlich sind for-Schleifen in Python gar keine echten for-Schleifen, wie man Sie aus anderen Programmiersprachen wie Java oder C++ kennt.
+		In Wirklichkeit handelt es sich um for-each-Schleifen:
+		\texttt{range(10)} ist nämlich eine Liste, die die Zahlen 0--9 enthält.
+	}
+	
+	\singletask{Zahlen und Strings zählen}
+	
+	Sie haben folgende Liste als Variable gegeben:
+	
+	\begin{lstlisting}[language=python]
+liste = ["A", 2, 4, "C", "I", 7, -2, "M", -14, "S", -9, 0, 412, "O", "J", -23, "L"]
+	\end{lstlisting}
+	
+	Schreiben Sie ein Programm, das zählt, wie viele Strings und wie viele Zahlen in der Liste enthalten sind.
+	
+	\singletask{Nach Treffer abbrechen}
+	
+	Durchlaufen Sie eine Liste von Wörtern und geben Sie das erste Wort mit mehr als 5 Buchstaben aus.
+	Brechen Sie danach die Schleife ab.
+	
+	Testen Sie Ihr Programm mit zwei verschiedenen Listen.
+	
+	\singletask{Duplikate entfernen}
+	
+	Gegeben ist eine Liste mit mehrfach vorkommenden Zahlen.
+	Erstellen Sie mithilfe einer for-each-Schleife eine neue Liste, in der jedes Element nur einmal vorkommt und geben Sie die neue Liste anschließend aus.
+	
+	Testen Sie ihr Programm mit zwei verschiedenen Listen.
+\end{document}
