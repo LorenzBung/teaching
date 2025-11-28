@@ -1,0 +1,71 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Definitions- und Wertebereich}
+	\subject{Mathematik}
+	\class{FHR1}
+	\date{05.11.2025}
+	\maketitle
+	
+	\partnertask[(\timeLimit{12 min.})]{Schwierige Funktion}
+	
+	Untersuchen Sie gemeinsam die Funktion $\displaystyle f(x) = \frac{1}{x-3} + \sqrt{x+1}.$
+	
+	\begin{itemize}
+		\item Gibt es x-Werte, die man nicht in die Funktion einsetzen kann?
+		Falls ja: Warum?
+		\item Welche y-Werte können herauskommen? Welche nicht?
+	\end{itemize}
+	
+	\begin{plot}[xmin=-3, xmax=9, ymin=-3, ymax=6]
+		\addplot[domain=-1.1:-0.9, samples=100, color=red, thick]{1/(x-3) + sqrt(x+1)};
+		\addplot[domain=-.9:2.9, samples=100, color=red, thick]{1/(x-3) + sqrt(x+1)};
+		\addplot[domain=3.1:9, samples=100, color=red, thick]{1/(x-3) + sqrt(x+1)} node[above left]{$f(x)$};
+	\end{plot}
+	
+	\checkered[6cm]
+	
+	\hint{Definitions- und Wertebereich einer Funktion}{
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}
+				\draw (0,0) ellipse (1.5cm and 2cm);
+				\node at (0,-2.5) {Definitionsbereich $\mathbb{D}_f$};
+				\draw (5,0) ellipse (1.5cm and 2cm);
+				\node at (5,-2.5) {Wertebereich $\mathbb{W}_f$};
+				\path[->,>=stealth] (1,0) edge[bend left=30] node[above]{Funktion $f$} (4,0);
+			\end{tikzpicture}
+		\end{figure}
+		
+		\textbf{Definitionsbereich}:
+		
+		\vspace{.75cm}
+		\textbf{Wertebereich}:
+		
+		\vspace{.75cm}
+		\textbf{Definitionslücke}:
+		\vspace{.75cm}
+	}
+	
+	\singletask[(\timeLimit{7 min.})]{Funktionen (unter)suchen}
+	
+	a) Geben Sie den Definitions- und Wertebereich der Funktion $f(x) = 2x^2+1$ an.
+	
+	b) Finden Sie eine Funktion, die den Definitionsbereich $\mathbb{D} = \mathbb{R} \setminus \left\{-2\right\}$ hat.
+	
+	\checkered[5cm]
+	
+	\vspace{-1cm}
+	
+	\begin{wrapfigure}{r}{.23\textwidth}
+		\vspace{.25cm}
+		\qrlink{https://learningapps.org/watch?v=pozya2d8a25}
+	\end{wrapfigure}
+	
+	\partnertask[(\timeLimit{7 min.})]{Zuordnung}
+	
+	Bearbeiten Sie die LearningApp.
+\end{document}
