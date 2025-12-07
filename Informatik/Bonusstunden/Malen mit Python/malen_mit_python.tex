@@ -1,0 +1,78 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Malen mit Python}
+	\subject{Informatik}
+	\maketitle
+	
+	Mit dem Python-Modul \texttt{turtle} kann man ganz einfach anfangen, Bilder zu malen!
+	
+	Um anzufangen, brauchen wir zuerst diesen Code:
+	
+	\begin{lstlisting}[language=python]
+from turtle import *
+colormode(255)
+# Hier kommt unser Code rein!
+done()
+	\end{lstlisting}
+	
+	Zwischen die Wahl des Farbmodus in Zeile 2 und der Anzeige des Bilds in Zeile 4 können wir jetzt unseren Code schreiben, um Bilder zu malen.
+	Dafür gibt es folgende Funktionen:
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\textwidth}{l X}
+			\hline
+			\textbf{Befehl} & \textbf{Funktion}\\
+			\hline
+			\multicolumn{2}{l}{\textit{Bewegung}}\\
+			\texttt{forward(distance)} & Bewegt den Stift um \texttt{distance} nach vorne.\\
+			\texttt{backward(distance)} & Bewegt den Stift um \texttt{distance} rückwärts.\\
+			\texttt{right(angle)} & Dreht die Blickrichtung um \texttt{angle} nach rechts\\
+			\texttt{left(angle)} & Dreht die Blickrichtung um \texttt{angle} nach links\\
+			\texttt{goto(x, y)} & Bewegt den Stift an die Koordinaten \texttt{(x, y)}.\\
+			\hline
+			\multicolumn{2}{l}{\textit{Stiftkontrolle}}\\
+			\texttt{pendown()} & Setzt den Stift auf das Papier.\\
+			\texttt{penup()} & Hebt den Stift vom Papier.\\
+			\texttt{pensize(size)} & Setzt die Stiftgröße auf \texttt{size}.\\
+			\texttt{pencolor(color)} & Ändert die Stiftfarbe auf \texttt{color}. \texttt{color} kann ein String sein (wie z.B. \texttt{"red"}) oder ein RGB-Tupel (wie \texttt{(255, 20, 120)}).\\
+			\hline
+			\multicolumn{2}{l}{\textit{Formen füllen}}\\
+			\texttt{begin\_fill()} & Startet die Aufzeichnung einer Form\\
+			\texttt{end\_fill()} & Beendet die Aufzeichnung der Form und füllt diese aus.\\
+			\texttt{fillcolor(color)} & Setzt die Füllfarbe auf \texttt{color}. \texttt{color} kann ein String sein (wie z.B. \texttt{"red"}) oder ein RGB-Tupel (wie \texttt{(255, 20, 120)}).\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\textwidth}{l X}
+			\hline
+			\textbf{Befehl} & \textbf{Funktion}\\
+			\hline
+			\multicolumn{2}{l}{\textit{Hintergrund}}\\
+			\texttt{screensize(width, height)} & Legt die Größe des Bildes fest.\\
+			\texttt{bgcolor(color)} & Setzt die Hintergrundfarbe auf \texttt{color}. \texttt{color} kann ein String sein (wie z.B. \texttt{"red"}) oder ein RGB-Tupel (wie \texttt{(255, 20, 120)}).\\
+			\texttt{bgpic(path)} & Setzt ein Hintergrundbild.\\
+			\hline
+			\multicolumn{2}{l}{\textit{Bild exportieren}}\\
+			\texttt{hideturtle()} & Blendet den Cursor aus (praktisch für den Bildexport).\\
+			\texttt{showturtle()} & Zeigt den Cursor wieder an.\\
+			\texttt{save(filename)} & Speichert das Bild unter dem Dateinamen \texttt{filename}. Achtung: Leider nur als PostScript-Datei (\texttt{.ps})\footnotemark\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\footnotetext{
+		Falls \texttt{save()} nicht funktioniert, kann man auch \texttt{getcanvas().postscript(file=filename)} verwenden -- das klappt häufiger!
+		Die PostScript-Datei kann man mit folgendem Befehl unter Linux in ein PNG-Bild konvertieren: \texttt{convert -density 300 filename.ps filename.png}
+	}
+	
+	
+	Alles klar soweit?
+	Na dann: Viel Spaß beim Malen!
+\end{document}
