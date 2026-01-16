@@ -1,0 +1,94 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Python: Sets}
+	\subject{Informatik}
+	\class{FTE1}
+	\maketitle
+	
+	\hint{Sets in Python}{
+		Ähnlich wie Listen können wir in Python ein \textbf{Set} festlegen.
+		Das Konzept des Sets ist aus mathematischer Perspektive eine Menge.
+		
+		Die Syntax ist exakt dieselbe wie bei den Listen, mit dem Unterschied, dass geschweifte Klammern statt eckigen Klammern verwendet werden:
+		\lstinline[language=python]{set1 = \{1, 2, 3\}}
+		
+		Elemente können auch nachträglich zu einem Set hinzugefügt (\texttt{set1.add(element)}) oder aus einem Set entfernt werden (\texttt{set1.remove(element)}).
+	}
+	
+	\partnertask{Eigenschaften von Sets}
+	
+	Legen Sie Sets und Listen an und vergleichen Sie diese miteinander.
+	Füllen Sie dazu die folgende Tabelle aus.
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\textwidth}{| l | X | X |}
+			\hline
+			\textbf{Eigenschaft} & \textbf{Liste} & \textbf{Set}\\
+			\hline
+			\hline
+			indizierbar? &&\\
+			(\texttt{set1[0]} bzw. &&\\
+			\texttt{liste1[0]})&&\\
+			\hline
+			Reihenfolge &&\\
+			relevant? &&\\
+			&&\\
+			\hline
+			Duplikate &&\\
+			möglich? &&\\
+			&&\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\pagebreak
+	
+	\partnertask{Mengenoperationen}
+	
+	Legen Sie zwei Sets \texttt{set1 = \{1, 2, 3, 4, \dq apple\dq, \dq banana\dq\}} und \texttt{set2 = \{3, 4, 5, 6, \dq banana\dq, \dq cherry\dq\}} an.
+	
+	Finden Sie heraus, wie die verschiedenen Operationen die beiden Sets miteinander verknüpfen:
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\textwidth}{| l | X |}
+			\hline
+			\textbf{Operation} & \textbf{Beschreibung}\\
+			\hline
+			\hline
+			&\\
+			\texttt{set1 - set2} &\\
+			&\\
+			\hline
+			&\\
+			\texttt{set1 \& set2} &\\
+			&\\
+			\hline
+			&\\
+			\texttt{set1 | set2} &\\
+			&\\
+			\hline
+			&\\
+			\texttt{set1 \char`\^\ set2} &\\
+			&\\
+			\hline
+			&\\
+			\texttt{set1 < set2} &\\
+			&\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\singletask{Verschiedene Wörter in Sätzen}
+	
+	Schreiben Sie ein Programm, das einen Satz vom Nutzer einliest.
+	Geben Sie dann alle eingegebenen Wörter, die \textit{unterschiedlich} sind, nacheinander aus.
+	Geben Sie auch aus, wie viele Wörter es waren.
+	
+	Verwenden Sie zur Lösung ein Set.
+\end{document}

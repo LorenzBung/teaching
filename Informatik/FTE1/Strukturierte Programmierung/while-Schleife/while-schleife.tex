@@ -1,0 +1,85 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Python: while-Schleifen}
+	\subject{Informatik}
+	\class{FTE1}
+	\maketitle
+	
+	\hint{while-Schleifen}{
+		Wir kennen bisher schon for-Schleifen, um Code wiederholt ausführen zu lassen.
+		Diese Art von Schleifen sind dann besonders nützlich, wenn wir wissen, wie häufig etwas wiederholt werden soll.
+		Wenn wir beispielsweise jedes Element einer Liste ausgeben wollen, müssen wir so häufig den Code ausführen, wie Elemente in der Liste sind.
+		
+		Manchmal ist noch nicht bekannt, wie häufig man den Code ausführen muss.
+		Die while-Schleife führt den Code so lange aus, bis eine bestimmte Bedingung zutrifft.
+		Diese Bedingung wird nach dem Keyword \texttt{while} angegeben.
+	}
+	
+	In Python sähe das beispielsweise folgendermaßen aus:
+	
+	\begin{lstlisting}[language=python]
+summe = 0
+while summe < 10:
+	eingabe = int(input("Bitte gib eine Zahl ein: "))
+	summe += eingabe
+print(summe)
+	\end{lstlisting}
+	
+	Dieses Programm addiert so lange Zahlen (die der Nutzer eingibt) auf, bis die Summe über 10 liegt.
+	Dann wird der Wert der Summe ausgegeben.
+	
+	\singletask{Wörter aneinanderhängen}
+	
+	Schreiben Sie ein Programm, das so lange Wörter vom Nutzer abfragt, bis dieser das Wort \texttt{exit} eingibt.
+	Anschließend soll das Programm alle Wörter mit Leerzeichen aneinandergehängt ausgeben.
+	
+	\singletask{Wiederholte Multiplikation / Division}
+	
+	Schreiben Sie folgendes Programm:
+	
+	\begin{itemize}
+		\item Setzen Sie zu Beginn eine Variable auf den Wert 10.
+		\item Lesen Sie so lange Zahlen durch den Nutzer ein, bis die Variable unter 1 fällt oder über 100 steigt.
+		\item Multiplizieren oder Dividieren Sie den Wert der Variablen abwechselnd mit der Nutzereingabe.
+		\item Geben Sie zum Schluss den Wert der Variablen aus.
+	\end{itemize}
+	
+	\singletask{Konvertierung von Dezimal nach Binär}
+	
+	Mit dem folgenden Verfahren kann man eine Dezimalzahl (z. B. $(43)_{10}$) in eine Binärzahl umwandeln:
+	\begin{align*}
+		43 : 2 &= 21 \text{ Rest } 1\\
+		21 : 2 &= 10 \text{ Rest } 1\\
+		10 : 2 &= 5 \text{ Rest } 0\\
+		5 : 2 &= 2 \text{ Rest } 1\\
+		2 : 2 &= 1 \text{ Rest } 0\\
+		1 : 2 &= 0 \text{ Rest } 1\\
+	\end{align*}
+	Liest man die Reste von unten nach oben, ergibt sich die Binärzahl $(101011)_2$.
+	
+	Schreiben Sie ein Programm, das eine Dezimalzahl einliest und sie mit dem Verfahren in eine Dezimalzahl konvertiert und anschließend ausgibt.
+	
+	\textbf{Tipp 1}: Wenn Sie eine Liste verwenden, können Sie \lstinline[language=python]{liste.reverse()} verwenden.
+	
+	\textbf{Tipp 2}: Eine Liste kann zu einem String zusammengehängt werden: \lstinline[language=python]{" ".join(liste)} verknüpft die Einträge der Liste mit einem Leerzeichen.
+	
+	\singletask{Restwert eines Fahrrads\footnotemark}
+	\footnotetext{\url{https://inf-schule.de/imperative-programmierung/python/konzepte/wiederholungen/wertverlust}}
+	
+	\begin{wrapfigure}{r}{.3\textwidth}
+		\centering
+		\includegraphics[width=.3\textwidth]{zuverkaufen.png}
+	\end{wrapfigure}
+	
+	Handelt es sich hierbei um ein gutes Angebot, oder ist der Preis zu hoch?
+	Mit Hilfe eines kleinen Programms lässt sich abschätzen, ob man das Fahrrad kaufen oder sich lieber nochmal nach einem besseren Angebot umsehen sollte.
+	
+	Schreiben Sie ein Programm, das den \texttt{neupreis} und das \texttt{alter} des Fahrrads vom Nutzer einliest.
+	Anschließend soll der Restwert des Fahrrads bei einem Alter von 1, 2, 3, \dots Jahren errechnet und ausgegeben werden (bis zum tatsächlichen Alter des Fahrrads).
+	
+	Im ersten Jahr nach dem Kauf hat ein Rad einen Wertverlust von 30\%, ab dann verliert es jedes Jahr 20\% an Wert.
+\end{document}

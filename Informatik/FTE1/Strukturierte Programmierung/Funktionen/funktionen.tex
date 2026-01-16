@@ -1,0 +1,66 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Python: Funktionen}
+	\subject{Informatik}
+	\class{FTE1}
+	\maketitle
+	
+		
+	\hint{Funktionen}{
+		Funktionen werden in der Programmierung genutzt, um Code wiederverwendbar zu machen und in sinnvolle Einheiten zu strukturieren.
+		In Python werden sie mit dem Keyword \lstinline[language=python]{def} definiert, gefolgt vom Namen der Funktion und runden Klammern.
+		
+		Innerhalb der runden Klammern können kommagetrennt sogenannte \textbf{Parameter} an die Funktion übergeben werden.
+		
+		Das errechnete Ergebnis kann mit dem Keyword \lstinline[language=python]{return} zurückgegeben werden.
+	}
+	
+	Die folgende Funktion berechnet beispielsweise das Quadrat einer Zahl und gibt den errechneten Wert zurück:
+	
+	\begin{lstlisting}[language=python]
+def quadriere(n):
+	return n*n
+vier = quadriere(2)	#Der berechnete Wert wird in eine Variable gespeichert
+	\end{lstlisting}
+	
+	\singletask{Volumenrechner}
+	
+	Schreiben Sie ein Programm, das das Volumen eines Quaders berechnet und ausgibt.
+	
+	Nutzen Sie eine Funktion, die die Eingabe des Nutzers einliest und anschließend verifiziert, dass die eingegebenen Werte für die Kantenlängen \texttt{a}, \texttt{b} und \texttt{c} gültig sind:
+	\begin{itemize}
+		\item Es muss sich um eine Zahl handeln (Tipp: \texttt{variable.isnumeric()})
+		\item Die Zahl muss größer als 0 sein
+		\item Bei ungültiger Eingabe soll das Programm eine Fehlermeldung ausgeben und beendet werden (mit \texttt{exit()})
+	\end{itemize}
+	Lesen Sie die Zahlen dann mithilfe der Funktion ein und berechnen Sie das Volumen.
+	
+	\pagebreak
+	
+	\warning{Standardwerte für Parameter}{
+		Man kann die Werte der übergebenen Parameter auch direkt auf einen Standardwert festlegen:
+		
+		\lstinline[language=python]{def potenziere(basis, exponent=2)} legt beispielsweise den Exponenten standardmäßig auf 2 fest.
+		
+		Die Funktion kann nun mit \texttt{potenziere(10)} aufgerufen werden (was 100 ergeben würde), oder weiterhin mit \texttt{potenziere(10, 3)} (was 1000 wäre).
+	}
+	
+	\singletask{Listenelemente filtern}
+	
+	Schreiben Sie eine Funktion \texttt{elements\_bigger\_than(l, n)}, die eine Liste von Zahlen \texttt{l} und eine Zahl \texttt{n} als Parameter annimmt.
+	
+	Die Funktion soll eine Liste zurückgeben, welche alle Zahlen der Liste \texttt{l} beinhaltet, welche größer als \texttt{n} sind.
+	
+	Rufen Sie die Funktion anschließend mit einer Beispielliste auf und geben Sie den Rückgabewert aus.
+	
+	\singletask{Pythagoräische Tripel}
+	
+	Drei Zahlen, für die der Satz des Pythagoras gilt, nennt man \textit{pythagoräisches Tripel}.
+	Ein Beispiel für ein solches Tripel sind die Zahlen 3, 4 und 5, denn $3^2+4^2=5^2$.
+	
+	Schreiben Sie eine Funktion \texttt{is\_pythagorean(a, b, c)}, welche für drei Zahlen überprüft, ob es sich um ein pythagoräisches Tripel handelt.
+\end{document}

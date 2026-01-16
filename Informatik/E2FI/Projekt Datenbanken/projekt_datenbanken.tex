@@ -1,0 +1,76 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Projekt: Datenbanken}
+	\subject{SAE}
+	\class{E2FI}
+	\maketitle
+	
+	Dieses Softwareprojekt hat als Ziel, eine funktionsfähige Datenbank zu erstellen.
+	Die Interaktion mit der Datenbank soll mithilfe eines Python-Programms stattfinden.
+	Außerdem soll es möglich sein, die Datenbank als Datei zu exportieren und importieren.
+	
+	\section{Anforderungen an das Projekt}
+	
+	Inhaltlich gibt es keine Anforderungen an das Projekt.
+	Sie können sich selbst entscheiden, welche Thematik behandelt wird -- beispielsweise ein Textadventure-Spiel, eine Datenbank für Sensor-Messwerte oder ein Ticketverwaltungssystem.
+	
+	Das fertige Projekt soll folgende Kriterien erfüllen:
+	
+	\begin{itemize}
+		\item Es soll eine Datenbank mit mindestens 5 Tabellen vorliegen.
+		\item Es sollen Datensätze in die Datenbank eingefügt werden können, ohne dass durch den Nutzer SQL-Code geschrieben werden muss.
+		\item Es sollen Datensätze aus der Datenbank gelöscht werden können, ohne dass durch den Nutzer SQL-Code geschrieben werden muss.
+		\item Der Nutzer soll zusätzlich die Möglichkeit haben, mithilfe von SQL-Abfragen selbst auf die Datenbank zuzugreifen (quasi als ``Debug-Modus'').
+		Hierbei sollen auch Abfragen über mehrere Tabellen möglich sein.
+		\item Es soll möglich sein, die aktuelle Datenbank als Datei im XML-, CSV- oder JSON-Format zu exportieren.
+		\item Es soll möglich sein, einen bisherigen Export wieder in die Datenbank zu importieren.
+		Hierbei soll die Datenbank durch die eingelesene Datei überschrieben werden.
+	\end{itemize}
+	
+	
+	\section{Bewertungskriterien}
+	
+	Das Projekt gliedert sich in drei Bestandteile:
+	
+	\begin{enumerate}
+		\item Zur \textbf{Datenbank} gehörige Komponenten (SQL-Code, ER-Modell usw.)
+		\item Das \textbf{Python-Programm}, welches der Interaktion mit der Datenbank dient
+		\item Eine schriftliche \textbf{Dokumentation} des Projekts
+	\end{enumerate}
+	
+	\subsection{Datenbank}
+	
+	Für die Datenbank spielen folgende Kriterien eine Rolle:
+	
+	\begin{itemize}
+		\item Modellierung der Datenbank mithilfe eines ER-Modells
+		\item Auflösung von Relationen unterschiedlicher Kardinalitäten
+		\item Damit einhergehend: Überführung ins Relationenmodell
+		\item Normalisierung der Datenbanktabellen in die 3. Normalform
+		\item Implementierung der Datenbank mithilfe von SQL
+	\end{itemize}
+	
+	\subsection{Python-Programm}
+	
+	Der Python-Code ist ausführlich zu dokumentieren.
+	
+	\subsection{Dokumentation}
+	
+	Sämtliche Arbeitsschritte sind in einer schriftlichen Projektdokumentation festzuhalten.
+	Dazu zählen unter Anderem auch der Entwurf der Datenbank inklusive ER-Modell, aber auch beispielsweise der Aufbau des Python-Programms.
+	
+	Bitte geben Sie die fertige Dokumentation als PDF-Datei, nicht im \texttt{.docx}-Format o. Ä. ab.
+	
+	
+	\section{Abgabe}
+	
+	Die Abgabe erfolgt als Upload via Moodle.
+	Bitte beachten Sie die dort angegebene Deadline!
+	Eine spätere Abgabe ist nur in Sonderfällen nach Rücksprache und vorheriger Genehmigung möglich.
+	
+	Sollten Sie in Ihrer Dokumentation bereits den SQL- und Python-Code anhängen, bitte ich dennoch um zusätzliche Abgabe der Codedateien.
+\end{document}

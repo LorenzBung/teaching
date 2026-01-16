@@ -1,0 +1,80 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Nullstellen quadratischer Funktionen}
+	\subject{Mathematik}
+	\class{FHR1}
+	\maketitle
+	
+	\task{Nullstellen in Produktform}
+	
+	a) Berechnen Sie die Nullstellen der folgenden Funktionen mithilfe der abc- oder pq-Formel.
+	Bringen Sie die Funktionsgleichungen dazu zuerst in Normalform.
+	
+	\begin{enumerate}[label=]
+		\item $f(x) = (x-1)(x-3)=0$
+		\item $g(x) = 4(x+5)(x-4)=0$
+		\item $h(x) = 6x(x-5)=0$
+		\item $i(x) = (x+1)^2=0$
+	\end{enumerate}
+	
+	\checkered[9.5cm]
+	
+	b) Überprüfen Sie Ihre Ergebnisse mit Ihrem Sitznachbarn.
+	Was fällt Ihnen auf, wenn Sie die Nullstellen mit der Funktionsgleichung vergleichen?
+	
+	\lines[3cm]
+	
+	\hint{Produktform}{
+		\phantom{x}\vspace{7cm}
+	}
+	
+	\singletask{Funktionen für gegebene Nullstellen finden}
+	
+	Finden Sie Funktionsgleichungen von Funktionen, die die folgenden Nullstellen besitzen.
+	Überprüfen Sie Ihre Lösungen anschließend mit Geogebra\footnote{\url{https://www.geogebra.com/graphing}}.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item $x_1 = 3,\; x_2 = -3$
+		\item $x_1 = 3,\; x_2 = 3$
+		\item $x_1 = 0,\; x_2 = 0$
+		\item $x_1 = -2,\; x_2 = 0$
+		\item $x_1 = -1,\; x_2 = 2,\; x_3 = 4$
+	\end{enumerate}
+	
+	\checkered[6cm]
+	
+	\partnertask{Diskriminante und Nullstellen}
+	
+	\begin{wrapfigure}[3]{r}{4cm}
+		\qrlink{https://www.geogebra.org/classic/gp2e8m5v}
+	\end{wrapfigure}
+	
+	Beim Lösen quadratischer Gleichungen bezeichnet man den Wert unter der Wurzel in der abc- oder pq-Formel als \textit{Diskriminante} $D$.
+	
+	Untersuchen Sie den Zusammenhang zwischen der Anzahl der Nullstellen der Parabel und dem Wert der Diskriminante.
+	Was fällt Ihnen auf?
+	\vspace{2cm}
+	
+	\checkered[6cm]
+	
+	\warning{Übersicht über Darstellungsformen quadratischer Funktionen}{
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}
+				\node[entity, align=center] (spf) at (3.5,3){Scheitelpunktform\\$a(x-d)^2+e$};
+				\node[entity, align=center] (pf) at (0,-3){Produktform\\$a(x-x_1)(x-x_2)$};
+				\node[entity, align=center] (nf) at (-3.5,3){Normalform\\$ax^2+bx+c$};
+				\draw[->] (nf) edge[bend right=15] node[midway, above]{Quadr. Ergänzung} (spf);
+				\draw[->] (spf) edge[bend right=15] node[midway, below]{Ausmultiplizieren} (nf);
+				\draw[->] (nf) edge[bend right=15] node[midway, sloped, below]{Nst. berechnen} (pf);
+				\draw[->] (pf) edge[bend right=15] node[midway, sloped, above]{Ausmultiplizieren} (nf);
+				\draw[->] (pf) edge[bend right=15] node[midway, sloped, below]{Scheitel berechnen} (spf);
+				\draw[->] (spf) edge[bend right=15] node[midway, sloped, above]{Nst. berechnen} (pf);
+			\end{tikzpicture}
+		\end{figure}
+	}
+\end{document}
