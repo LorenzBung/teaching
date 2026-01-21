@@ -1,0 +1,80 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Python: Dictionaries}
+	\subject{Informatik}
+	\class{FTE1-1}
+	\date{21.01.2026}
+	\maketitle
+	
+	\warning{Dictionaries}{
+		Eine häufig verwendete Datenstruktur ist das sogenannte \textbf{Dictionary}.
+		Dabei werden Paare von Werten -- bestehend aus einem \textbf{Schlüssel} und einem zugehörigen \textbf{Wert} -- einander zugewiesen.
+		Die Schlüssel sind dabei eindeutig, Werte können aber doppelt vorkommen.
+		\\
+		
+		Ein Dictionary wird in Python mit geschweiften Klammern angelegt, zwischen denen die Schlüssel-/Wert-Paare kommagetrennt stehen.
+		Zwischen Schlüssel und Wert steht ein Doppelpunkt.
+		Das könnte zum Beispiel so aussehen:
+		
+		\lstinline[language=python]{woerter = \{"eins" : 1, "zwei" : 2, "drei" : 3\}}
+		\\
+		
+		Auf die einzelnen Elemente kann man nun ähnlich wie bei einer Liste zugreifen:
+		
+		\lstinline[language=python]{eins = woerter["eins"] #Der Wert der Variablen ist 1}
+		\\
+		
+		Auch nach dem Anlegen kann man neue Werte hinzufügen und entfernen:
+		
+		\lstinline[language=python]{woerter["vier"] = 4 #Jetzt steht "vier" : 4 auch im Dictionary}
+		
+		\lstinline[language=python]{woerter.pop("eins") #Der Eintrag "eins" : 1 wird gelöscht}
+		\\
+		
+		Die Schlüssel kann man auch als Liste verwenden (z. B. für die Verwendung in einer Schleife):
+		
+		\lstinline[language=python]{schluessel = woerter.keys() #schluessel = ["zwei", "drei", "vier"]}
+	}
+	
+	\singletask[(\timeLimit{15 min.})]{Personalausweis}
+	
+	a) Legen Sie ein Dictionary an, das Sie in Form eines Steckbriefs beschreibt.
+	Es soll die folgenden Schlüssel haben:
+	
+	\begin{itemize}
+		\item Vorname
+		\item Nachname
+		\item Geschlecht
+		\item Geburtsdatum
+		\item Körpergröße
+	\end{itemize}
+	
+	b) Erweitern Sie den angelegten Personalausweis nachträglich um Ihre Augenfarbe und Nationalität.
+	Geben Sie zusätzlich alle Einträge des Ausweises aus.
+	
+	c) Legen Sie ein weiteres Dictionary an, das ein Datum speichern soll:
+	Es soll die Schlüssel \texttt{day}, \texttt{month} und \texttt{year} haben.
+	Haben Sie eine Idee, wie man dieses neue Dictionary im Personalausweis für das Geburtsdatum nutzen könnte?
+	
+	\pagebreak
+	
+	\partnertask[(\timeLimit{7 min.})]{Übersetzung des Maus-Intros}
+	
+	Laden Sie sich das vorgefertigte Python-Programm \texttt{maus.py} aus Moodle herunter.
+	Darin sind bereits Variablen mit dem rumänischen Text sowie ein rumänisch-deutsches Wörterbuch angelegt.
+	
+	Schreiben Sie nun ein Programm, das den Text Wort für Wort durchgeht und übersetzt und die Übersetzung anschließend ausgibt
+	\footnote{Die Python-Funktion \texttt{split()} zum Aufteilen eines Strings könnte hilfreich sein: \texttt{\dq Hallo 123\dq.split(\dq\ \dq)} wird zu einer Liste \texttt{[\dq Hallo\dq, \dq 123\dq]}.}.
+	Können Sie mithilfe der Übersetzung sagen, worum es in der Folge wohl geht?
+	
+	\bonustask{Personalregister für die Klasse}
+	
+	Legen Sie mit Ihrer Lösung aus Aufgabe 1 Personalausweise für Ihre Mitschüler an.
+	Speichern Sie diese in einem weiteren Dictionary, welches als Personalregister dient.
+	
+	Passen Sie das Programm so an, dass der Nutzer einen Namen angeben kann, zu dem er anschließend den entsprechenden Personalausweis ausgegeben bekommt.
+\end{document}

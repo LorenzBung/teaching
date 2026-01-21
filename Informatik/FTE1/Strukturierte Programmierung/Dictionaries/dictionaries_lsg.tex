@@ -1,0 +1,44 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Python: Dictionaries \hspace{10cm} Lösungsvorschlag}
+	\subject{Informatik}
+	\class{FTE1-1}
+	
+	\date{21.01.2026}
+	\maketitle
+	
+	\singletask{Personalausweis}
+	
+	Der folgende Lösungsvorschlag beinhaltet Aufgabe 1a), b) und c):
+	
+	\begin{lstlisting}[language=python]
+# Teilaufgabe a)
+personalausweis = {
+	"vorname" : "Max",
+	"nachname" : "Mustermann",
+	"geschlecht" : 'm',
+	# Ohne Teilaufgabe c)
+	# "geburtsdatum" : "15.11.1989",
+	# Mit Teilaufgabe c)
+	"geburtsdatum" : {
+		"tag" : 15,
+		"monat" : 11,
+		"jahr" : 1989
+	},
+	"koerpergroesse" : 181
+}
+# Teilaufgabe b)
+personalausweis["nationalitaet"] = "deutsch"
+personalausweis["augenfarbe"] = "blau"
+for key in personalausweis.keys():
+	print(key + ": " + str(personalausweis[key]))
+	\end{lstlisting}
+	
+	\partnertask{Übersetzung des Maus-Intros}
+	
+	\lstinputlisting[language=python, firstline=129]{maus_lsg.py}
+\end{document}
