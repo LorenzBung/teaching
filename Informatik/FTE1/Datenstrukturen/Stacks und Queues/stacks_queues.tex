@@ -1,0 +1,80 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Stacks und Queues}
+	\subject{Informatik}
+	\class{FTE1}
+	\maketitle
+	
+	\hint{Stacks und Queues}{
+		Die Listen, die wir ja schon kennen, können in Python auch die Funktion von zwei weiteren Datenstrukturen annehmen: \textbf{Stack} und \textbf{Queue}.
+		\\
+		
+		Ein \textbf{Stack} ist wie ein Stapel an Papieren aufgebaut:
+		Es wird immer nur etwas oben drauf gelegt und nur das oberste Element eins nach dem anderen heruntergenommen.
+		Dieses Prinzip nennt man \textbf{LIFO} (last in, first out).
+		
+		Das darauflegen des neuen Elements \texttt{e} geht in Python mit \texttt{lst.append(e)}\footnotemark, das herunternehmen mit \texttt{e = lst.pop()}.
+		\\
+		
+		Die \textbf{Queue} ist wie die Schlange vor dem Kaffeeautomaten:
+		Neue Elemente werden hinten angehängt und es wird immer nur das vorderste Element bearbeitet.
+		Dieses Prinzip nennt man \textbf{FIFO} (first in, first out).
+		
+		Anhängen (\textit{enqueue}) können wir das neue Element \texttt{e} wie gewohnt mit \texttt{lst.append(e)}, aber herunternehmen (\textit{dequeue}) müssen wir das oberste Element mit \texttt{e = lst.pop(0)}.
+	}
+	\footnotetext{Eigentlich bezeichnet man das darauflegen auf einen Stack als \texttt{push}.
+	Da wir aber eine Liste verwenden, nutzen wir dafür \texttt{append}.}
+	
+	\partnertask{Anwendungsfälle}
+	
+	Überlegen Sie sich gemeinsam Anwendungsfälle für die beiden Datenstrukturen...
+	\begin{enumerate}[label=\alph*)]
+		\item ...im Alltag
+		\item ...im Kontext des Informatikunterrichts
+	\end{enumerate}
+	
+	\lines[6cm]
+	
+	\pagebreak
+	
+	\singletask{Browserverlauf}
+	
+	Schreiben Sie ein Programm, das den Browserverlauf eines Nutzers aufzeichnet.
+	Gehen Sie dazu wie folgt vor:
+	
+	\begin{itemize}
+		\item Der Nutzer gibt die zuletzt aufgerufene URL ein -- diese wird gespeichert.
+		\item Gibt der Nutzer \texttt{back} ein, soll die letzte URL gelöscht werden und die nun aktuelle URL ausgegeben werden.
+		\item Die Nutzereingabe \texttt{quit} beendet das Programm.
+		\item Bei der Eingabe von \texttt{clear} soll der Browserverlauf gelöscht werden.
+	\end{itemize}
+	
+	\singletask{Druckaufträge}
+	
+	Schreiben Sie ein Programm, das nach und nach Druckaufträge bearbeitet.
+	Gehen Sie dazu wie folgt vor:
+	
+	\begin{itemize}
+		\item Der Nutzer gibt den Pfad zu einer Datei ein, die er drucken möchte.
+		Speichern Sie den Pfad ab.
+		\item Gibt der Nutzer \texttt{print} ein, sollen alle Druckaufträge nacheinander abgearbeitet werden.
+		Geben Sie dazu z. B. aus: \texttt{Drucke Datei '/home/bug/Documents/Klassenliste.pdf'...}
+		\item Die Nutzereingabe \texttt{quit} beendet das Programm.
+		\item Bei der Eingabe von \texttt{clear} soll die Druckerwarteschlange geleert werden.
+	\end{itemize}
+	
+	\bonustask{Klammerung korrekt?}
+	
+	Schreiben Sie ein Programm, das für einen gegebenen String (z. B. durch eine Nutzereingabe) überprüft, ob die Klammerung korrekt ist.
+	Beispiel:
+	\begin{itemize}
+		\item \texttt{"((3+5)*2)+(7*2)"} -- richtig
+		\item \texttt{"((5+2)*2()-5("} -- falsch
+	\end{itemize}
+	Nutzen Sie eine geeignete Datenstruktur zur Lösung der Aufgabe.
+	(\textit{Tipp}: Sie wird auf diesem Arbeitsblatt erwähnt \faSmileWink[regular])
+\end{document}
