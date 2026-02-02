@@ -1,0 +1,87 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Module und Imports}
+	\subject{Informatik}
+	\class{FTE1}
+	\maketitle
+	
+	Unsere bisherigen Programme waren ausschließlich Skripte in einer Datei.
+	Bei komplexeren Programmen stößt die Lesbarkeit dabei schnell an seine Grenzen, denn niemand möchte eine Datei mit 10 000 Zeilen Code lesen.
+	
+	Außerdem kann es sein, dass man externe Codebibliotheken verwenden möchte -- zum Beispiel für kompliziertere mathematische Operationen, Zufall usw.
+	Hier kommen die sogenannten \textbf{Module} ins Spiel.
+	
+	\begin{hint}{Module und Imports}
+		Ein \textbf{Modul} ist eine Codebibliothek, die durch einen \textbf{Import} im Programm verwendet werden kann.
+		Selbst erstellte Module dienen dazu, verschiedene Programmteile voneinander zu trennen.
+		
+		Ein Modul erstellt man durch eine neue Datei, die den Modulnamen als Dateinamen hat (z. B. \texttt{mathe.py}).
+		Innerhalb dieser Datei können nun Variablen, Funktionen usw. angelegt werden:
+		
+		\begin{lstlisting}[language=python, numbers=none, frame=none]
+# Datei mathe.py
+pi = 3.14159265359
+def quadriere(a):
+	return a**2
+		\end{lstlisting}
+		
+		In anderen Python-Dateien im selben Verzeichnis kann man dieses Modul nun mit dem Keyword \texttt{import} importieren:
+		\begin{lstlisting}[language=python, numbers=none, frame=none]
+# Datei kreisflaeche.py
+import mathe
+radius = float(input("Bitte geben Sie den Radius ein: "))
+area = mathe.pi * mathe.quadriere(radius)
+print("Der Flächeninhalt ist", area)
+		\end{lstlisting}
+	\end{hint}
+	
+	\singletask{Listenoperationen}
+	
+	Schreiben Sie ein Modul \texttt{list-operations}, in dem Sie die folgenden Funktionen implementieren:
+	
+	\begin{itemize}
+	\item \texttt{minimum(lst)}: Diese Funktion sucht das kleinste Element in der Liste \texttt{lst} und gibt es zurück.
+	\item \texttt{maximum(lst)}: Gibt das größte Element der Liste \texttt{lst} zurück.
+	\item \texttt{average(lst)}: Berechnet den Durchschnitt aller Werte in der Liste \texttt{lst} und gibt ihn zurück.
+	\end{itemize}
+	
+	Schreiben Sie dazu ein kleines Testprogramm \texttt{listentest.py}, in dem das Modul importiert wird.
+	Erstellen Sie eine Liste (z. B. durch Nutzereingabe) und testen Sie die drei Funktionen.
+	
+	\pagebreak
+	
+	\singletask{Zufall und Mathematik}
+	
+	Schreiben Sie ein Programm, das einen Integer \texttt{n} vom Nutzer einliest.
+	Der folgende Code soll dann \texttt{n} mal ausgeführt werden:
+	
+	\begin{itemize}
+		\item Generieren Sie mithilfe der Funktion \texttt{random()} aus dem Modul \texttt{random} einen Winkel $\alpha$ zwischen 0 und 360\textdegree.
+		\item Berechnen Sie mithilfe der Funktionen \texttt{sin(alpha)} und \texttt{cos(alpha)} aus dem Modul \texttt{math} den Sinus- und Cosinus des Winkels $\alpha$.
+		Speichern Sie die Werte in zwei Listen ab (eine für die Sinuswerte, eine für die Cosinuswerte).
+	\end{itemize}
+	
+	Berechnen Sie anschließend den Mittelwert der Sinus- und Cosinuswerte.
+	Können Sie das Ergebnis mathematisch begründen?
+	
+	\bonustask{Approximation von Pi}
+	
+	Lesen Sie eine Zahl \texttt{n} vom Nutzer ein und führen Sie folgende Schritte \texttt{n} mal aus:
+	\begin{itemize}
+		\item Generieren Sie einen zufälligen Punkt $(x, y)$, so dass $x,y \in [-1; 1]$.
+		\item Bestimmen Sie, ob der Punkt im Einheitskreis\footnotemark\ liegt und zählen Sie eine entsprechende Variable hoch.
+	\end{itemize}
+	
+	Anschließend können Sie mit der folgenden Formel Pi approximieren:
+	
+	$$\pi \approx 4 \cdot \frac{\text{Punkte im Kreis}}{\text{Punkte insgesamt}}$$
+	
+	Vergleichen Sie den berechneten Wert mit dem tatsächlichen Wert von Pi (in der Variablen \texttt{pi} aus dem Modul \texttt{math}) für verschiedene Werte von \texttt{n}.
+	
+	\footnotetext{Der Einheitskreis ist der Kreis um den Punkt $(0, 0)$ mit Radius 1.}
+	
+\end{document}
