@@ -1,0 +1,70 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Python: File Handling}
+	\subject{Informatik}
+	\class{FTE1}
+	\maketitle
+	
+	\begin{hint}{Dateien öffnen, lesen/schreiben und schließen}
+		Wollen wir in Python auf eine Datei zugreifen, erfolgt das in der folgenden Reihenfolge:
+		\begin{enumerate}
+			\item Die Datei wird geöffnet
+			\item Es werden Daten gelesen oder geschrieben
+			\item Die Datei wird geschlossen
+		\end{enumerate}
+		Zum Öffnen der Datei legen wir eine neue Variable an und rufen die Funktion \texttt{f = open(file, mode)} auf.
+		Der Parameter \texttt{file} gibt dabei den Dateinamen an.
+		Der Modus legt fest, ob wir nur lesen (\texttt{\dq r\dq}), die Datei überschreiben (\texttt{\dq w\dq}) oder an den Schluss der Datei etwas anhängen (\texttt{\dq a\dq}).
+		
+		Sobald die Datei geöffnet ist, kann man mit \texttt{f.read(n)} die nächsten \texttt{n} Zeichen oder mit \texttt{f.readline()} die nächste Zeile lesen.
+		
+		Haben wir die Datei im Modus \texttt{\dq w\dq} oder \texttt{\dq a\dq} geöffnet, können wir mit \texttt{f.write(string)} einen String in die Datei schreiben\footnotemark.
+		
+		Zum Schluss muss die Datei mit \texttt{f.close()} geschlossen werden.
+		
+		\begin{lstlisting}[language=python, numbers=none, frame=none]
+f = open("log.txt", "a")  #Öffnet die Datei "log.txt"
+print(f.readline())  #Gibt die erste Zeile der Logdatei aus
+f.write("Logdatei wurde geöffnet\n")  #Schreibt eine Lognachricht ans Ende der Datei
+f.close()  #Schließt die Datei "log.txt"
+		\end{lstlisting}
+	\end{hint}
+	\footnotetext{Der String \texttt{\dq\textbackslash n\dq} gibt einen Zeilenumbruch an.}
+	
+	\singletask{Hello World und Echo}
+	
+	a) Schreiben Sie ein Programm, das eine neue Datei \texttt{hello.txt} mit dem Inhalt \texttt{Hello World!} anlegt.
+	
+	b) Schreiben Sie ein Programm, das einen Text vom Nutzer einliest und den Inhalt in die Datei \texttt{echo.txt} speichert.
+	Bei erneuter Ausführung soll die Datei überschrieben werden.
+	
+	\pagebreak
+	
+	\singletask{To-Do-Liste}
+	
+	Schreiben Sie ein Programm, das eine To-Do-Liste erstellt (oder erweitert).
+	Gehen Sie dafür folgendermaßen vor:
+	
+	\begin{itemize}
+		\item Gibt der Nutzer \texttt{add [text]} ein, fügen Sie das neue To-Do \texttt{[text]} zur Datei \texttt{todo.txt} hinzu.
+		\item Gibt der Nutzer \texttt{rm [text]} ein, markieren Sie das To-Do als erledigt (d. h.: löschen Sie die entsprechende Zeile aus der Datei \texttt{todo.txt}).
+		\item Gibt der Nutzer \texttt{quit} ein, wird das Programm beendet.
+	\end{itemize}
+	
+	\singletask{Notenverwaltung}
+	
+	Ein typisches Format zum Austausch von Daten sind \textbf{CSV-Dateien} (\textbf{c}omma/\textbf{c}haracter \textbf{s}eparated \textbf{v}alues).
+	Die folgende CSV-Datei finden Sie auch in Moodle:
+	
+	\lstinputlisting[title=\texttt{noten.csv}]{noten.csv}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Lesen Sie die CSV-Datei ein und geben Sie für jeden Schüler den Namen und die Noten schön formatiert aus.
+		\item Berechnen Sie den Notendurchschnitt jedes Schülers und ergänzen Sie die Datei um eine Spalte \texttt{durchschnitt} mit dem entsprechenden Wert.
+		\item Geben Sie den Vor- und Nachnamen des Schülers mit dem besten Schnitt aus.
+	\end{enumerate}
+\end{document}
