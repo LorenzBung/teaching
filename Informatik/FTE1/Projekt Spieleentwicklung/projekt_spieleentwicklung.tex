@@ -1,0 +1,103 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Projekt: Spieleentwicklung}
+	\subject{Informatik}
+	\class{FTE1}
+	\maketitle
+	
+	Das Ziel dieses Softwareprojekts ist es, ein funktionsfähiges Computerspiel zu entwickeln.
+	Es soll sich dabei um ein textbasiertes Spiel handeln, welches über geschriebene Nutzereingaben gesteuert wird.
+	Zusätzlich sollen der Ablauf des Spiels in eine Logdatei geschrieben werden.
+	
+	
+	\section{Anforderungen an das Projekt}
+	
+	Inhaltlich gibt es keine Anforderungen an das Projekt.
+	Sie können selbst entscheiden, um was es in dem Spiel geht -- beispielsweise ein Tic-Tac-Toe-Spiel, Mensch-ärgere-dich-nicht oder ein textbasiertes Rollenspiel.
+	
+	Das Projekt soll folgende Kriterien erfüllen:
+	
+	\begin{itemize}
+		\item Sie müssen jedes der folgenden Konzepte in Ihrem Programm verwenden:
+		\begin{itemize}
+			\item Verzweigung (mindestens ein Block mit \texttt{if} und \texttt{else})
+			\item Schleife (mindestens eine \texttt{while}-Schleife und eine \texttt{for}-Schleife)
+			\item Liste
+		\end{itemize}
+		\item Jede logische Einheit des Programms muss als eigenständige Funktion geschrieben werden.
+		\item Das Programm ist in angemessene Module aufzuteilen, zum Beispiel \texttt{main.py}, \texttt{input.py} und \texttt{logic.py}.
+		\item Der Spielablauf soll in eine Logdatei geschrieben werden.
+	\end{itemize}
+	
+	\section{Bewertungskriterien}
+	
+	Die Bewertung des Projekts gliedert sich in mehrere Bestandteile:
+	
+	\begin{enumerate}
+		\item Das \textbf{Python-Programm} an sich
+		\item Eine schriftliche \textbf{Dokumentation} des Projekts
+		\item \textbf{Sonstige Kriterien} wie z. B. Gesamteindruck, Kreativität usw.
+	\end{enumerate}
+	
+	\subsection{Python-Programm}
+	
+	Neben den oben genannten Kriterien spielen weitere Kriterien eine Rolle, wie zum Beispiel die folgenden:
+	
+	\begin{itemize}
+		\item \textbf{Kommentare}: Schreiben Sie ausführliche Kommentare.
+		Immer dann, wenn nicht auf den ersten Blick erkennbar ist, was ein Codeabschnitt tut, sollten Sie dies erläutern.
+		Funktionen sollten immer einen Kommentar haben, der beschreibt, was die Funktion tut.
+		\item \textbf{Lesbarkeit}: Achten Sie darauf, den Code so lesbar wie möglich zu schreiben.
+		Dazu gehört z. B. eine sinnvolle Benennung der Variablen usw.
+		\item \textbf{Struktur}: Strukturieren Sie Ihren Code logisch.
+		Dazu gehört die Aufteilung in Funktionen und Module, aber auch innerhalb der einzelnen Abschnitte ist eine sinnvolle Strukturierung wichtig.
+	\end{itemize}
+	
+	\subsection{Dokumentation}
+	
+	Die Dokumentation dient einerseits dazu, um einen Überblick über Ihr Projekt zu liefern, ohne in den Code zu schauen.
+	Andererseits hilft das Schreiben der Dokumentation Ihnen auch, damit Sie im Nachhinein den Entwicklungsprozess und Ihre Gedanken nachvollziehen zu können.
+	
+	In der Dokumentation sollten folgende Dinge vorhanden sein:
+	
+	\begin{itemize}
+		\item Sie sollten den Inhalt und die Idee Ihres Projekts beschreiben.
+		\item Der zeitliche Ablauf Ihrer Entwicklung sollte erkennbar werden.
+		\item Überlegungen zu Struktur und Aufbau Ihres Programms sollten erklärt werden.
+		\item Die Dokumentation sollte einen Abschnitt beinhalten, in dem erklärt wird, wie das Programm auszuführen ist.
+	\end{itemize}
+	
+	Bitte geben Sie Ihre Dokumentation im PDF-Format ab, nicht als \texttt{.docx}-Datei o. Ä.
+	
+	\section{Abgabe}
+	
+	\begin{itemize}
+		\item Die Abgabe erfolgt als Upload via Moodle.
+		\item Bitte beachten Sie die dort angegebene Deadline!
+		\item Eine spätere Abgabe ist nur in Sonderfällen nach Rücksprache und vorheriger Genehmigung möglich.
+		\item Sie können mehrere Dateien mit einer Gesamtgröße von maximal 20 MB abgeben.
+		\item Wenn Sie mehrere Dateien auf einmal abgeben, komprimieren Sie diese bitte als ZIP-Archiv.
+		\item Sollten Sie in Ihrer Dokumentation bereits den Python-Code anhängen, bitte ich dennoch um zusätzliche Abgabe der Codedateien.
+		\item Das Programm muss im Schulnetz unter der Linuxinstallation ausführbar sein.
+	\end{itemize}
+	
+	\section{Tipps}
+	
+	\begin{itemize}
+		\item Planen Sie Ihr Projekt nicht zu groß.
+		In der Regel braucht man in der Softwareentwicklung etwa 1,5- bis 2-fach so viel Zeit wie zuvor absehbar.
+		\item Arbeiten Sie kontinuierlich und versuchen Sie nicht, in einer Nachtschicht das komplette Programm zu schreiben.
+		\item Kümmern Sie sich zuerst um die Logik Ihres Spiels, bevor Sie sich mit Optimierungen wie z. B. einer schön formatierten Nutzereingabe beschäftigen:
+		
+		``Premature optimization is the root of all evil'' -- Donald Knuth\footnote{\url{https://en.wikipedia.org/wiki/Program_optimization\#When_to_optimize}}
+		\item Wenn eine Python-Datei so lang wird, dass unübersichtlich zu lesen wird, ist das ein relativ sicheres Zeichen dafür, dass Sie mehrere Funktionen und Module dafür verwenden sollten.
+		\item Die Dokumentation ist das ``Aushängeschild'' Ihres Programms.
+		Eine gut strukturierte, formulierte und vollständige Dokumentation zahlt sich aus.
+		\item Schreiben Sie die Dokumentation während des Entwicklungsprozesses und nicht erst ganz am Ende.
+		Zum Schluss können Sie diese nochmal überarbeiten.
+	\end{itemize}
+\end{document}
