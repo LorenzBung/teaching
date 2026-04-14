@@ -1,10 +1,12 @@
 \documentclass[11pt, a4paper, oneside]{article}
 \usepackage{worksheet}
+\usepackage[ngerman]{babel}
 
 \begin{document}
 	\author{L. Bung}
 	\title{Merkzettel \hspace{10cm} OOP in Python}
 	\subject{SAE}
+	\class{E2FI}
 	\maketitle
 	
 	\begin{lstlisting}[language=python]
@@ -21,27 +23,27 @@ meinFahrrad.fahren()
 meinFahrrad.lackieren("blau")
 	\end{lstlisting}
 
-	\hint{Definition von Klassen}{
-	In Python werden Klassen mit dem Keyword \texttt{class} gefolgt vom Namen der Klasse definiert.
-	Alles, was zur Klasse gehört, wird darunter eingerückt.
-	
-	Methoden der Klasse werden wie Funktionen mit dem Keyword \texttt{def} definiert, haben jedoch als ersten Parameter das Keyword \texttt{self}.
-	
-	Auf Attribute der Klasse kann mit \texttt{self.variablenname} zugegriffen werden.
-	
-	Jede Klasse hat eine besondere Methode -- den sogenannten Konstruktur.
-	Der Konstruktor ist eine Methode, die beim Erstellen eines Objekts aufgerufen wird.
-	Hier werden beispielsweise die Werte der Attribute eines neuen Objekts festgelegt.
-	In Python erkennt man den Konstruktor am Methodennamen \texttt{\_\_init\_\_} -- im obigen Beispiel in Zeile 2.
-	}
+	\begin{hint}{Definition von Klassen}
+		In Python werden Klassen mit dem Keyword \texttt{class} gefolgt vom Namen der Klasse definiert.
+		Alles, was zur Klasse gehört, wird darunter eingerückt.
+		
+		Methoden der Klasse werden wie Funktionen mit dem Keyword \texttt{def} definiert, haben jedoch als ersten Parameter das Keyword \texttt{self}.
+		
+		Auf Attribute der Klasse kann mit \texttt{self.variablenname} zugegriffen werden.
+		
+		Jede Klasse hat eine besondere Methode -- den sogenannten Konstruktur.
+		Der Konstruktor ist eine Methode, die beim Erstellen eines Objekts aufgerufen wird.
+		Hier werden beispielsweise die Werte der Attribute eines neuen Objekts festgelegt.
+		In Python erkennt man den Konstruktor am Methodennamen \texttt{\_\_init\_\_} -- im obigen Beispiel in Zeile 2.
+	\end{hint}
 
-	\hint{Verwenden von Objekten}{
-	Nachdem eine Klasse definiert wurde, können Objekte dieser Klasse erstellt werden.
-	Dazu wird der Name der Klasse mit Klammern geschrieben, in welche als Parameter die Parameter des Konstruktors übergeben werden.
-	Im obigen Code sieht man dies in Zeile 9.
-	
-	Die Methoden des neu erstellten Objekts können nun durch \texttt{variablenname.methodenname()} aufgerufen werden.
-	Mögliche Parameter der Methoden müssen dabei mit übergeben werden, wie beispielsweise in Zeile 11.
-	}
+	\begin{hint}{Verwenden von Objekten}
+		Nachdem eine Klasse definiert wurde, können Objekte dieser Klasse erstellt werden.
+		Dazu wird der Name der Klasse mit Klammern geschrieben, in welche als Parameter die Parameter des Konstruktors übergeben werden.
+		Im obigen Code sieht man dies in Zeile 9.
+		
+		Die Methoden des neu erstellten Objekts können nun durch \texttt{variablenname.methodenname()} aufgerufen werden.
+		Mögliche Parameter der Methoden müssen dabei mit übergeben werden, wie beispielsweise in Zeile 11.
+	\end{hint}
 	
 \end{document}
