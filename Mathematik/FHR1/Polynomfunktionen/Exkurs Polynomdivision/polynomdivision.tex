@@ -1,0 +1,93 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Exkurs: Polynomdivision}
+	\subject{Mathematik}
+	\class{FHR1}
+	\maketitle
+	
+	\grouptask*{Wiederholung: Schriftliche Division}
+	
+	a) Recherchieren Sie gemeinsam, wie die schriftliche Division nochmal ging.
+	Beschreiben Sie das Verfahren anhand eines Beispiels im folgenden Kasten.
+	
+	\begin{warning}{Schriftliche Division}
+		\phantom{x}\vspace{7cm}
+	\end{warning}
+	
+	b) Nutzen Sie Ihre Erkenntnisse nun, um die folgenden Divisionsaufgaben zu lösen.
+	
+	\begin{checkeredfigure}
+		\node at (1.25,6.75) {(i)};
+		\node at (2.25,6.75) {84 : 4 =};
+		\draw[thick] (1.5,6.5) -- (5,6.5);
+		
+		\node at (6.25,6.75) {(ii)};
+		\node at (7.6,6.75) {512 : 8 =};
+		\draw[thick] (6.5,6.5) -- (10.5,6.5);
+		
+		\node at (11.75,6.75) {(iii)};
+		\node at (13.1,6.75) {503 : 9 =};
+		\draw[thick] (12,6.5) -- (16,6.5);
+	\end{checkeredfigure}
+	
+	Wir haben bereits gesehen, dass es Polynome $f(x) = a_nx^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0$ gibt, in denen man Nullstellen nicht mit unseren bekannten Verfahren berechnen kann.
+	Wenn wir allerdings schon eine Nullstelle $x_1$ wissen, können wir diese ja als Linearfaktor $(x-x_1)$ schreiben.
+	
+	Das Polynom hätte dann also die Form $f(x) = (x-x_1) \cdot r(x)$, wobei $r(x)$ ein Polynom vom Grad $n-1$ ist.
+	Die Frage ist: Wie sieht das Polynom $r(x) = f(x) : (x-x_1)$ aus?
+	
+	\begin{hint}{Polynomdivision}
+		Ähnlich wie bei der schriftlichen Division können wir das Restpolynom berechnen.
+		Dieses Vorgehen nennt man \textbf{Polynomdivision}.
+		Man geht dabei folgendermaßen vor:
+		
+		\begin{enumerate}
+			\item Teile die führenden Terme und schreibe das Ergebnis hinter das Gleichheitszeichen.
+			\item Multipliziere zurück und schreibe das Ergebnis unter das ursprüngliche Polynom.
+			\item Subtrahiere den errechneten Term vom ursprünglichen Polynom.
+			\item Wiederhole das Vorgehen, bis kein Rest mehr übrig bleibt.
+		\end{enumerate}
+	\end{hint}
+	
+	\task{Linearfaktoren durch Polynomdivision abspalten}
+	
+	Berechnen Sie jeweils die Restpolynome mithilfe der Polynomdivision.
+	
+	\begin{multicols}{2}
+		\begin{enumerate}[label=\alph*)]
+			\item $(x^2 - x - 6) : (x - 3)$
+			\item $(x^3 + 2x^2 - x - 2) : (x + 1)$
+		\end{enumerate}
+	\end{multicols}
+	
+	\checkered[11cm]
+	
+	\task{Nullstellen mithilfe von Polynomdivision bestimmen}
+	
+	Wenn wir durch einen Linearfaktor teilen, hat das Restpolynom den Grad $n-1$.
+	Das kann uns dabei helfen, weitere Nullstellen zu berechnen!
+	
+	Nutzen Sie die Polynomdivision, um alle Nullstellen zu bestimmen:
+	
+	\begin{multicols}{2}
+		\begin{enumerate}[label=\alph*)]
+			\item $(x^3 - 4x^2 + x + 6) : (x - 2)$
+			\item $(2x^3 + 3x^2 - 11x - 6) : (x + 3)$
+		\end{enumerate}
+	\end{multicols}
+	
+	\checkered[13cm]
+	
+	\bonustask{Bedeutung des Rests}
+	
+	Führen Sie die Polynomdivision von $(x^3 + x + 1) : (x + 1)$ durch.
+	
+	\begin{itemize}
+		\item Was fällt Ihnen in Bezug auf den Rest bei der Division auf?
+		\item Welche Bedeutung könnte das haben?
+	\end{itemize}
+\end{document}
