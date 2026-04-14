@@ -1,0 +1,55 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Mehrfache Nullstellen \hspace{10cm} von Polynomfunktionen}
+	\subject{Mathematik}
+	\class{FHR1}
+	\maketitle
+	
+	\partnertask{Vom Funktionsterm zum Graphen}
+	
+	Sie haben die Funktion $f(x) = \frac{1}{2}x(x-3)^2$ gegeben.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Bestimmen Sie den Grad der Funktion $f$.
+		\item Bestimmen Sie die Nullstelle(n) von $f$.
+		\item Beschreiben Sie, wie der Funktionsgraph von $f$ global verläuft.
+		\item Untersuchen Sie, wie sich der Funktionsgraph von $f$ in der Nähe der Nullstelle(n) verhält.
+	\end{enumerate}
+	
+	\checkered[8cm]
+	
+	\begin{hint}{Mehrfache Nullstellen}
+		Hat eine Funktion $f$ die Form $f(x) = (x-x_1)^k \cdot r(x)$ (wobei $r(x)$ wiederum ein Polynom ist), so nennt man $x_1$ eine $k$-fache Nullstelle.
+		\vspace{4cm}
+	\end{hint}
+	
+	\partnertask{Vom Graphen zum Funktionsterm}
+	
+	Bestimmen Sie den zu den Graphen gehörigen Funktionsterm.
+	
+	\begin{multicols}{2}
+		\begin{plot}[xmin=-3, xmax=4, ymin=-1, ymax=3]
+			\addplot[domain=-3:4, samples=100, red, thick]{1/4*(x+2)*(x-2)^2};
+			\node at (-2.5,2.5) {a)};
+		\end{plot}
+		
+		\begin{plot}[xmin=-3.5, xmax=3.5, ymin=-1, ymax=3]
+			\addplot[domain=-3:4, samples=100, red, thick]{1/8*(x+2)^2*(x-2)^2};
+			\node at (-2.5,2.5) {b)};
+		\end{plot}
+	\end{multicols}
+	
+	\checkered[9.5cm]
+	
+	\begin{goallist}
+		...die Vielfachheit von Nullstellen bei Linearfaktorschreibweise ablesen. &&&\\
+		\hline
+		...die Vielfachheit der Nullstellen eines Graphen ablesen. &&&\\
+		\hline
+		...aus den Nullstellen und dem globalen Verlauf eines Graphen auf den Grad der Funktion schließen. &&&\\
+	\end{goallist}
+\end{document}
