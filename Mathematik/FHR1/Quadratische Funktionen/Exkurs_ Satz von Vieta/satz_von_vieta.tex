@@ -1,0 +1,39 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Exkurs: Satz von Vieta}
+	\subject{Mathematik}
+	\class{FHR1}
+	\maketitle
+	
+	\begin{hint}{Der Satz von Vieta}
+		Der \textbf{Satz von Vieta} (benannt nach Fran\c{c}ois Vieta, 1540--1603) ist eine Möglichkeit, um die Nullstellen von gemischt-quadratischen Gleichungen schnell herauszufinden:
+		
+		\begin{quote}
+			Sind $x_1$ und $x_2$ Nullstellen der quadratischen Funktion $f(x) = a(x^2+px+q)$, so gilt $p = -(x_1 + x_2)$ und $q = x_1 \cdot x_2$.
+		\end{quote}
+		
+		Die Funktion $f(x) = 2x^2-10x+12$ kann auch geschrieben werden als $f(x) = 2(x^2-5+6)$.
+		Man sieht: $p = -(2+3)$ und $q = 2 \cdot 3$.
+		Also sind die Nullstellen der Funktion $x_1 = 2$ und $x_2 = 3$.
+	\end{hint}
+	
+	\singletask{Nullstellen berechnen}
+	
+	Nutzen Sie den Satz von Vieta, um die Nullstellen der folgenden Funktionen zu bestimmen:
+	
+	\begin{multicols}{3}
+		\begin{enumerate}[label=\alph*)]
+			\item $a(x) = 3x^2+6x-9$
+			\item $b(x) = -\frac{1}{2}x^2-3x-4$
+			\item $c(x) = \frac{2}{3}x^2+\frac{2}{3}x-\frac{4}{3}$
+		\end{enumerate}
+	\end{multicols}
+	
+	\checkered[11cm]
+	
+	\let\clearpage\relax
+\end{document}
