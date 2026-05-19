@@ -1,0 +1,167 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Assoziation, Aggregation \hspace{10cm} und Komposition}
+	\subject{SAE}
+	\class{E2FI}
+	\maketitle
+	
+	\begin{hint}{Verknüpfungen zwischen Objekten}
+		In vielen Fällen ist es nötig, dass Objekte Informationen über andere Objekte benötigen oder auf diese verweisen.
+		Beispiel: Einem Mitarbeiter ist ein bestimmter Dienstwagen zugeordnet.\\
+		
+		Die Verbindung zwischen den beiden Klassen nennt man eine \textbf{Assoziation}.
+		In UML werden Assoziationen durch einen Pfeil mit offener Spitze dargestellt.
+		Die Assoziation kann in eine Richtung (\emph{unidirektional}) oder in beide Richtungen (\emph{bidirektional}) gerichtet sein -- je nachdem werden auch die Pfeilspitzen gesetzt.
+		Außerdem können -- ähnlich zu ER-Modellen -- Kardinalitäten angegeben werden.
+		
+		\begin{center}
+			\begin{tikzpicture}
+				\begin{class}[text width=4cm]{Fahrzeug}{7,0}
+					\attribute{-kennzeichen: str}
+					\attribute{-leistung: int}
+					\operation{+tanken(liter: int)}
+				\end{class}
+				\begin{class}[text width=4cm]{Mitarbeiter}{0,0}
+					\attribute{-name: str}
+					\attribute{-dienstwagen: Fahrzeug}
+					\operation{+arbeiten(stunden: int)}
+				\end{class}
+				\unidirectionalAssociation{Mitarbeiter}{0..1}{}{Fahrzeug}
+			\end{tikzpicture}
+		\end{center}
+		
+		Eine stärkere Verbindung ist die \textbf{Aggregation}.
+		Hier sind zwei Objekte Teil eines Ganzen -- zum Beispiel besteht eine Ehe aus zwei Ehepartnern.
+		Wichtig: Die Ehepartner bestehen auch nach Auflösung der Ehe weiter, existieren also unabhängig von ihr.
+		Die Aggregation wird in UML durch eine leere Raute dargestellt.
+		
+		\begin{center}
+			\begin{tikzpicture}
+				% Source - https://tex.stackexchange.com/a/391476
+				% Posted by Torbjørn T.
+				% Retrieved 2026-05-19, License - CC BY-SA 3.0
+				
+				\renewcommand{\aggregation}[4]
+				{
+					\draw[umlcd style, -open diamond] (#4) -- (#1)
+					node[near end, above]{#2}
+					node[near end, below]{#3};
+				}
+				
+				\begin{class}[text width=4cm]{Person}{0,0}
+					\attribute{-vorname: str}
+					\attribute{-nachname: str}
+				\end{class}
+				\begin{class}[text width=4cm]{Ehe}{7,0}
+					\attribute{+partner1: Person}
+					\attribute{+partner2: Person}
+				\end{class}
+				\aggregation{Ehe}{}{}{Person}
+			\end{tikzpicture}
+		\end{center}
+		
+		Noch stärker ist die \textbf{Komposition}.
+		Der Unterschied zur Aggregation liegt darin, dass die Teilobjekte nicht ohne das große Ganze existieren können.
+		Ein Beispiel hierfür wäre ein Gebäude, das aus mehreren Räumen besteht -- jedoch existieren die Räume auch nicht mehr, wenn das Gebäude abgerissen wird.
+		Die Komposition wird in UML durch eine ausgefüllte Raute dargestellt.
+		
+		\begin{center}
+			\begin{tikzpicture}
+				% Source - https://tex.stackexchange.com/a/391476
+				% Posted by Torbjørn T.
+				% Retrieved 2026-05-19, License - CC BY-SA 3.0
+				
+				\renewcommand{\composition}[4]
+				{
+					\draw[umlcd style, fill=\umldrawcolor, -diamond] (#4) -- (#1)
+					node[near end, above]{#2}
+					node[near end, below]{#3};
+				}
+				
+				\begin{class}[text width=4cm]{Raum}{0,0}
+					\attribute{-nummer: int}
+					\operation{+aufschließen()}
+				\end{class}
+				\begin{class}[text width=4cm]{Gebäude}{7,0}
+					\attribute{+adresse: str}
+					\attribute{-räume: list(Raum)}	
+				\end{class}
+				\composition{Gebäude}{}{}{Raum}
+			\end{tikzpicture}
+		\end{center}
+	\end{hint}
+	
+	\pagebreak
+	\task{Assoziation, Aggregation oder Komposition?}
+	
+	a) Entscheiden Sie jeweils, was für eine Art von Verbindung vorliegt.
+	
+	\begin{table}[h!]
+		\begin{tabularx}{\textwidth}{|l|X|l|}
+			\hline
+			\textbf{Beispiel} & \textbf{Art der Verbindung} & \textbf{Kardinalität}\\
+			\hline
+			\hline
+			Bibliothek $\longleftrightarrow$ Bücher &&\\
+			\hline
+			Student $\longleftrightarrow$ Kurs &&\\
+			\hline
+			Computer $\longleftrightarrow$ CPU &&\\
+			\hline
+			Fahrrad $\longleftrightarrow$ Räder &&\\
+			\hline
+			Playlist $\longleftrightarrow$ Songs &&\\
+			\hline
+			Flughafen $\longleftrightarrow$ Flugzeuge &&\\
+			\hline
+			Betriebssystem $\longleftrightarrow$ Prozesse &&\\
+			\hline
+			Git-Repository $\longleftrightarrow$ Commits &&\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	b) Finden Sie selbst weitere Beispiele für Assoziationen, Aggregationen und Kompositionen aus verschiedenen Bereichen.
+	Überlegen Sie sich auch, welche Kardinalität die Verbindung jeweils hat.
+	
+	\task{Umsetzung in Python}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Recherchieren Sie, wie man Assoziationen, Aggregationen und Kompositionen in Python umsetzen kann.
+		Schreiben Sie für jeden Fall ein Beispiel-Programm.
+		Erklären Sie in Ihrem Programm durch Kommentare, wie das Konzept umgesetzt wird.
+		
+		\item Setzen Sie das folgende UML-Diagramm in Python um:
+		\begin{figure}[h!]
+			\centering
+			\begin{tikzpicture}
+				% Source - https://tex.stackexchange.com/a/391476
+				% Posted by Torbjørn T.
+				% Retrieved 2026-05-19, License - CC BY-SA 3.0
+				
+				\renewcommand{\composition}[4]
+				{
+					\draw[umlcd style, fill=\umldrawcolor, -diamond] (#4) -- (#1)
+					node[near end, above]{#2}
+					node[near end, below]{#3};
+				}
+				\begin{class}[text width=5cm]{Bestellposition}{0,-4}
+					\attribute{-produkt: str}
+					\attribute{-menge: int}
+					\operation{-\_\_str\_\_(): str}
+				\end{class}
+				\begin{class}[text width=7cm]{Bestellung}{0,0}
+					\attribute{-positionen: list(Bestellposition)}
+					\operation{+add\_position(produkt: str, menge: int)}
+					\operation{+get\_positionen(): str}
+				\end{class}
+				\composition{Bestellung}{}{}{Bestellposition}
+			\end{tikzpicture}
+		\end{figure}
+	\end{enumerate}
+	
+\end{document}
