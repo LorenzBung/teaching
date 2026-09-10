@@ -1,0 +1,67 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Entwurfsmuster}
+	\subject{SAE}
+	\class{E2FI}
+	\maketitle
+	
+	\begin{hint}{Entwurfsmuster}
+		Im Laufe der Zeit sind immer wiederkehrende Probleme in der Softwareentwicklung aufgetreten.
+		Viele dieser Probleme sind auf den \emph{Entwurf} des Programms zurückzuführen -- also Teil der \textbf{Softwarearchitektur}.
+		Zur Lösung dieser Probleme gibt es sogenannte \textbf{Entwurfsmuster} (oder auf englisch \textbf{design patterns}).
+	\end{hint}
+	
+	\grouptask{Beispiele für Entwurfsmuster}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Recherchieren Sie einige bekannte Entwurfsmuster mit zugehörigen Beispielen.
+		
+		\boxarea[9cm]
+		
+		\item Finden Sie heraus, was sich hinter dem Begriff ``Gang of Four'' verbirgt.
+		
+		\lines[4cm]
+	\end{enumerate}
+	
+	\task{Umsetzung}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Lesen Sie nach, was die Entwurfsmuster \emph{Factory}, \emph{Builder}, \emph{Observer} und \emph{Prototype} sind.
+		
+		\item Geben Sie jeweils Probleme an, die mit den Mustern gelöst werden können.
+		Nennen Sie zusätzlich jeweils ein konkretes Beispiel für eine Situation, in der Sie das Entwurfsmuster einsetzen würden.
+		
+		\lines[5cm]
+		
+		\item Implementieren Sie für jedes der genannten Muster ein eigenes Beispiel, das jeweils eines der Entwurfsmuster umsetzt.
+		Testen Sie ausgiebig!
+	\end{enumerate}
+	
+	\partnertask{Model-View-Controller (MVC)}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Diskutieren Sie Gemeinsamkeiten und Unterschiede zwischen den Entwurfsmustern \emph{Observer} und \emph{Publish-Subscribe}.
+		
+		\lines[5cm]
+		
+		\item Recherchieren Sie, was das MVC-Entwurfsmuster ist und wann es verwendet wird.
+		
+		\lines[3cm]
+		
+		\item Entwerfen Sie ein kleines Programm, bestehend aus den Klassen \emph{Model}, \emph{View} und \emph{Controller}.
+		Testen Sie damit die Umsetzung des Entwurfsmusters.
+		
+		\item Welche Nachteile können Sie bei der Implementierung von Entwurfsmustern feststellen?
+		
+		\lines[4cm]
+	\end{enumerate}
+	
+	\bonustask{Weitere Entwurfsmuster testen}
+	
+	Implementieren Sie weitere Entwurfsmuster mit eigenständig gewählten Beispielen.
+	\footnote{Eine Übersicht über viele Entwurfsmustern finden Sie zum Beispiel bei \url{https://refactoring.guru/}}
+\end{document}

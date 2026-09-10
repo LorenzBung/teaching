@@ -1,0 +1,62 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Abstrakte Klassen \hspace{10cm} und Methoden}
+	\subject{SAE}
+	\class{E2FI}
+	\maketitle
+	
+	\begin{hint}{Abstrakte Klassen und Methoden}
+		Als typisches Beispiel für eine Vererbungsrelation hatten wir schon die Klassen \emph{Auto} und \emph{Fahrrad} mit der gemeinsamen Superklasse \emph{Fahrzeug} gesehen.
+		
+		Wir hatten dies als Beispiel dafür genommen, dass gemeinsame Attribute (z. B. die Farbe des Fahrzeugs) oder Methoden (z. B. \texttt{fahren()}) durch die Superklasse abstrahiert werden können.
+		
+		In der Realität existieren allerdings nur die Subklassen -- Autos, Fahrräder usw.
+		Die Klasse \emph{Fahrzeug} ist daher eine \textbf{abstrakte Klasse} und \texttt{fahren()} eine \textbf{abstrakte Methode}.
+		Es können keine Objekte der Klasse \emph{Fahrzeug} instanziiert werden und die Methode \texttt{fahren()} kann (auf der Superklasse) nicht aufgerufen werden.
+	\end{hint}
+	
+	
+	\task{Umsetzung in UML}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Recherchieren Sie, wie man abstrakte Klassen und Methoden in UML-Diagrammen kennzeichnet.
+		
+		\lines[3cm]
+		
+		\item Entwerfen Sie ein UML-Diagramm zur folgenden Situation:
+			\begin{itemize}
+				\item Benachrichtigungen können entweder per E-Mail oder per SMS versendet werden.
+				\item Eine Nachricht hat immer einen Empfänger.
+				\item E-Mails werden von einer E-Mail-Adresse gesendet.
+				\item SMS werden von einer Telefonnummer gesendet.
+			\end{itemize}
+			
+			\boxarea[5cm]
+	\end{enumerate}
+	
+	\task{Umsetzung in Python}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Finden Sie heraus, wie man abstrakte Klassen und Methoden in Python umsetzen kann.
+		
+		\lines[2cm]
+		
+		\item Implementieren Sie das UML-Diagramm aus Aufgabe 1 in Python.
+		
+		\item Was passiert, wenn keine Subklasse die abstrakte Methode der Superklasse implementiert?
+		
+		\lines[2cm]
+	\end{enumerate}
+	
+	\bonustask{Eigene Beispiele}
+	
+	\begin{itemize}
+		\item Finden Sie weitere Beispiele für Situationen, in denen die Verwendung abstrakter Klassen und Methoden sinnvoll wäre.
+		\item Erstellen Sie UML-Diagramme für die Situationen.
+		\item Setzen Sie die Diagramme in Python-Code um.
+	\end{itemize}
+\end{document}
