@@ -1,0 +1,82 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Logarithmen}
+	\subject{Mathematik}
+	\class{FHR1}
+	\maketitle
+	
+	\singletask{Einfache Exponentialgleichungen lösen}
+	
+	Bestimmen Sie die Lösung der Exponentialgleichungen.
+	
+	\begin{multicols}{3}
+		\begin{enumerate}[label=\alph*)]
+			\item $2^x=32$
+			\item $2\cdot3^x=54$
+			\item $3\cdot2^{2x}=48$
+		\end{enumerate}
+	\end{multicols}
+	
+	\checkered[6cm]
+	
+	\begin{hint}{Der Logarithmus}
+		Der \textbf{Logarithmus} zur Basis $q$ -- geschrieben $\log_q(x)$ -- ist die Umkehrfunktion zur Exponentialfunktion $q^x$ mit der Basis $q$.
+		Das bedeutet: $\log_q(q^x) = x$ und $q^{\log_q(x)}=x$.
+		
+		\vspace{.5cm}
+		Die Logarithmen mit häufig verwendeten Basen haben besondere Schreibweisen:
+		\begin{multicols}{2}
+			Zehnerlogarithmus (Basis 10): $\log_{10} \widehat{=} \lg$
+			
+			Natürlicher Logarithmus (Basis $e$): $\log_e \widehat{=} \ln$
+		\end{multicols}
+		
+		Exponentialgleichungen, die nicht so einfach im Kopf zu rechnen sind, lassen sich mit dem Logarithmus lösen:
+		
+		$$\begin{aligned}
+		2^x &= 12 &&|\log_2()\\
+		x &= \log_2(12)\\
+		x &\approx 3,58
+		\end{aligned}$$
+	\end{hint}
+	
+	\singletask{Exponentialgleichungen finden}
+	
+	Finden Sie Gleichungen, die die angegebene Lösung haben.
+	\emph{Beispiel}: Zur Lösung $\ln(2)$ wäre eine mögliche Gleichung $e^x=2$.
+	
+	\begin{multicols}{3}
+		\begin{enumerate}[label=\alph*)]
+			\item $\log_2(50)$
+			\item $4 \cdot \ln(4)$
+			\item $a \log_b(c)$
+		\end{enumerate}
+	\end{multicols}
+	
+	\checkered[4cm]
+	
+	\begin{hint}{Exponentialfunktionen zur Basis e umschreiben}
+		Jede Exponentialfunktion mit $f(x) = q^x$ lässt sich auch zur Basis $e$ schreiben:
+		$$f(x) = q^x = \left(e^{\ln(q)}\right)^x = e^{\ln(q) \cdot x}= e^{k \cdot x} \text{ mit } k = \ln(q).$$
+	\end{hint}
+	
+	\partnertask{Basiswechsel}
+	
+	Schreiben Sie in der jeweils anderen Form $q^x$ bzw. $e^{k \cdot x}$.
+	
+	\begin{multicols}{3}
+		\begin{enumerate}[label=\alph*)]
+			\item $1.5^x$
+			\item $e^{0.5x}$
+			\item $\frac{1}{4}^x$
+			\item $e^{-2x}$
+		\end{enumerate}
+	\end{multicols}
+	
+	\checkered[4cm]
+	
+\end{document}

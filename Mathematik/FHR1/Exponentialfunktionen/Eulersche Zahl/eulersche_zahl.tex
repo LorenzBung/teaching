@@ -1,0 +1,49 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Die Eulersche Zahl}
+	\subject{Mathematik}
+	\class{FHR1}
+	\maketitle
+	
+	Investiert man Geld bei einer Bank, bekommt man darauf Zinsen.
+	Die Bank hat dabei mehrere Optionen, um die Zinsen auszuzahlen:
+	jährlich, halbjährlich, monatlich...
+	
+	Angenommen, man investiert einen Euro bei 100\% Verzinsung.
+	Werden die Zinsen jährlich ausgezahlt, ist der Betrag nach einem Jahr
+	$\displaystyle\left(1 + \frac{1}{1}\right)^1$.
+	
+	Bei monatlicher Verzinsung sind es
+	$\displaystyle\left(1 + \frac{1}{12}\right)^{12}$.
+	
+	Allgemein ist der Betrag bei $n$ Zeitintervallen
+	$\displaystyle\left(1 + \frac{1}{n}\right)^n$.
+	
+	\singletask{Zinszahlung zu verschiedenen Zeitpunkten}
+	
+	Berechnen Sie jeweils, wie hoch der Endbetrag nach einem Jahr ist:
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|p{4cm}||p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|}
+			\hline
+			\textbf{Anzahl der Intervalle} & 1 & 2 & 12 & 48 & 365\\
+			\hline\hline
+			\textbf{Endbetrag} &&&&&\\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{hint}{Die Eulersche Zahl}
+		\phantom{x}\vspace{6cm}
+	\end{hint}
+	
+	\bonustask{Graph der e-Funktion}
+	
+	Zeichnen Sie den Graphen der Funktion $f(x)=e^x$ in ein Koordinatensystem.
+	
+\end{document}
