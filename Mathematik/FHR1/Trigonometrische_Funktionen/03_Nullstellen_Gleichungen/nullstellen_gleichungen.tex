@@ -1,0 +1,91 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Trigonometrische Funktionen: Nullstellen und Gleichungen}
+	\subject{Mathematik}
+	\class{FHR1}
+	\maketitle
+	
+	\task{Symmetrie und Nullstellen von Sinus und Cosinus}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Untersuchen Sie mithilfe von Geogebra\footnote{\url{https://www.geogebra.org/graphing}}, welche Symmetrien die Sinus- und Cosinusfunktion haben.\\
+		
+		\checkered[4cm]
+		
+		\item Verschieben Sie die Cosinusfunktion etwas nach unten oder oben.
+		Wie lassen sich aus einer Nullstelle alle weiteren Nullstellen berechnen?\\
+		
+		\checkered[4cm]
+		
+		\item (\textit{Bonus}) Wiederholen Sie Ihr Vorgehen aus der letzten Teilaufgabe für die Sinusfunktion.
+		Finden Sie auch jetzt eine Formel für die Nullstellen?\\
+		
+		\checkered[4cm]
+	\end{enumerate}
+	
+	\begin{hint}{Symmetrie und Nullstellen von Sinus und Cosinus}
+		Die Sinus- und Cosinusfunktion haben bestimmte Symmetrien:
+		
+		\begin{itemize}
+			\item Die Sinusfunktion ist punktsymmetrisch zum Ursprung: $\sin(-x) = -\sin(x)$ für $x \in \R$.
+			\item Die Cosinusfunktion ist achsensymmetrisch zur y-Achse: $\cos(-x) = \cos(x)$ für $x \in \R$.
+		\end{itemize}
+		
+		Aus den Symmetrien und Periodizität folgt für die Nullstellen:
+		
+		\begin{itemize}
+			\item Wenn $x_1$ eine Nullstelle von $f(x)=\sin(x)$ ist, ist auch $x_2 = \pi - x_1$ eine Nullstelle.
+			\item Wenn $x_1$ eine Nullstelle von $g(x)=\cos(x)$ ist, ist auch $x_2 = -x_1$ eine Nullstelle.
+			\item Wenn $x$ eine Nullstelle von $f(x)$ oder $g(x)$ ist, ist auch $x \pm p$ eine Nullstelle.
+		\end{itemize}
+	\end{hint}
+	
+	\singletask{Einfache trigonometrische Gleichungen lösen}
+	
+	Bestimmen Sie die Lösungsmenge der Gleichungen für das jeweils angegebene Intervall.
+	
+	\begin{multicols}{2}
+		\begin{enumerate}[label=\alph*)]
+			\item $3\sin(x) = 2.1$ für $x \in \left[0; 2\pi\right]$
+			\item $2\cos(x)-1 = 0.8$ für $x \in \left[-\pi; \pi\right]$
+			\item $\sin(x)-\frac{1}{2}\sqrt{3}=0$ für $x \in \R$
+			\item $2\cos(x)-\sqrt{3}$ für $x \in \R$
+		\end{enumerate}
+	\end{multicols}
+	
+	\checkered[13.5cm]
+	
+	\begin{warning}{Lösung bei veränderter Periode oder Verschiebung in x-Richtung}
+		Um die trigonometrische Gleichung $$\sin(\pi x - 2) = 0.5$$ zu lösen, müssen wir einen Trick anwenden, den wir schon kennen:
+		
+		Durch \textbf{Substitution} mit $z = \pi x - 2$ ergibt sich die Gleichung $$\sin(z) = 0.5.$$
+		
+		Wir bekommen die Lösungen $z_1 = \sin^{-1}(0.5) = \frac{\pi}{6}$ und (durch Symmetrie) $z_2 = \pi - z_1 = \frac{5\pi}{6}.$
+		
+		Nach der Resubstitution ergibt sich $z_1 = \pi x_1 - 2$ und damit $x_1 \approx 0.8033$ sowie $z_2 = \pi x_2 - 2$ und damit $x_2 \approx 1.4700.$
+		
+		Diese Nullstellen wiederholen sich mit der Periode $p = \frac{2\pi}{b} = 2$.
+		Also sind weitere Nullstellen zum Beispiel $x_3 = x_1 + 2 \approx 2.8033$ oder $x_4 = x_2 + p \approx 3.4700.$
+	\end{warning}
+	
+	\task{Kompliziertere trigonometrische Gleichungen lösen}
+	
+	Bestimmen Sie die Lösungsmenge der Gleichungen für das jeweils angegebene Intervall.
+	
+	\begin{multicols}{2}
+		\begin{enumerate}[label=\alph*)]
+			\item $\sin(2x) = 0$ für $x \in \left[0; \pi\right]$
+			\item $\cos(5x) = 1$ für $x \in \left[0; 0.4\pi\right]$
+			\item $0.5\sin(0.5x) = 0.5$ für $x \in \left[0; 4\pi\right]$
+			\item $3\cos(10x)-3 = 0$ für $x \in \left[0; 0.2\pi\right]$
+		\end{enumerate}
+	\end{multicols}
+	
+	\checkered[9cm]
+	
+	\let\clearpage\relax
+\end{document}
