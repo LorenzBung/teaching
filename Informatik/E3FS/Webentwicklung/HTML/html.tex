@@ -1,0 +1,109 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\title{Webentwicklung: HTML}
+\author{L. Bung}
+\subject{SAE}
+\class{E3FI}
+
+\begin{document}
+	\maketitle
+	
+	\begin{hint}{Was ist HTML?}
+		HTML (Hypertext Markup Language) ist die standardisierte Auszeichnungssprache zur Strukturierung digitaler Dokumente im World Wide Web.
+		HTML beschreibt \textbf{nicht} das Aussehen (Design) einer Seite, sondern ausschließlich deren logischen Aufbau und die Bedeutung der Inhalte (Semantik).
+	
+		Das Grundgerüst einer HTML-Seite ist folgendermaßen aufgebaut:
+		
+		\begin{lstlisting}[language=HTML, numbers=none, frame=none]
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+		<title>Meine erste Webseite</title>
+	</head>
+	<body>
+		<!-- Hier steht der sichtbare Inhalt der Webseite -->
+	</body>
+</html>
+		\end{lstlisting}
+	\end{hint}
+	
+	\singletask{Grundlegende Textstrukturierung}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Integrieren Sie in den \texttt{<body>} des oben stehenden Grundgerüsts einen kurzen Steckbrief über Ihren Ausbildungsbetrieb (oder ein fiktives Unternehmen).
+		Nutzen Sie dabei zwingend die folgenden HTML-Tags, um den Text logisch zu strukturieren:
+		
+		\begin{itemize}
+			\item Hauptüberschrift (\texttt{<h1>})
+			\item Unterüberschriften (\texttt{<h2>}, \texttt{<h3>} usw. bis \texttt{<h6>})
+			\item Absätze (\texttt{<p>})
+			\item eine ungeordnete Liste (\texttt{<ul>})
+			\item eine geordnete Liste (\texttt{<ol>})
+		\end{itemize}
+		
+		\item Finden Sie heraus, was im \texttt{<head>}-Teil eines HTML-Dokuments steht und wofür diese Informationen benötigt werden.
+	\end{enumerate}
+	
+	\lines[3cm]
+	
+	
+	\partnertask{HTML-Attribute, Verlinkungen und Medien}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Recherchieren Sie, was man bei HTML unter Attributen versteht.
+		Nennen Sie Beispiele für häufig verwendete Attribute und erklären Sie, wofür man sie benötigt.
+		\item Erweitern Sie Ihren Steckbrief aus Aufgabe 1 um einen Link zur Firmenwebsite (\texttt{<a>}) sowie ein passendes Firmenlogo (\texttt{<img>}).
+		\item Erklären Sie stichpunktartig die Bedeutung und Notwendigkeit der Attribute \texttt{href}, \texttt{src} und \texttt{alt} in Bezug auf die letzte Teilaufgabe.
+	\end{enumerate}
+	\lines[5cm]
+	
+	
+	\singletask{Semantisches Markup}
+	
+	Früher wurden Webseiten fast ausschließlich mit generischen Containern (\texttt{<div>}) strukturiert.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Diskutieren Sie, warum dies problematisch sein könnte.
+		\item Bereinigen Sie die nachfolgende HTML-Struktur.
+		Finden Sie dazu passende Tags, die die generischen Container ersetzen.
+	\end{enumerate}
+	
+	\begin{lstlisting}[language=HTML, numbers=left, frame=single]
+<div id="kopfbereich"> ... </div>
+<div id="hauptnavigation"> ... </div>
+<div id="inhaltsbereich">
+	<div class="blog-eintrag"> ... </div>
+	<div class="blog-eintrag"> ... </div>
+</div>
+<div id="seitenleiste"> ... </div>
+<div id="fussbereich"> ... </div>
+	\end{lstlisting}
+	
+	\pagebreak
+	
+	\grouptask{Trennung von Struktur und Design}
+	
+	In älteren HTML-Versionen gab es Tags wie \texttt{<font>} und \texttt{<center>} oder Attribute wie \texttt{bgcolor}, um Text rot zu färben oder zu zentrieren.
+	In modernem HTML5 sind diese veraltet (deprecated) und sollen nicht mehr verwendet werden.
+	Das Design wird heute vollständig in CSS (Cascading Style Sheets) ausgelagert -- mehr dazu in einer der kommenden Stunden.
+	
+	Diskutieren Sie in einer 3er- bis 4er-Gruppe:
+	\begin{itemize}
+		\item Welche konkreten Nachteile entstehen bei der Softwareentwicklung und Wartung, wenn Design und Struktur im HTML-Code eng miteinander vermischt werden?
+		\item Fallen Ihnen Beispiele aus der Programmierung ein, bei denen Sie Ähnlichkeiten zu diesem Problem sehen können?
+		\item In welchen Fällen könnte sogenanntes Inline-Styling (Design direkt im HTML-Code) heute noch pragmatisch oder sogar notwendig sein?
+	\end{itemize}
+	Halten Sie die wichtigsten Argumente Ihrer Gruppe stichpunktartig fest.
+	
+	\lines[8cm]
+	
+	
+	\bonustask{Erweiterung des Steckbriefs}
+	
+	Erweitern Sie den Steckbrief Ihres Ausbildungsbetriebs um weitere HTML-Seiten.
+	Finden Sie heraus, wie man zwischen zwei lokalen HTML-Seiten verlinken kann.
+	Nutzen Sie dies anschließend, um die verschiedenen Dateien zu verknüpfen -- achten Sie darauf, dass man von jeder Seite aus durch Links auf alle anderen Seiten kommen kann.
+\end{document}
