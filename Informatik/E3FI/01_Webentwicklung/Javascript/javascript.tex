@@ -1,0 +1,113 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\title{Webentwicklung: \hspace{10cm} Javascript}
+\author{L. Bung}
+\subject{SAE}
+\class{E3FI}
+
+\begin{document}
+	\maketitle
+	
+	
+	\begin{hint}{Was ist JavaScript?}
+		JavaScript ist eine skriptbasierte Programmiersprache, die standardmäßig im Browser ausgeführt wird.
+		Während HTML die Struktur und CSS das visuelle Design definieren, sorgt JavaScript für dynamisches Verhalten, Logik und Benutzerinteraktion.
+	\end{hint}
+	
+	
+	\singletask{Grundlegende Syntax und Variablen}
+	
+	JavaScript besitzt eine C-ähnliche Syntax, die sich schnell in bestehende Programmierkenntnisse integrieren lässt.
+	Betrachten Sie den folgenden kurzen Codeausschnitt.
+	
+	\begin{lstlisting}[language=javascript]
+const inventory = [
+	{ id: 1, item: "Laptop", stock: 5 },
+	{ id: 2, item: "Monitor", stock: 0 },
+	{ id: 3, item: "Dockingstation", stock: 12 }
+];
+
+for (let i = 0; i < inventory.length; i++) {
+	let curr = inventory[i];
+	if (curr.stock === 0) {
+		console.log("Artikel nachbestellen: " + curr.item);
+	} else {
+		console.log("Verfügbar: " + curr.item + " (" + curr.stock + ")");
+	}
+}
+	\end{lstlisting}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Erklären Sie den Unterschied zwischen den Schlüsselwörtern \texttt{const} und \texttt{let} bei der Deklaration von Variablen.
+		\item Beschreiben Sie die Funktion des Codes und schreiben Sie den Javascript-Code in Python um.
+		\item Recherchieren Sie die Syntax von Programmstrukturen, die Sie bereits aus Python kennen: Verzweigungen, while- und for-Schleifen, Listen...
+	\end{enumerate}
+	
+	\lines[3.5cm]
+	
+	
+	\partnertask{DOM-Manipulation}
+	
+	Um dynamisch mit einer Webseite zu interagieren, muss JavaScript über das Document Object Model (DOM) auf einzelne HTML-Elemente zugreifen können.
+	Zwei grundlegende Methoden hierfür sind \texttt{document.getElementById()} und \texttt{document.getElementsByClassName()}.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Erläutern Sie den Unterschied zwischen diesen beiden Methoden.
+		\item Gegeben sei ein HTML-Absatz mit der ID \texttt{status-message}.
+		Schreiben Sie eine JavaScript-Anweisung, die den Textinhalt dieses Elements auf den Wert ``Bereit'' ändert.
+	\end{enumerate}
+	
+	\lines[4cm]
+	
+	
+	\task{Eigenständige Entwicklung eines Codebeispiels}
+	
+	In dieser Aufgabe entwickeln Sie ein eigenes kleines Skript, das auf eine Benutzerinteraktion reagiert.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Skizzieren Sie ein minimales HTML-Grundgerüst, das einen Button sowie ein auswertbares Ausgabeelement (z.\,B. ein \texttt{<div>} oder \texttt{<p>}) mit einer eindeutigen ID enthält.
+		\item Schreiben Sie den passenden JavaScript-Code, der beim Klick auf den Button eine Aktion ausführt (beispielsweise das Umschalten eines Textes oder das Hochzählen eines numerischen Wertes).
+	\end{enumerate}
+	
+	
+	\task{Clientseitige Formularvalidierung}
+	
+	In der Webentwicklung ist es üblich, Benutzereingaben direkt im Browser (clientseitig) zu validieren, bevor sie an den Server geschickt werden, um unnötige Requests zu vermeiden.
+	Gegeben ist ein einfaches Eingabefeld für ein Passwort sowie eine Fehlerausgabe.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Skizzieren Sie die Logik für eine JavaScript-Funktion, die beim Absenden eines Formulars prüft, ob das eingegebene Passwort mindestens 8 Zeichen lang ist und mindestens eine Zahl enthält.
+		\item Erläutern Sie, wie Sie mithilfe von JavaScript den Text der Fehlerausgabe dynamisch ein- oder ausblenden bzw. anpassen können, wenn die Validierung fehlschlägt.
+	\end{enumerate}
+	
+	\lines[5cm]
+	
+	
+	\bonustask{Spezialitäten und unerwartetes Verhalten in JavaScript}
+	
+	JavaScript ist historisch bedingt für einige sprachliche Eigenheiten bekannt.
+	
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Analysieren Sie die folgenden Ausdrücke und erklären Sie kurz, was die Konsole ausgibt bzw. warum dieses Verhalten auftritt:
+		\begin{enumerate}[label=\roman*)]
+			\item \lstinline[language=javascript]{console.log("5" + 3);} im Vergleich zu \lstinline[language=javascript]{console.log("5" - 3);}
+			\item \lstinline[language=javascript]{console.log(typeof null);}
+			\item \lstinline[language=javascript]{console.log(0.1 + 0.2 === 0.3);}
+		\end{enumerate}
+		\item Finden Sie selbst weitere Eigenheiten und zeigen Sie diese Ihren MitschülerInnen.
+	\end{enumerate}
+	
+	\lines[4cm]
+	
+	\begin{goallist}
+		...Javascript-Code lesen und erklären. &&&\\
+		\hline
+		...Beispiele für sinnvolle und ungeeignete Nutzungen von Javascript nennen. &&&\\
+		\hline
+		...HTML-Elemente mithilfe von Javascript-Code gezielt modifizieren. &&&\\
+		\hline
+	\end{goallist}
+\end{document}

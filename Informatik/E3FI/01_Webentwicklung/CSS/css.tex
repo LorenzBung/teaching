@@ -1,0 +1,174 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\title{Webentwicklung: CSS}
+\author{L. Bung}
+\subject{SAE}
+\class{E3FI}
+
+\begin{document}
+	\maketitle
+	
+	\begin{hint}{Was ist CSS?}
+		CSS (Cascading Style Sheets) ist eine Deklarationssprache für Stildefinitionen von HTML-Dokumenten.
+		Während HTML die Struktur bereitstellt, übernimmt CSS die visuelle Gestaltung wie Farben, Abstände, Layouts und Schriftarten.
+		
+		Jeder Block besteht dabei aus einem \emph{Selektor} mit geschweiften Klammern.
+		Dazwischen stehen mit Semikolon beendete Schlüssel-Wert-Paare (\emph{Properties}), die bestimmte Designregeln festlegen.
+		
+		\begin{lstlisting}[language=CSS, numbers=none]
+h1 { //Selektor: Alle h1-Überschriften werden ausgewählt
+	color: red; //Setze die Textfarbe auf rot.
+}
+		\end{lstlisting}
+	\end{hint}
+	
+	
+	\partnertask{Adressierung von Elementen über CSS-Selektoren}
+	
+	CSS-Regeln werden mit Hilfe von Selektoren an bestimmte HTML-Elemente gebunden.
+	Sehen Sie sich den folgenden HTML-Ausschnitt an:
+	
+	\begin{lstlisting}[language=HTML]
+<h1 class="title">Willkommen</h1>
+<p class="text-highlight">Dieser Text ist hervorgehoben.</p>
+<p id="special-note">Eine spezielle Anmerkung.</p>
+<div>Ein gewöhnlicher Bereich.</div>
+	\end{lstlisting}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Schreiben Sie die passenden CSS-Selektoren auf, um:
+		\begin{itemize}
+			\item Alle \texttt{<p>}-Elemente auszuwählen.
+			\item Das Element mit der Klasse \texttt{text-highlight} auszuwählen.
+			\item Das Element mit der eindeutigen ID \texttt{special-note} auszuwählen.
+		\end{itemize}
+		\item Vergleichen Sie Ihre Erläuterung mit Ihrem Sitznachbarn und erklären Sie den fachlichen Unterschied zwischen einer Klasse (\texttt{class}) und einer ID (\texttt{id}).
+	\end{enumerate}
+	
+	\lines[4cm]
+	
+	
+	\task{Properties}
+	
+	CSS-Anweisungen bestehen aus Eigenschaft-Wert-Paaren (\texttt{property: value;}).
+	Erarbeiten Sie sich anhand der Dokumentation (z.\,B. MDN Web Docs) grundlegende Styling-Eigenschaften.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Nennen Sie die gesuchte CSS-Eigenschaft:
+		
+		\begin{itemize}
+			\itemsep10pt
+			\item Schrifttyp/Schriftart festlegen: \hrulefill
+			\item Textfarbe ändern: \hrulefill
+			\item Innenabstand eines Elements angeben: \hrulefill
+			\item Außenabstand eines Elements angeben: \hrulefill
+			\item Rahmen um ein Element zeichnen: \hrulefill
+		\end{itemize}
+		
+		\item Recherchieren Sie selbstständig den Unterschied zwischen \texttt{padding} und \texttt{margin}.
+		Zeichnen Sie eine kleine Skizze zur Veranschaulichung.
+	\end{enumerate}
+	
+	\boxarea[13cm]
+	
+	
+	\singletask{Möglichkeiten der CSS-Einbindung}
+	
+	Um CSS-Regeln auf eine Website anzuwenden, gibt es drei grundlegende Verfahren.
+	Betrachten Sie die verschiedenen Möglichkeiten der Einbindung.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Beschreiben Sie die folgenden drei Ansätze zur Einbindung von CSS kurz in eigenen Worten.
+		\begin{itemize}
+			\item Inline-Style (über das HTML-\texttt{style}-Attribut)
+			\item Interner Style-Block (über das \texttt{<style>}-Element im \texttt{<head>})
+			\item Externe CSS-Datei (über das \texttt{<link>}-Element)
+		\end{itemize}
+		\item Erläutern Sie, warum in der professionellen Softwareentwicklung fast ausschließlich externe CSS-Dateien verwendet werden.
+	\end{enumerate}
+	
+	\lines[4cm]
+	
+	
+	\partnertask{Praktische Gestaltung der HTML-Seite}
+	
+	Greifen Sie auf Ihren HTML-Steckbrief aus der letzten Stunde zurück.
+	Erstellen Sie eine externe CSS-Datei namens \texttt{style.css} und binden Sie diese in Ihre HTML-Datei ein.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Gestalten Sie die Seite nach folgenden Vorgaben:
+		\begin{itemize}
+			\item Die Hauptüberschrift (\texttt{<h1>}) soll eine dunkelblaue Schriftfarbe und eine serifenlose Schriftart erhalten.
+			\item Der Hintergrund des gesamten Dokuments (\texttt{<body>}) soll in einem hellen Grauton erscheinen.
+			\item Das Firmenlogo (\texttt{<img>}) soll eine maximale Breite von $200\,\text{px}$ und einen abgerundeten Rahmen besitzen.
+			\item Hervorgehobene Absätze sollen durch eine eigene Klasse mit einem linken bunten Rand markiert werden.
+		\end{itemize}
+		\item Sprechen Sie sich mit Ihrem Nebensitzer ab, sodass Sie beide dieselben Klassen verwenden.
+		Tauschen Sie anschließend Ihre erstellten CSS-Dateien aus und testen Sie, ob alles wie geplant aussieht.
+	\end{enumerate}
+	
+	
+	\partnertask{Pseudoklassen und Media Queries}
+	
+	Webseiten müssen sowohl auf Mausinteraktionen reagieren als auch auf unterschiedlichen Bildschirmgrößen (vom Smartphone bis zum Desktop-Monitor) optimal dargestellt werden.
+	Dafür stellt CSS sogenannte Pseudoklassen und Media Queries (\texttt{@media}) bereit.
+	
+	Sehen Sie sich den folgenden CSS-Ausschnitt an:
+	
+	\begin{lstlisting}[language=CSS]
+a {
+	color: blue;
+	text-decoration: none;
+}
+a:hover {
+	color: orange;
+	text-decoration: underline;
+}
+@media (max-width: 768px) {
+	.navigation {
+		display: flex;
+		flex-direction: column;
+	}
+}
+	\end{lstlisting}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Erklären Sie die Funktionsweise der Pseudoklasse \texttt{:hover} im obigen Beispiel.
+		Nennen Sie zwei weitere gebräuchliche Pseudoklassen für Links oder Formularelemente.
+		\item Analysieren Sie den \texttt{@media}-Block.
+		Beschreiben Sie kurz, unter welcher konkreten Bedingung die darin enthaltene CSS-Regel angewendet wird und welche Auswirkung dies auf das Layout der Klasse \texttt{.navigation} hat.
+		\item Diskutieren Sie kurz mit Ihrem Partner, warum das Prinzip des \textit{Responsive Web Design} in der modernen Softwareentwicklung unverzichtbar ist.
+		\item Überarbeiten Sie die in Aufgabe 4 erstellte CSS-Datei.
+		Nutzen Sie Media Queries, um Designregeln für mobile Endgeräte festzulegen\footnotemark.
+	\end{enumerate}
+	
+	\footnotetext{\emph{Hinweis}: In der Entwicklerkonsole des Browsers gibt es die Option, ein Mobilgerät zu simulieren.}
+	
+	
+	\pagebreak
+	
+	\bonustask{Das Kaskaden-Prinzip und Spezifität}
+	
+	Was passiert, wenn mehrere CSS-Regeln auf dasselbe HTML-Element zutreffen?
+	CSS nutzt Regeln der \textit{Spezifität} (Specificity), um Zielkonflikte zu lösen.
+	
+	Gegeben ist folgender Code:
+	
+	\begin{lstlisting}[language=HTML]
+<p id="first-para" class="highlight" style="color: green;">Welche Farbe habe ich?</p>
+	\end{lstlisting}
+
+	\begin{lstlisting}[language=CSS]
+p { color: red; }
+#first-para { color: blue; }
+.highlight { color: orange; }
+	\end{lstlisting}
+			
+	\begin{enumerate}[label=\alph*)]
+		\item Bestimmen Sie, welche Farbe der Text letztendlich im Browser annimmt.
+		\item Begründen Sie Ihre Entscheidung anhand der Rangfolge der Spezifität (Inline-Style vs. ID vs. Klasse vs. Tag-Selektor).
+	\end{enumerate}
+	
+\end{document}
