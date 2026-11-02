@@ -1,0 +1,230 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[ngerman]{babel}
+\usepackage{worksheet}
+
+\begin{document}
+	\author{L. Bung}
+	\title{Webentwicklung: Webserver}
+	\subject{SAE}
+	\class{E3FI}
+	\maketitle
+	
+	
+	\task[\timeLimit{$\sim$ 15 min.}]{Der erste eigene Webserver}
+	
+	Bisher habt ihr Anfragen an bestehende Webserver und REST-APIs gestellt.
+	Heute wechselt ihr die Seite und programmiert selbst einen Webserver.
+	\emph{Flask} ist ein schlankes Python-Framework, mit dem sich Webserver und REST-APIs mit wenigen Zeilen Code erstellen lassen.
+	Die offizielle Dokumentation findet ihr unter \texttt{https://flask.palletsprojects.com}.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Legt einen neuen Projektordner an und installiert Flask im Terminal mit folgendem Befehl:
+\begin{verbatim}
+python -m pip install flask
+\end{verbatim}
+    Im Schulnetz sollte Flask bereits installiert sein.
+		\item Erstellt in diesem Ordner die Datei \texttt{app.py} mit folgendem Inhalt:
+\begin{lstlisting}[language=python]
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return "Hallo Welt!"
+\end{lstlisting}
+		\item Startet den Server im Terminal mit dem folgenden Befehl und ruft anschließend \linebreak \texttt{http://127.0.0.1:5000} im Browser auf:
+\begin{verbatim}
+flask --app app run --debug
+\end{verbatim}
+		\item Erklärt die Bedeutung der Zeile \texttt{@app.route("/")}.
+		\item Ändert den zurückgegebenen Text, speichert die Datei und ladet die Seite im Browser neu.
+		Beschreibt, welche Aufgabe die Option \lstinline{--debug} hat.
+	\end{enumerate}
+
+    \lines[6cm]
+	
+	
+	\task[\timeLimit{$\sim$ 15 min.}]{Routen und Parameter}
+	
+	Ein Webserver kann auf unterschiedliche URLs mit unterschiedlichen Inhalten reagieren.
+	Teile der URL können dabei als Parameter an eine Funktion übergeben werden.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Ergänzt eine Route \texttt{/info}, die einen kurzen Text über euren Ausbildungsbetrieb zurückgibt.
+		\item Ergänzt die folgende Route und testet sie mit verschiedenen Namen, z.\,B. \texttt{/hallo/Alex}:
+\begin{lstlisting}[language=python]
+@app.route("/hallo/<name>")
+def hallo(name):
+    return f"Hallo {name}!"
+\end{lstlisting}
+		\item Erstellt eine Route \texttt{/quadrat/<int:zahl>}, die das Quadrat der übergebenen Zahl zurückgibt.
+		Erklärt, was passiert, wenn statt einer Zahl ein Wort übergeben wird.
+		\item Ruft eine URL auf, für die es keine Route gibt.
+		Notiert den Statuscode, den der Server zurückliefert.
+	\end{enumerate}
+	
+	
+	\task[\timeLimit{$\sim$ 15 min.}]{Eine Webseite ausliefern}
+	
+	Bisher liefert euer Server nur einfachen Text.
+	Ein Webserver kann aber auch vollständige Webseiten aus HTML, CSS und JavaScript ausliefern.
+	Flask erwartet HTML-Dateien dabei im Ordner \texttt{templates} und CSS- sowie JavaScript-Dateien im Ordner \texttt{static}.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Legt in eurem Projektordner die folgende Ordnerstruktur an:
+        \begin{lstlisting}
+projekt/
+    app.py
+    templates/
+        index.html
+    static/
+        style.css
+        script.js
+        \end{lstlisting}
+
+		\item Ersetzt in \texttt{app.py} die bisherige Route \texttt{/} durch folgenden Code:
+        \begin{lstlisting}[language=python]
+from flask import Flask, render_template
+from datetime import datetime
+app = Flask(__name__)
+@app.route("/")
+def index():
+    return render_template("index.html")
+@app.route("/zeit")
+def zeit():
+    return datetime.now().strftime("%H:%M:%S")
+        \end{lstlisting}
+		Übernehmt eure Routen aus Aufgabe 2 unverändert.
+
+		\item Füllt die Datei \texttt{index.html} mit folgendem Inhalt:
+        \begin{lstlisting}[language=html]
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Mein Flask-Server</title>
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Willkommen auf meinem Server!</h1>
+  <button id="knopf">Serverzeit abfragen</button>
+  <p id="ausgabe"></p>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+        \end{lstlisting}
+
+		\item Gestaltet die Seite in der Datei \texttt{style.css} mit eigenen CSS-Regeln.
+		\item Schreibt in der Datei \texttt{script.js} ein Skript, das beim Klick auf den Button mit \texttt{fetch} die Route \texttt{/zeit} abfragt und die Antwort im Absatz \texttt{ausgabe} anzeigt.
+		\item Ladet die Seite neu und beobachtet den Reiter „Netzwerk“ in den Entwicklertools (Taste F12).
+		Erklärt, warum beim Aufruf einer einzigen Seite mehrere Anfragen an den Server gestellt werden.
+		\item Erklärt, welchen Vorteil \texttt{url\_for} gegenüber einem fest eingetragenen Pfad wie \linebreak \texttt{/static/style.css} haben kann.
+	\end{enumerate}
+	
+    \lines[9cm]
+    
+	
+	\task[\timeLimit{$\sim$ 30 min.}]{Eine eigene REST-API}
+	
+	Eine REST-API liefert keine fertigen Webseiten, sondern Daten, meist im JSON-Format.
+	Ihr entwickelt nun eine API zur Verwaltung einer Aufgabenliste.
+	Die Daten werden dabei zunächst nur in einer Python-Liste im Arbeitsspeicher gehalten.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Erstellt im selben Projektordner eine neue Datei \texttt{api.py} mit folgendem Grundgerüst:
+        \begin{lstlisting}[language=python]
+from flask import Flask, jsonify, request
+app = Flask(__name__)
+aufgaben = [
+    {"id": 1, "titel": "Flask installieren", "erledigt": True},
+    {"id": 2, "titel": "REST-API bauen", "erledigt": False},
+]
+@app.get("/api/aufgaben")
+def alle_aufgaben():
+    return jsonify(aufgaben)
+@app.get("/api/aufgaben/<int:aufgabe_id>")
+def eine_aufgabe(aufgabe_id):
+    # TODO: passende Aufgabe suchen und zurueckgeben
+    # TODO: falls nicht vorhanden: Fehlermeldung mit Statuscode 404
+    pass
+@app.post("/api/aufgaben")
+def aufgabe_anlegen():
+    daten = request.get_json()
+    neue_aufgabe = {
+        "id": max((a["id"] for a in aufgaben), default=0) + 1,
+        "titel": daten["titel"],
+        "erledigt": False,
+    }
+    aufgaben.append(neue_aufgabe)
+    return jsonify(neue_aufgabe), 201
+        \end{lstlisting}
+
+		\item Beendet den laufenden Server mit Strg+C.
+		Startet anschließend die API mit \lstinline{flask --app api run --debug} und ruft \lstinline{/api/aufgaben} im Browser auf.
+
+		\item Vervollständigt die Funktion \texttt{eine\_aufgabe}.
+		Wird keine Aufgabe mit der gesuchten ID gefunden, soll der Server mit \texttt{jsonify(\{"fehler": "Nicht gefunden"\}), 404} antworten.
+
+		\item Erklärt, warum die Funktion \texttt{aufgabe\_anlegen} den Statuscode 201 statt 200 zurückgibt.
+		\item Erklärt, warum POST-Anfragen nicht einfach über die Adresszeile des Browsers getestet werden können.
+	\end{enumerate}
+
+    \pagebreak
+    \lines[7cm]
+	
+	
+	\task[\timeLimit{$\sim$ 15 min.}]{Die API testen}
+	
+	Um auch POST-Anfragen an eure API zu senden, benötigt ihr einen HTTP-Client.
+	Ihr könnt dafür z.\,B. eine Erweiterung wie \emph{Thunder Client} oder \emph{REST Client} in VS Code, das Programm \emph{Postman} oder ein Python-Skript verwenden.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Erstellt eine weitere Datei \texttt{client.py}, die bei laufendem Server eine neue Aufgabe anlegt:
+        \begin{lstlisting}[language=python]
+import requests
+url = "http://127.0.0.1:5000/api/aufgaben"
+antwort = requests.post(url, json={"titel": "API testen"})
+print(antwort.status_code)
+print(antwort.json())
+        \end{lstlisting}
+		Installiert die Bibliothek dazu gegebenenfalls mit \lstinline{python -m pip install requests}.
+
+		\item Führt das Skript mehrmals aus und überprüft anschließend im Browser, ob die neuen Aufgaben in der Liste erscheinen.
+		
+		\item Erweitert das Skript so, dass es zusätzlich eine einzelne Aufgabe sowie eine nicht vorhandene Aufgabe abfragt und jeweils den Statuscode ausgibt.
+		
+		\item Startet den Server neu und ruft die Liste erneut ab.
+		Erklärt eure Beobachtung und nennt eine Möglichkeit, das Problem zu lösen.
+	\end{enumerate}
+
+    \lines[5cm]
+	
+	
+	\bonustask{Vertiefungsaufgaben}
+	
+	Die folgenden Aufgaben sind unabhängig voneinander und können in beliebiger Reihenfolge bearbeitet werden.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item \textbf{Eingaben prüfen:}
+		Sendet eine POST-Anfrage ohne das Feld \texttt{titel} und beschreibt, was passiert.
+		Erweitert die Funktion \texttt{aufgabe\_anlegen} so, dass der Server in diesem Fall mit einer verständlichen Fehlermeldung und dem Statuscode 400 antwortet.
+		\item \textbf{Filtern mit Query-Parametern:}
+		Erweitert die Route \lstinline{/api/aufgaben} so, dass mit \lstinline{/api/aufgaben?erledigt=true} nur erledigte Aufgaben zurückgegeben werden.
+		Recherchiert dazu die Verwendung von \lstinline{request.args} in Flask.
+		\item \textbf{Frontend für die API:}
+		Ergänzt in \texttt{api.py} eine Route \texttt{/}, die wie in Aufgabe 3 eine neue Seite \texttt{aufgaben.html} aus dem Ordner \texttt{templates} ausliefert.
+		Diese Seite soll die Aufgaben per \texttt{fetch} von eurer API laden und als Liste anzeigen.
+		Ergänzt ein HTML-Formular, mit dem neue Aufgaben angelegt werden können.
+		Wer möchte, gestaltet die Seite mit Bootstrap.
+		\item \textbf{Dauerhafte Speicherung:}
+		Sorgt dafür, dass die Aufgaben einen Neustart des Servers überstehen.
+		Speichert sie dazu entweder in einer JSON-Datei oder in einer SQLite-Datenbank mit dem Python-Modul \texttt{sqlite3}.
+		\item \textbf{Vollständiges CRUD:}
+		Ergänzt eine Route mit der Methode PUT, mit der eine Aufgabe geändert werden kann (z.\,B. als erledigt markieren).
+		Ergänzt außerdem eine Route mit der Methode DELETE, mit der eine Aufgabe gelöscht werden kann.
+		Achtet jeweils auf passende Statuscodes.
+	\end{enumerate}
+	
+\end{document}
