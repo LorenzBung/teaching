@@ -6,8 +6,7 @@
 	\author{L. Bung}
 	\title{Relationenmodell}
 	\subject{SAE}
-	\class{E2FI2}
-	\date{16.10.2025}
+	\class{E2FI}
 	\maketitle
 	
 	\partnertask[(\timeLimit{15 min.})]{Vom ER-Modell zur Tabelle}
@@ -67,7 +66,7 @@
 	
 	\lines[9cm]
 	
-	\hint{Relationenschreibweise}{
+	\begin{hint}{Relationenschreibweise}
 		Die Relationenschreibweise wird dazu verwendet, um einfach darzustellen, wie die (mithilfe eines ER-Modells) modellierte Datenbank nun tatsächlich umzusetzen ist.
 		Es werden der Name der Tabelle sowie aller Tabellenspalten angegeben.
 		Primär- und Fremdschlüssel werden dabei gekennzeichnet -- Primärschlüssel unterstrichen, Fremdschlüssel gestrichelt unterstrichen bzw. gelegentlich auch kursiv gedruckt.
@@ -77,19 +76,19 @@
 		\texttt{Kunde(\underline{KundenID}, Name, Geburtsdatum, \dashuline{Ausweisnummer})}
 		
 		Der Fremdschlüssel \texttt{Ausweisnummer} verweist auf den Primärschlüssel einer zweiten Tabelle (für den Ausweis).
-	}
+	\end{hint}
 	
-	\hint{Überführung von Relationen verschiedener Kardinalitäten}{
-	Je nachdem, um was für eine Relation es sich handelt, müssen diese unterschiedlich aufgelöst werden.
+	\begin{hint}{Überführung von Relationen verschiedener Kardinalitäten}
+		Je nachdem, um was für eine Relation es sich handelt, müssen diese unterschiedlich aufgelöst werden.
 	
-	\begin{itemize}
-		\item \textbf{1:1-Relation}: Fremdschlüssel in einer der beiden Tabellen mit Verweis auf die andere Tabelle.
-		Es kann gewählt werden, in welcher der beiden Tabellen der Fremdschlüssel gespeichert wird.
-		\item \textbf{1:n-Relation}: Fremdschlüssel auf der n-Seite mit Verweis auf die 1-Seite.
-		\item \textbf{n:m-Relation}: Auflösen durch Extra-Tabelle nötig.
-		Dort werden die beiden Fremdschlüssel der n- und m-Seite gespeichert.
-	\end{itemize}
-	}
+		\begin{itemize}
+			\item \textbf{1:1-Relation}: Fremdschlüssel in einer der beiden Tabellen mit Verweis auf die andere Tabelle.
+			Es kann gewählt werden, in welcher der beiden Tabellen der Fremdschlüssel gespeichert wird.
+			\item \textbf{1:n-Relation}: Fremdschlüssel auf der n-Seite mit Verweis auf die 1-Seite.
+			\item \textbf{n:m-Relation}: Auflösen durch Extra-Tabelle nötig.
+			Dort werden die beiden Fremdschlüssel der n- und m-Seite gespeichert.
+		\end{itemize}
+	\end{hint}
 	
 	\singletask*[(\timeLimit{5 min.})]{Aufgabe 3: Quiz}
 	
